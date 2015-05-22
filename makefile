@@ -65,7 +65,7 @@ FIGURES = 	coordinates/figs/celestial-sphere.pdf \
 BIBS = bibs/ast208.bib
 
 $(BASE).pdf: $(BASE).tex $(TEX_SRC) $(BIBS) $(FIGURES)
-	# git rev-parse --short=8 HEAD > git-info.tex
+	git rev-parse --short=8 HEAD > git-info.tex
 	$(COMPILE) $(OPS) $(BASE).tex
 	bibtex AST208-notes.aux
 	$(COMPILE) $(OPS) $(BASE).tex
