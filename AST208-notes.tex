@@ -1,0 +1,83 @@
+% !TEX TS-program = xelatex
+\documentclass[nofonts,ls]{tufte-book}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=black,urlcolor=blue}
+\usepackage{natbib}
+\usepackage{amssymb}
+\usepackage{mathspec}
+\usepackage{graphicx}
+\usepackage{aasjournals}
+\usepackage{wasysym}
+\usepackage{ccicons}
+\usepackage{wallpaper}
+
+\renewcommand{\allcapsspacing}[1]{{\addfontfeature{LetterSpace=20.0}#1}}
+\renewcommand{\smallcapsspacing}[1]{{\addfontfeature{LetterSpace=5.0}#1}}
+\renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
+\renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
+
+\defaultfontfeatures{Scale=MatchLowercase}
+\setmainfont[Mapping=tex-text]{Chaparral Pro}
+\setmonofont[Mapping=tex-text]{Menlo}
+\setsansfont[Mapping=tex-text]{Raleway Medium}
+\setmathsfont(Digits,Latin)[Scale=MatchLowercase,Mapping=tex-text]{Chaparral Pro}
+\setmathrm{Chaparral Pro}
+\setmathsfont(Greek)[Scale=MatchLowercase,Mapping=tex-text]{STIXGeneral}
+
+% for bold Greeks
+\makeatletter
+\fontspec{STIXGeneral}
+\SetSymbolFont{Greek:m:n}{bold}{EU1}{\zf@family}{bx}{n}
+\SetSymbolFont{Greek:m:it}{bold}{EU1}{\zf@family}{bx}{it}
+\makeatother
+
+\graphicspath{{frontmatter/}{coordinates/figs/}{light-telescopes/figs/}{detection-exoplanets/figs/}{beyond-kepler/figs/}{resonance/figs/}{planetary-atmospheres/figs/}{constants-units/figs/}{math-review/figs/}{statistics/figs/}}
+
+\newcommand{\citetalt}[1]{\citeauthor{#1}\cite{#1}}
+
+\setcounter{secnumdepth}{1}
+
+% Offset box for inline exercises
+\newcounter{exercise}[chapter]
+\newenvironment{exercisebox}{%
+\vspace{\baselineskip}
+\noindent\begin{minipage}{\linewidth}\small\raggedright
+\refstepcounter{exercise}
+\noindent\rule[0.6ex]{\linewidth}{0.5pt}
+\allcaps{exercise \thechapter.\arabic{exercise}---}}
+{\noindent\rule[0.6ex]{\linewidth}{0.5pt}
+\end{minipage}
+%\vspace{0.7ex plus 0.2ex minus 0.2ex}
+}
+
+\usepackage[units,derivatives,vectors,code,symbols]{starType}
+\input{symbols}
+
+\title{Notes on\\ Planets and\\Telescopes}
+\author{Edward Brown}
+\date{20 May 2015}
+
+\begin{document}
+\frontmatter
+\pagenumbering{roman}
+\input{frontmatter/frontmatter}
+
+\mainmatter
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{coordinates/coordinates}
+\input{light-telescopes/light-telescopes}
+\input{detection-exoplanets/detection-exoplanets}
+\input{beyond-kepler/beyond-kepler}
+\input{resonance/resonance}
+\input{planetary-atmospheres/planetary-atmospheres}
+
+\appendix
+\input{constants-units/constants-units}
+\input{math-review/math-review}
+\input{statistics/statistics}
+
+\backmatter
+\bibliographystyle{plainnat}
+\bibliography{bibs/AST208}
+
+\end{document}

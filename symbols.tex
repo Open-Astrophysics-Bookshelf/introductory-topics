@@ -1,0 +1,32 @@
+\newcommand*{\rhat}{\ensuremath{\bvec{\hat{r}}}}
+\newcommand*{\thetahat}{\ensuremath{\bvec{\hat{\theta}}}}
+\newcommand*{\rv}{\ensuremath{\bvec{r}}}
+\newcommand*{\xv}{\ensuremath{\bvec{x}}}
+\newcommand*{\DDtt}[1]{\frac{\dif^{2} #1}{\dif t^{2}}}
+
+\newcommand*{\Earth}{\oplus}
+\newcommand*{\Moon}{\leftmoon}
+
+\newcommand*{\joule}{\unitstyle{J}}
+\newcommand*{\watt}{\unitstyle{W}}
+
+\newcommand*{\RA}{\ensuremath{\mathrm{RA}}}
+\newcommand*{\dec}[3]{%
+	\ifthenelse{\isempty{#3}}%
+		{\ensuremath{#1^{\circ}\,#2'}}
+		{\ensuremath{#1^{\circ}\,#2'\,#3''}}}
+\newcommand*{\hrangle}[3]{%
+	\ifthenelse{\isempty{#3}}%
+		{\ensuremath{#1^{\mathrm{h}}\,#2^{\mathrm{m}}}}
+		{\ensuremath{#1^{\mathrm{h}}\,#2^{\mathrm{m}}\,#3^{\mathrm{s}}}}}
+
+\newcommand*{\prob}{\ensuremath{\mathcal{P}}}
+\newcommand*{\mean}[1]{\ensuremath{\left\langle#1\right\rangle}}
+\newcommand*{\binom}[3]{\ensuremath{\prob_{#1}(#2;#3)}}
+\newcommand*{\expect}{\ensuremath{\mathcal{E}}}
+
+\newcommand*{\wt}{\omega t}
+\newcommand*{\wot}{\omega_{0} t}
+\newcommand*{\wmt}{\omega_{m} t}
+\newcommand*{\womw}{(\omega_{0}^{2}-\omega^{2})}
+\newcommand*{\gw}{(\Gamma/m)^{2}\omega^{2}}
