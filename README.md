@@ -4,7 +4,10 @@ These notes were written while teaching a sophomore-level astronomy course at Mi
 
 These notes are meant to supplement the course's main texts, Lissauer and de Pater (2013)  and Bennett et al. (2013).  The text layout uses the [`tufte-book`](https://tufte-latex.github.io/tufte-latex/) LaTeX class:  the main feature is a large right margin in which the students can take notes; this margin also holds small figures and sidenotes. Exercises are embedded throughout the text.  These range from ``reading exercises'' to longer, more challenging problems.  Because the exercises are spread throughout the text, there is a "List of Exercises" in the front matter to help with looking for specific problems.
 
-**These notes are being continuously revised.** To refer to a specific version of the notes, please use the eight-character stamp labeled "git version" on the copyright page.
+## License
+
+Except where explicitly noted, this work is licensed under the Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
 
 ## Requirements for installing
 
