@@ -42,7 +42,7 @@ Now the first two terms on the right-hand side are just the acceleration $\dif^{
 \end{equation}
 The \textbf{centrifugal} force is outwards (along \rhat); the \textbf{Coriolis} force depends on velocity and deflects the motion of a particle at right angles to its velocity\sidenote{That is, if you are moving in the \rhat\ direction, the Coriolis force is in the \thetahat\ direction, and vice versa.}.  If you've ever tried to walk in a straight line on a spinning merry-go-round, then you've met the Coriolis force.
 
-\begin{exercisebox}
+\begin{exercisebox}[Coriolis acceleration on merry-go-round]
 \label{ex:coriolis}
 Figure~\ref{f.coriolis-exercise} depicts a merry-go-round rotating counter-clockwise with velocity $\Omega > 0$.  Four points, A--D are moving as shown.  Draw the deflections of their trajectories due to the Coriolis force.
 \end{exercisebox}
@@ -92,7 +92,7 @@ The remaining two Lagrange points $L_{4}$ and $L_{5}$ form equilateral triangles
 \end{marginfigure}
 We can draw an equipotential surface (in the rotating frame) that crosses through $L_{1}$: the surface is dumbbell-shaped and forms two \textbf{Roche lobes} (Fig.~\ref{f.Roche}) that touch at $L_{1}$.  Within each lobe the gradient of the potential is inward toward the center of the lobe.
 
-\begin{exercisebox}
+\begin{exercisebox}[Vanishing acceleration at $L_{4}$]
 Show that the acceleration vanishes at $L_{4}$:
 \begin{enumerate}\renewcommand{\labelenumi}{\alph{enumi})}
    \item Find the coordinates of $L_{4}$;
@@ -113,11 +113,11 @@ with
 \[ R_{\mathrm{H}}\approx a\left[\frac{M_{2}}{3(M_{1}+M_{2})}\right]^{1/3}. \]
 Particles within a sphere of radius $R_{\mathrm{H}}$ are dominated by the gravitational attraction of $M_{2}$; $R_{\mathrm{H}}$ is called the \textbf{Hill radius}.
 
-\begin{exercisebox}
+\begin{exercisebox}[Hill radius of the Sun-Jupiter system]
 Compute the Hill radius for the Sun-Jupiter system.
 \end{exercisebox}
 
-\begin{exercisebox}
+\begin{exercisebox}[Overflow of Roche lobe]
 Speculate on what would happen if $M_{2}$ had an atmosphere that extended outside its Roche lobe.
 \end{exercisebox}
 
@@ -133,7 +133,8 @@ Figure~\ref{f.tides} depicts the setup: the particles are a distance $a$ from th
 When we release the particles and camera, the camera and center of mass both move downward with acceleration $-GM/R^{2}\bvec{\hat{z}}$.  Because each particle feels a slightly different gravitational force, however, none of the particles falls with that exact acceleration: the top particle has a lower acceleration and the bottom, higher; while the left and right particles have some horizontal acceleration 
 toward the center of mass.
 
-\begin{exercisebox}\label{ex:simple-tidal}
+\begin{exercisebox}[Demonstration of tidal acceleration]
+\label{ex:simple-tidal}
 Compute the difference between the acceleration of each test mass and that of the center of mass.  Expand this difference to lowest order in $a/R$.  This difference is the \textbf{tidal force}.  Sketch the tidal force on each particle from the point of view of the free-falling camera.
 \end{exercisebox}
 
@@ -150,7 +151,7 @@ Upon expanding\sidenote{The geometry can be worked out by consulting Fig.~\ref{f
 \label{e.moon-tide-radial}\rhat: &\qquad& \frac{GM_{\Moon}R_{\Earth}}{a^{3}}\left(3\sin^{2}\theta - 1\right)\\
 \label{e.moon-tide-tangential}\thetahat: &\qquad& \frac{3GM_{\Moon}R_{\Earth}}{2a^{3}}\sin2\theta.
 \end{eqnarray}
-\begin{exercisebox}
+\begin{exercisebox}[Radial component of tidal force]
 Sanity check: does the radial component of the tidal force, eq.~(\ref{e.moon-tide-radial}), agree with the calculation in Exercise~\ref{ex:simple-tidal}?
 \end{exercisebox}
 \begin{marginfigure}
@@ -221,10 +222,10 @@ Finally, integrate over $r$ to get the angular momentum of the sphere,
 \end{equation}
 In this last equation we substituted for $\rho = 3M/(4\pi R^{3})$. If the density is not uniform, but is higher toward the center, then the angular momentum is reduced. For example, the Earth's moment of inertia is $0.331 MR^{2}$ (see Table E.15 of \citetalt{Lissauer2013Fundamental-Pla}).
 
-\begin{exercisebox}
+\begin{exercisebox}[Orbital angular momentum of the Earth-Moon system]
 Compute the orbital angular momentum of the Earth-Moon system.  Compute the spin angular momentum of the Earth. Compare the two.
 \end{exercisebox}
 
-\begin{exercisebox}
+\begin{exercisebox}[Affect of central concentration on the moment of inertia]
 Explain why having a higher density toward the center of a planet would reduce the moment of inertia.
 \end{exercisebox}

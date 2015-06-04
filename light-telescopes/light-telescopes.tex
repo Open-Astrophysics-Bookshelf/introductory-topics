@@ -29,7 +29,7 @@ Note that magnitudes are defined as the ratio of two fluxes. This is very useful
 
 
 \newpage
-\begin{exercisebox}
+\begin{exercisebox}[Relation between magnitude and flux]
 \begin{enumerate} 
 \item Suppose we have two identical stars, A and B. Star A is twice as far away as star B. What is $m_{A} - m_{B}$?
 \item Suppose a star's luminosity changes by a tiny amount $\delta$.  What is the corresponding change in that stars' magnitude?
@@ -40,7 +40,7 @@ Note that magnitudes are defined as the ratio of two fluxes. This is very useful
 \[ B - V \equiv m_{B} - m_{V} = -2.5\lg\frac{F_{B}}{F_{V}} \]
 gives a measure for how blue the star's spectrum appears.
 
-\begin{exercisebox}
+\begin{exercisebox}[The $B-V$ index]
 Which has the larger $B-V$ index: a red star, like Betelgeuse, or a blue-white star, like Rigel?
 \end{exercisebox}
 
@@ -107,19 +107,19 @@ The full form of the intensity as a function of angle from the beam axis is,
 I = I_{0}\left[\frac{\sin\left(\pi D/\lambda\,\sin\theta\right)}{\sin\left(\pi d/\lambda\,\sin\theta\right)}\right]^{2}.
 \end{equation}
 
-\begin{exercisebox}
+\begin{exercisebox}[Diffraction of image of a point source]
 Write a \code{Python} function that computes eq.~(\ref{e.intensity-diffraction}) for different values of $N$ and $D/\lambda$.  Plot $I/(I_{0}n^{2})$ against $\theta\lambda/D$.  Describe your findings.
 \end{exercisebox}
 
 The wave nature of light places a limitation on the \emph{resolving power} of a telescope, defined as the   angular separation for which two point sources can be distinguished.  Two point-like objects separated by an angular distance $\lesssim \lambda/D$ will have their images smeared into one.
 
-\begin{exercisebox}
+\begin{exercisebox}[Resolving power of various instruments]
 What is the resolving power of the \emph{Hubble Space Telescope} ($D=\val{2.4}{\meter}$) and the Keck telescope ($D=\val{10}{\meter}$) at a wavelength $\lambda = \val{570}{\nano\meter}$? Estimate the angular resolution of the human eye at that wavelength. What is the resolving power of the Arecibo radio telescope ($D = \val{305}{\meter}$) at a frequency of \val{3}{\Giga\Hz}?
 \end{exercisebox}
 
 For ground-based telescopes, an even more severe limitation is the refraction of light by the atmosphere. The atmosphere is turbulent, and the swirling eddies contain variations in density that change the refractive index and distort the wavefront.  This distortion smears the image over an angular scale that is typically larger than $1''$.
 
-\begin{exercisebox}
+\begin{exercisebox}[Angular size of star, planet]
 What is the angular size of a solar-sized star ($\Rsun = \val{\sci{6.96}{5}}{\kilo\meter}$) at a distance of $\val{1}{\parsec}$?  What is the angular size of Mars ($R_{\mars} = \val{3\,390}{\kilo\meter}$) at a distance of $\val{0.5}{\AU}$?  How would the difference in angular size affect the appearance of these two objects?
 \end{exercisebox}
 

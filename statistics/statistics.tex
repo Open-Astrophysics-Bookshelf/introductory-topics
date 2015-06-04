@@ -13,7 +13,7 @@ The converse case of $s$ having a value with a high probability does \emph{not},
 \newthought{Having motivated the problem, we now step back and ask, what is meant by probability?} We are familiar with many examples from our everyday experience. What is the probability of drawing an ace from a deck of cards? What is the probability of rain tomorrow? What is the probability that our candidate will win the election?
 
 \newpage
-\begin{exercisebox}
+\begin{exercisebox}[Meaning of ``probability'']
 Think of some different situations in which you might use the word \emph{probability}.  How does the definition of probability differ among these situations?
 \end{exercisebox}
 
@@ -41,7 +41,7 @@ Finally, when we say ``$A$ and $B$'' we write $A\cap B$ (Fig.~\ref{f.set-4}).  I
 For example, if we roll two dice, there are $6\times 6 = 36$ possible outcomes. This is our sample space.  How many events are there for which the sum of the two dice is a nine?  Answer: there are four such possibilities, $\{(3,6),(4,5),(5,4),(6,3)\}$. Let's call this event $A$.  If event $B$ denotes those rolls in which at least one die is a 3, then $A\cap B = \{(3,6),(6,3)\}$. 
 
 
-\begin{exercisebox}
+\begin{exercisebox}[Probability of various draws from a deck of cards]
 We have a deck of cards consisting of 4 suits ($\clubsuit$, $\diamondsuit$, $\heartsuit$, $\spadesuit$) with 13 cards per suit (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K).  Suppose we draw one card.  There are $13\times 4=52$ possible outcomes.
 \begin{enumerate}
 \item How many events draw a $\spadesuit$?
@@ -105,7 +105,7 @@ Finally, we can show that if $A$ and $B$ are not mutually exclusive, but have so
 \[ \prob(A\cup B) = \prob(A)+\prob(B) - \prob(A\cap B). \]
 We encountered an instance of this last rule in exercise~\ref{ex.card-deck}.
 
-\begin{exercisebox}
+\begin{exercisebox}[Probability of two events that are not mutually exclusive]
 Suppose we draw 1 card from each of 2 decks.  Find the probability that at least one card is an ace, using the following two formulae:
 \begin{eqnarray*}
 \prob(\textrm{``from deck 1 or from deck 2''}) &=& \prob(\textrm{``from deck 1''})+	\prob(\textrm{``from deck 2''}) \\
@@ -171,7 +171,7 @@ This gives us the following arrangement, known as \emph{Pascal's triangle}:
 \end{tabular}
 \end{center}
 
-\begin{exercisebox}
+\begin{exercisebox}[Recurrence relation of Pascal's triangle]
 Show that
 \[ {n\choose m+1} = {n\choose m} \frac{n-m}{m+1}. \]
 Then use this recurrence relation to derive ${6\choose m}, m=1,\ldots 6$, starting from ${6\choose 0} = 1$.
@@ -187,7 +187,7 @@ different possible hands. Suppose we want the probability of getting a full hous
 \]
 and the probability of a full house is therefore $3744/2\,598\,960 = 0.0014$.
 
-\begin{exercisebox}
+\begin{exercisebox}[Probability of drawing a flush]
 What is the probability of drawing a flush (5 cards of the same suit)?
 \end{exercisebox}
 
@@ -210,13 +210,14 @@ For example, suppose you flip a coin 20 times.  What is the probability of getti
 \[
 	\textrm{Answer:}\quad\prob_{20}(10) = {20\choose10} \left(\frac{1}{2}\right)^{20} = 0.176.
 \]
-\begin{exercisebox}\label{e.prob-distribution}
+\begin{exercisebox}[Probability distribution for a coin flip]
+\label{e.prob-distribution}
 Compute $\prob_{20}(m)$ for $m = 0\ldots20$ and $p= 1/2$.  What is the probability of getting 9, 10, or 11 heads?  What is the probability of getting between 7 and 13 heads?
 \end{exercisebox}
 
 Of course, as the next exercise illustrates, this probability distribution occurs in many contexts, not just in the context of flipping coins or staggering home.
 
-\begin{exercisebox}
+\begin{exercisebox}[Score for random guessing on a multiple-choice exam]
 A student takes an exam with 10 multiple choice questions, each with 4 possible responses.  Suppose the student guesses randomly for each question.  What is the probability the student gets 5 or more correct?
 \end{exercisebox}
 
@@ -327,7 +328,7 @@ The standard deviation is
 \end{eqnarray*}
 As with the normal distribution, the ratio of width to mean, $\sigma/\mean{m} = 1/\sqrt{\lambda}$, decreases as the mean number of events increases.  
 
-\begin{exercisebox}
+\begin{exercisebox}[Probability of matching birthdays]
 A high school graduating class has 400 students.  What is the probability that 2 people in that class have a birthday on January 1?  What about 3 students?
 \end{exercisebox}
 
@@ -375,7 +376,7 @@ with solution $\prob_{\mu}(N=1;t) = (\mu t)e^{-\mu t}$, as you can verify.  We c
 \end{equation}
 with $\lambda=\mu t$.
 
-\begin{exercisebox}
+\begin{exercisebox}[Recurrence relations for Poisson distribution]
 Show that $\prob_{\mu}(N;t)$ (eq.~[\ref{e.Poisson-alt}]) satisfies the recursion relation, equation~(\ref{e.poisson-recursion}). Since $\prob_{\mu}(N=1;t)$ also satisfies the equation, this proves via induction that equation~(\ref{e.Poisson-alt}) is the correct distribution.
 \end{exercisebox}
 
@@ -500,7 +501,7 @@ We therefore find that the value of $\mu$ which maximizes the probability that w
 \[ \expect(\sigma) = \left[\frac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^{2}\right]^{1/2}. \]
 To quote \citet{Press2007Numerical-Recip}, ``if the difference between $N$ and $N-1$ [in the formula for $\expect(\sigma)$] ever matters to you, then you are probably up to no good.''
 }
-\begin{exercisebox}
+\begin{exercisebox}[Expectation value of standard deviation]
 Show that
 \[
  \expect(\sigma) = \left[\frac{1}{N}\sum_{i=1}^{N}\left(x_{i}-\mu\right)^{2}\right]^{1/2}.
@@ -565,7 +566,7 @@ or
 \]
 Using equation~(\ref{e.propagation-uncertainities}) we can derive general rules for propagating uncertainties.
 
-\begin{exercisebox}
+\begin{exercisebox}[Propagation of uncertainties]
 Demonstrate the following relations.  In these equations, $x$ and $y$ are independent random variables, and $a$ and $b$ are constants.
 \begin{enumerate}
 \item For $f = ax + by$, show that 
@@ -588,7 +589,7 @@ that is, $f$ is the average of our measurements.  Since each measurement has the
 \end{equation}
 \emph{By making many repeated measurements, the uncertainty in the mean due to random fluctuations can be made much less than the uncertainty of any single measurement.}
 
-\begin{exercisebox}
+\begin{exercisebox}[Illustration of error in the mean]
 Suppose during an election ten independent polls each show that candidate A is leading with $50.3\%$ of the vote. Since the margin of error---the uncertainty---in each poll is $\pm 1\%$, the news anchor reports that the election is a dead heat.  Is this correct?  What is the probability of candidate A receiving more than $50\%$ of the vote, assuming that the errors in the polls follow a normal (Gaussian) distribution with $\sigma = 1\%$?
 \end{exercisebox}
 

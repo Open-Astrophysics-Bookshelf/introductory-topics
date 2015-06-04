@@ -24,7 +24,7 @@ dividing by $\Delta r$ and taking the limit $\Delta r \to 0$ gives us the equati
 For an incompressible fluid in constant gravity, the pressure increases linearly with depth. This is a good approximation to the pressure in Earth's oceans.  In general, however, the density $\rho$ depends on the pressure $P$, and we need more information to solve for the atmospheric structure.
 
 \marginnote{The SI unit of pressure is the \textbf{Pascal}: $\val{1}{\unitstyle{Pa}} = \val{1}{\unitstyle{N}\usk\meter^{-2}}$. The mean pressure at terrestrial sea level is $\val{1}{\unitstyle{atm}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$. Other common units of pressure are the \textbf{bar} ($\val{1}{\unitstyle{bar}} = \val{10^{5}}{\unitstyle{Pa}}$) and the \textbf{Torr} ($\val{760}{\unitstyle{Torr}} = \val{1}{\unitstyle{atm}}$).}
-\begin{exercisebox}
+\begin{exercisebox}[Pressure increase in water]
 Water is nearly incompressible and has a density of $\val{10^{3}}{\kilo\gram\usk\meter^{-3}}$.  How deep would you need to dive for the pressure to increase by $\val{1}{\unitstyle{atm}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$?  The gravitational acceleration at Earth's surface is $\val{9.8}{\meter\usk\second^{-2}}$.
 \end{exercisebox}
 
@@ -77,7 +77,7 @@ Since the argument of the exponential is dimensionless, we see that we can write
 \[  H_{P} = \frac{\NA kT}{mg} \]
 is the \textbf{pressure scale height}---the height over which the pressure decreases by a factor $1/e$.
 
-\begin{exercisebox}
+\begin{exercisebox}[Scale height for dry air]
 Evaluate $H_{P}$ for dry air at a temperature of $\val{288}{\K}$ ($\val{15}{^{\circ}\unitstyle{C}}$).  Check that your answer is reasonable based on your experience.  In fact, this value of $H_{P}$ is overly large because the temperature in the troposphere does, in fact, decrease with height at an average \textbf{lapse rate} of
 \[
 	\DD{T}{z} = -\val{6.5}{^{\circ}\unitstyle{C}\usk\kilo\meter^{-1}}.
@@ -139,7 +139,7 @@ or
 where $T_{0}$ and $P_{0}$ are the temperature and pressure at the beginning of the adiabatic process.
 Equation~(\ref{e.adiabat}) tells us how the temperature changes with pressure along an adiabat for an ideal gas.
 
-\begin{exercisebox}
+\begin{exercisebox}[Adiabatic lapse rate]
 Use equations~(\ref{e.adiabat}) and (\ref{e.hydrostatic-equilibrium}) to compute the lapse rate $\dif T/\dif z$ at sea level.  Dry air is composed of mostly diatomic gases with a molar weight $\val{0.02897}{\kilo\gram\usk\mol^{-1}}$. You should find an answer around $\val{-10}{^{\circ}\unitstyle{C}/\kilo\meter}$, which is almost twice as large as the value quoted earlier.  Can you guess why the value you calculated might be off? (\emph{Hint: there is a process we haven't yet accounted for.  If you want a hint, go outside and look up.})
 \end{exercisebox}
 
@@ -164,7 +164,7 @@ a_{\mathrm{Cor}} =  2\Omega v \sin\lambda.
 \]
 This acceleration is to the right in the northern hemisphere and to the left in the southern.  At the equator it vanishes.
 
-\begin{exercisebox}
+\begin{exercisebox}[Coriolis vs.\ centripetal acceleration around a river bend]
 Suppose we have a river flowing at $\val{3}{\kilo\meter/\hour}$.  At our latitude, how does the Coriolis acceleration compare to the centripetal acceleration if the river has a bend with radius of curvature $r$?  How large would $r$ need to be for the Coriolis force to dominate?
 \end{exercisebox}
 
@@ -188,7 +188,7 @@ or
 	- \underbrace{\frac{1}{\rho}\DD{P}{r}}_{\mathrm{pressure}} = 0.
 \end{equation}
 
-\begin{exercisebox}
+\begin{exercisebox}[Scale of mid-latitude weather systems]
 \begin{enumerate}
 \renewcommand{\theenumi}{\alph{enumi}}
 \renewcommand{\labelenumi}{\alph{enumi})}
@@ -206,6 +206,6 @@ If we consider a hurricane located at  latitude $\lambda=20^{\circ}$ and take th
 \]
 which is typical of hurricane-strength winds.
 
-\begin{exercisebox}
+\begin{exercisebox}[Why the strongest storms are associated with low-pressure systems]
 You may have wondered why the strongest storms are associated with low-pressure systems. Repeat the analysis leading to equation~(\ref{e.force-balance}) for air circulating in an anti-cyclone around a pressure high. There is one crucial difference in the equation which leads to a limitation on the pressure gradient and velocities in this case; explain this difference.
 \end{exercisebox}
