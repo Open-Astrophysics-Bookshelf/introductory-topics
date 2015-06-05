@@ -16,7 +16,8 @@ CHAPTERS = 	frontmatter \
 
 TEX_SRC = $(foreach chap, $(CHAPTERS), $(wildcard $(chap)/*.tex))
 
-FIGURES = 	coordinates/figs/celestial-sphere.pdf \
+FIGURES = 	frontmatter/cover-art.png \
+			coordinates/figs/celestial-sphere.pdf \
 			coordinates/figs/ecliptic.pdf \
 			coordinates/figs/right-ascension.pdf \
 			coordinates/figs/solar-day.pdf \
