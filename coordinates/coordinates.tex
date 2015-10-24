@@ -111,11 +111,6 @@ and
 \left(\cos\delta_{2}\cos\eta_{2}, \cos\delta_{2}\sin\eta_{2}, \sin\delta_{2}\right),
 \]
 respectively. 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{angular-distance}
-\caption[Angular distance between two points on a sphere]{Two locations on the sphere separated by a distance $\theta$.}
-\label{f.angular-distance}
-\end{marginfigure}
 Taking the dot product,
 \begin{eqnarray}
 \cos\theta &=& \cos\delta_{1}\cos\delta_{2}\left(\cos\eta_{1}\cos\eta_{2} + 
@@ -124,6 +119,13 @@ Taking the dot product,
 	 	\sin\delta_{1}\sin\delta_{2}.
 \label{e.angular-distance}
 \end{eqnarray}
+
+\begin{marginfigure}[-14\baselineskip]
+\includegraphics[width=\linewidth]{angular-distance}
+\caption[Angular distance between two points on a sphere]{Two locations on the sphere separated by a distance $\theta$.}
+\label{f.angular-distance}
+\end{marginfigure}
+
 We are usually interested in the angular distance between two nearby sources, with RAs $\eta_{1} \approx \eta_{2}$ and declinations\sidenote{Notice our coordinates differ from the usual spherical polar coordinates: $\delta$ is measured from the $x$-$y$ plane, not from the $z$-axis.} $\delta_{1}\approx\delta_{2}$.  We can use the expansion rule,
 \[ \cos x \approx 1 - \frac{x^{2}}{2},\qquad x \ll 1 \, \]
 on $\theta$ and $\eta_{1}-\eta_{2}$ in equation~(\ref{e.angular-distance}):
@@ -141,11 +143,15 @@ Finally, we notice that to lowest order, $\cos\delta_{1}\cos\delta_{2}\approx \c
 \end{equation}
 This looks like the pythagorean formula; the factor of $\cos\delta$ accounts for the lines of constant RA converging as they approach the poles.
 
-\begin{marginfigure}[-10\baselineskip]
+\begin{marginfigure}[12\baselineskip]
 \includegraphics[width=\linewidth]{angular-distance2}
 \caption[Angular distance between lines of constant right ascension]{The distance between two RAs $\eta_{1}$ and $\eta_{2}$, measured along a circle of radius $\cos\delta$.}
 \label{f.angular-pythagorean}
 \end{marginfigure}
+
+\begin{exercisebox}[Angular size of the Pleiades]
+Atlas A and Electra are two bright stars that lie on the east and west sides of the Pleiades star cluster.  Atlas has right ascension $\RA = \hrangle{03}{49}{09.7}$ and declination $\delta = \dec{24}{03}{12}$; Electra has $\RA = \hrangle{03}{44}{52.5}$ and $\delta = \dec{24}{06}{48}$.  Find the angular distance between these stars.  If the distance to the Pleiades is $\val{136}{\parsec}$, what is the projected distance between these stars?
+\end{exercisebox}
 
 \section{Looking up}
 Finally a note about directions when looking up at the sky.  We've drawn our coordinates from the perspective of someone outside the celestial sphere; our perspective, however, is from the center.  When we look up at the sky, if we face south, so that the direction northwards is at the top of our field of view, then the easterly direction is to our \emph{left}. Objects of larger right ascension are therefore to our left as well.
