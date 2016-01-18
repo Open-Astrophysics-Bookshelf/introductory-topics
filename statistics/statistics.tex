@@ -10,7 +10,9 @@ In this case, $s=0$ would signify perfect agreement. Nothing is ever perfect, ho
 
 The converse case of $s$ having a value with a high probability does \emph{not}, however, ``rule in'' the hypothesis---at best, the hypothesis is consistent with observations, but other hypotheses may also be consistent. The goal is to amass an ever larger body of evidence supporting the hypothesis, but one can never prove it conclusively.
 
-\newthought{Having motivated the problem, we now step back and ask, what is meant by probability?} We are familiar with many examples from our everyday experience. What is the probability of drawing an ace from a deck of cards? What is the probability of rain tomorrow? What is the probability that our candidate will win the election?
+\section{Basic Rules of Probability and Combinatorics}
+
+Having motivated the problem, we now step back and ask, what is meant by probability? We are familiar with many examples from our everyday experience. What is the probability of drawing an ace from a deck of cards? What is the probability of rain tomorrow? What is the probability that our candidate will win the election?
 
 \newpage
 \begin{exercisebox}[Meaning of ``probability'']
@@ -191,7 +193,7 @@ and the probability of a full house is therefore $3744/2\,598\,960 = 0.0014$.
 What is the probability of drawing a flush (5 cards of the same suit)?
 \end{exercisebox}
 
-\section{The random walk}
+\section{A Probability Distribution: The Random Walk}
 We are now ready to tackle a problem that occurs when modeling molecular motion: the random walk.  Imagine a person who flips a coin before each step---heads to go right, tails to go left.  On average, this person doesn't go anywhere, but from experience you know that sometimes you will get several heads or tails in a row; you wouldn't want to try this random walk if you were a few steps from the edge of a cliff!
 
 To formulate this problem, call the probability to go right $p$; the probability to go left is then $(1-p)$.  We wish to find the probability $\binom{n}{m}{p}$ that after $n$ steps, $m$ will have been to the right and $(n-m)$ to the left, for a net displacement $m-(n-m) = 2m-n$ steps.
