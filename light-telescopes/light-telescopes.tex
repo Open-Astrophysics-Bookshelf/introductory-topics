@@ -61,6 +61,43 @@ The magnitude that the star would have if it were at \val{10}{\parsec} distance 
 Charges feel an electric force.
 When we detect light, what happens at the atomic level is that the charges in our detector (antenna, CCD, eye) feel an electric force that oscillates with frequency $\nu$. If we could set up a grid of detectors and measure the electric force per unit charge, we would notice a sinusoidal pattern traveling at speed\sidenote{This velocity is exact; the meter is defined in terms of the speed of light.} $c = \val{299\,792\,458}{\meter/\second}$ with a wavelength $\lambda = c/\nu$.  We call this force per charge the electric field $\bvec{E}(\bvec{x},t)$. The \emph{intensity} of the light at our detector is proportional to $|\bvec{E}|^{2}$.
 
+In situations in which the wavelength is small (relative to the system in question), light propagates along \emph{rays}.  The rule for propagation is known as \emph{Fermat's principle:} the path is that for which the propagation time is minimized. To illustrate this, we shall use it to derive the laws for reflection and refraction.
+
+Consider light reflecting from a mirror as shown in the top panel of Figure~\ref{f.reflection-and-snell}. The time for light to propagate from source to observer is
+\[	\tau = \frac{1}{c}\left[\sqrt{h_{s}^{2}+x^{2}} + \sqrt{h_{o}^{2} + (w-x)^{2}}\right]. \]
+To minimize the path length, we compute $\dif\tau/\dif x$ and set it to zero,
+\[
+	0 = \DD{\tau}{x} = \frac{1}{c}\left[\frac{x}{\sqrt{h_{s}^{2}+x^{2}}} 
+	- \frac{w-x}{\sqrt{h_{o}^{2} + (w-x)^{2}}}\right] = \frac{1}{c}\left[\sin i - \sin r\right].
+\]
+Hence the light travels such that $i = r$: the angles of incidence and reflection are equal.
+
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{reflection-and-snell-AST208}
+\caption{Top: reflection of light from a surface. Bottom: refraction of light as it passes from a medium with index $n_{1}$ into a medium with index $n_{2}$.
+\label{f.reflection-and-snell}}
+\end{marginfigure}
+
+For a second example, consider the passage of light from one medium to another, as depicted in the bottom panel of Figure~\ref{f.reflection-and-snell}.  The interaction of matter with the oscillating electric field causes the light to travel at a speed $c/n$, where $n$ is called the \emph{index of refraction} and is a property of the material. For the situation in Fig.~\ref{f.reflection-and-snell}, the propagation time is
+\[
+	\tau = \frac{n_{1}}{c}\sqrt{h^{2}+x^{2}} + \frac{n_{2}}{c}\sqrt{d^{2} + (w-x)^{2}};
+\]
+minimizing the propagation time with respect to $x$ gives
+\[
+	0 = \frac{n_{1}}{c}\frac{x}{\sqrt{h^{2}+x^{2}}} - \frac{n_{2}}{c} \frac{w-x}{\sqrt{d^{2} + (w-x)^{2}}} = \frac{1}{c}\left[ n_{1}\sin i - n_{2} \sin r \right].
+\]
+This result, $n_{1}\sin i = n_{2}\sin r$, is also known as \emph{Snell's law}.
+
+\begin{marginfigure}[5em]
+\includegraphics[width=\linewidth]{magnification-in-water}
+\caption{Change in angular size of an object in water.
+\label{f.magnification-in-water}}
+\end{marginfigure}
+\begin{exercisebox}
+A small stick of length $\ell$ is placed on the bottom of an empty swimming pool as shown in Fig.~\ref{f.magnification-in-water}; when you look down on the stick from a height $H$ above the bottom of the pool, the stick subtends an angle $\tan\theta = \ell/H$.  The pool is then filled with water ($n=4/3$) to a depth $d$.  Because of refraction, the stick will appear to subtend a different angle $\theta'$.  Correct the right hand diagram of Fig.~\ref{f.magnification-in-water} to show how the light ray propagates from the ends of the stick to your eye.  Is $\theta'$ larger or smaller than $\theta$---is the image of the stick magnified or reduced?  For the case $\ell \ll H$, so that $\theta \ll 1$, derive an expression $\theta' = 
+\theta \mathcal{M}$, where $\mathcal{M}$ depends on $h$, $d$, and $n$.
+\end{exercisebox}
+
 \section{Diffraction}
 
 A telescope makes an image by focusing the incoming rays of light onto a detector.
@@ -122,7 +159,7 @@ For ground-based telescopes, an even more severe limitation is the refraction of
 What is the angular size of a solar-sized star ($\Rsun = \val{\sci{6.96}{5}}{\kilo\meter}$) at a distance of $\val{1}{\parsec}$?  What is the angular size of Mars ($R_{\mars} = \val{3\,390}{\kilo\meter}$) at a distance of $\val{0.5}{\AU}$?  How would the difference in angular size affect the appearance of these two objects?
 \end{exercisebox}
 
-In addition to distorting the wavefront, the air also attenuates the brightness of the light.  The amount of attenuation depends on the column, that is, the mass per unit area of air along the line of sight, which in turn depends on the viewing angle (Fig.~\ref{f.airmass}).
+\newthought{In addition to distorting the wavefront, the air also attenuates the brightness of the light.} The amount of attenuation depends on the column, that is, the mass per unit area of air along the line of sight, which in turn depends on the viewing angle (Fig.~\ref{f.airmass}).
 
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{airmass}
