@@ -1,124 +1,6 @@
 %!TEX root = ../AST208-notes.tex
 
-\section{Motion in a rotating frame}
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{polar-coordinates}
-\caption[Polar coordinates]{Polar coordinates for a particle.
-\label{f.polar-coordinates}}
-\end{marginfigure}
-To work out the equations of motion in a rotating frame, we start from an inertial frame in polar coordinates.  In this system, the particle is located at $(r,\theta)$; the position vector of the particle is $\rv = r\rhat$. After an internal $\Delta t$, the particle's position is $(r+\Delta r,\theta+\Delta\theta)$, as shown in Fig.~\ref{f.polar-coordinates}.  
-
-As the particle moves, both $\rhat$ and $\thetahat$ change as well.  Since both $\rhat$ and $\thetahat$ are unit vectors, only their direction changes with their magnitude remaining constant. Neither vector changes under purely radial motion, $\Delta\theta = 0$.  Under a change in angle, $\Delta\theta$, both $\rhat$ and $\thetahat$ rotate by an angle $\Delta\theta$, as shown in Fig.~\ref{f.change-polar-unit-vectors}. In the limit $\Delta\theta \to 0$, 
-\[ \Delta \rhat \to \Delta\theta \thetahat; \quad \Delta\thetahat \to -\Delta\theta\rhat. \]
-Dividing by $\Delta t$ and calling $\omega = \dif\theta/\dif t$ the angular velocity, we have
-$\dif\rhat/\dif t = \omega\thetahat$ and $\dif\thetahat/\dif t = -\omega\rhat$.
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{change-polar-unit-vectors}
-\caption[Change in unit vectors under rotation]{Change in the unit vectors $\rhat$ and $\thetahat$ under a change in the angular coordinate $\Delta\theta$.
-\label{f.change-polar-unit-vectors}}
-\end{marginfigure}
-
-We can then differentiate the particle's position with respect to time to get its velocity in polar coordinates, and then differentiate again to get the acceleration.
-\begin{eqnarray}
-\DDt{\rv} &=& \DDt{r}\rhat + r\omega\thetahat; \\
-\DDtt{\rv} &=& \DDtt{r}\rhat + 2\DDt{r}\omega\thetahat + r \DDt{\omega}\thetahat - r\omega^{2}\rhat.
-\end{eqnarray}
-Now suppose further that the angular velocity has two parts: a uniform rotation at velocity $\Omega$ plus a remain portion $\omega'$, so that $\omega = \omega'+\Omega$.  Further, since $\Omega$ represents uniform rotation, $\dif\Omega/\dif t = 0$ and the acceleration is
-\begin{eqnarray}
-\frac{1}{m}\bvec{F} = \DDtt{\rv} &=& \left(\DDtt{r} - r\omega'^{2}\right)\rhat + \left(2\DDt{r}\omega' + r\DDt{\omega'}\right)\thetahat\nonumber\\
- && -r\Omega^{2}\rhat + 2\Omega\left(\DDt{r}\thetahat - r\omega'\rhat\right).
-\end{eqnarray}
-Here $\bvec{F}$ is the force in an inertial frame.
-
-Now the first two terms on the right-hand side are just the acceleration $\dif^{2}\rv'/\dif t^{2}$ that an observer rotating with velocity $\Omega$ would write down.  Hence, if we move the last two terms to the left, we are left with the equations of motion in a rotating frame,
-\marginnote{We also make the identification \[ v_{r} = \dif r/\dif t,\quad v_{\theta} = r\omega'.\]}
-\begin{equation}\label{e.motion-rotating}
-\DDtt{\rv'} = \frac{1}{m}\bvec{F}_{\mathrm{rot}} = \frac{1}{m}\bvec{F} 
-	+  \underbrace{r\Omega^{2}\rhat}_{\textrm{centrifugal}}
-	+	\underbrace{2\Omega\left(v_{\theta}\rhat - v_{r}\thetahat \right)}_{\textrm{Coriolis}}.
-\end{equation}
-The \textbf{centrifugal} force is outwards (along \rhat); the \textbf{Coriolis} force depends on velocity and deflects the motion of a particle at right angles to its velocity\sidenote{That is, if you are moving in the \rhat\ direction, the Coriolis force is in the \thetahat\ direction, and vice versa.}.  If you've ever tried to walk in a straight line on a spinning merry-go-round, then you've met the Coriolis force.
-
-\begin{exercisebox}[Coriolis acceleration on merry-go-round]
-\label{ex:coriolis}
-Figure~\ref{f.coriolis-exercise} depicts a merry-go-round rotating counter-clockwise with velocity $\Omega > 0$.  Four points, A--D are moving as shown.  Draw the deflections of their trajectories due to the Coriolis force.
-\end{exercisebox}
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{coriolis-exercise}
-\caption[Movement on a merry-go-round]{Schematic for Exercise~\ref{ex:coriolis}.
-\label{f.coriolis-exercise}}
-\end{marginfigure}
-
-\section{Lagrange and Roche}
-For analyzing the motion of a test particle in the vicinity of two massive orbiting bodies, we transform to a frame with an origin at the center of mass mass and with an angular velocity $\Omega$.  The bodies have masses $M_{1}$ and $M_{2}$, and we take $M_{1}$ to be the more massive of the two bodies.  The two bodies are located at coordinates
-\begin{eqnarray}
-	M_{1}:&\qquad& x_{1} = -a\frac{M_{2}}{M},\,y_{1} = 0;\\
-	M_{2}:&\qquad& x_{2} = a\frac{M_{1}}{M},\,y_{2} = 0,
-\end{eqnarray}
-Here $M = M_{1}+M_{2}$ is the total mass of the two bodies and $a$ their separation.
-
-Let's check that our rotating coordinate system is consistent: since $M_{2}$ is at rest, the net force on it vanishes, so from equation~(\ref{e.motion-rotating}),
-\[ -\frac{GM_{1}}{a^{2}} + a\frac{M_{1}}{M_{1}+M_{2}}\Omega^{2} = 0, \]
-or
-\[ P_{\mathrm{orb}}^{2} = \left(\frac{2\pi}{\Omega}\right)^{2} = \frac{4\pi^{2}}{GM}a^{3}. \]
-This is just what we would expect from Kepler's law.
-
-Now we are in a position to ask, are there any points where a particle could sit at rest in this frame?\marginnote{Remember, ``at rest in this frame'' means the particle is co-rotating with our two masses.}
-Between the two masses, for example, we expect that the net force must vanish at some point. The acceleration of a test mass is 
-\begin{equation}\label{e.test-mass-acceleration-x}
-\DDtt{\rv} = -\frac{GM_{1}}{|\rv-\rv_{1}|^{3}}(\rv-\rv_{1}) - \frac{GM_{2}}{|\rv-\rv_{2}|^{3}}(\rv-\rv_{2}) + \frac{G(M_{1}+M_{2})}{a^{3}} \rv.
-\end{equation}
-Along the $x$-axis, points where a particle would feel no acceleration are given by the roots of the equations
-\begin{eqnarray*}
-	x < x_{1}:&\qquad& \frac{M_{1}}{(x_{1}-x)^{2}} + \frac{M_{2}}{(x_{2}-x)^{2}} + \frac{G(M_{1}+M_{2})}{a^{3}} x = 0;\\
-	x_{1} < x < x_{2}:&\qquad& -\frac{M_{1}}{(x-x_{1})^{2}} + \frac{M_{2}}{(x_{2}-x)^{2}} + \frac{G(M_{1}+M_{2})}{a^{3}} x = 0;\\
-	x_{2} < x:&\qquad& \frac{M_{1}}{(x-x_{1})^{2}} + \frac{M_{2}}{(x-x_{2})^{2}} + \frac{G(M_{1}+M_{2})}{a^{3}} x = 0.
-\end{eqnarray*}
-This is a nasty quintic equation; however, if we take the limit $M_{2}\ll M_{1}$ then after some inspired algebra we find that there are three roots, which are the first three \textbf{Lagrange points}:
-\begin{eqnarray*}
-L_{1}: &\qquad& x_{L1} \approx a\left\{\frac{M_{1}}{M_{1}+M_{2}} - \left[\frac{M_{2}}{3(M_{1}+M_{2})}\right]^{1/3}\right\};\\
-L_{2}: &\qquad& x_{L2} \approx a\left\{\frac{M_{1}}{M_{1}+M_{2}} + \left[\frac{M_{2}}{3(M_{1}+M_{2})}\right]^{1/3}\right\};\\
-L_{3}: &\qquad& x_{L3} \approx a\left\{-\frac{M_{1}+2M_{2}}{M_{1}+M_{2}} + \frac{7M_{2}}{12M_{1}}\right\}.
-\end{eqnarray*}
-These points are depicted in Fig.~\ref{f.Roche} for a system with $M_{2} = 0.05\,M_{1}$.
-The remaining two Lagrange points $L_{4}$ and $L_{5}$ form equilateral triangles with $M_{1}$ and $M_{2}$.
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{Roche}
-\caption{Lagrange points for a system with $M_{2} = 0.1\,M_{1}$.
-\label{f.Roche}}
-\end{marginfigure}
-We can draw an equipotential surface (in the rotating frame) that crosses through $L_{1}$: the surface is dumbbell-shaped and forms two \textbf{Roche lobes} (Fig.~\ref{f.Roche}) that touch at $L_{1}$.  Within each lobe the gradient of the potential is inward toward the center of the lobe.
-
-\begin{exercisebox}[Vanishing acceleration at $L_{4}$]
-Show that the acceleration vanishes at $L_{4}$:
-\begin{enumerate}\renewcommand{\labelenumi}{\alph{enumi})}
-   \item Find the coordinates of $L_{4}$;
-   \item Compute the net gravitational acceleration, due to both $M_{1}$ and $M_{2}$, on a particle at point $L_{4}$ and show that it points toward the center of mass; then
-   \item Show that the gravitational acceleration cancels the centrifugal, so that the net acceleration vanishes.
-\end{enumerate}
-\end{exercisebox}
-
-\newthought{From the expressions for $L_{1}$ and $L_{2}$, we notice that} they can be written
-as
-\sidenote{Recall that
-\[ a\frac{M_{1}}{M_{1}+M_{2}} = x_{2}, \]
-the location of body 2.}
-\[ 
-	x_{L1} \approx x_{2} - R_{\mathrm{H}};\quad x_{L2}\approx x_{2} + R_{\mathrm{H}},
-\]
-with
-\[ R_{\mathrm{H}}\approx a\left[\frac{M_{2}}{3(M_{1}+M_{2})}\right]^{1/3}. \]
-Particles within a sphere of radius $R_{\mathrm{H}}$ are dominated by the gravitational attraction of $M_{2}$; $R_{\mathrm{H}}$ is called the \textbf{Hill radius}.
-
-\begin{exercisebox}[Hill radius of the Sun-Jupiter system]
-Compute the Hill radius for the Sun-Jupiter system.
-\end{exercisebox}
-
-\begin{exercisebox}[Overflow of Roche lobe]
-Speculate on what would happen if $M_{2}$ had an atmosphere that extended outside its Roche lobe.
-\end{exercisebox}
+When studying the two-body problem, we first treated our masses as simple points. In reality, they are complex extended objects.  In this chapter, we'll explore some of the effects that arise when we go beyond the simple problem of two massive point particles orbiting one another. 
 
 \section{Tidal forces}
 Because a planet is extended, the gravitational force exerted by another mass on it varies across its diameter. As a warm-up, let's imagine putting four test masses some distance from the Earth and letting them free-fall.  We have a camera that is aligned with the center of mass of these four particles and that free-falls with them.
@@ -129,7 +11,7 @@ Because a planet is extended, the gravitational force exerted by another mass on
 \end{marginfigure}
 
 Figure~\ref{f.tides} depicts the setup: the particles are a distance $a$ from the center of mass (indicated with a cross) and the center of mass is a distance $R$ from the Earth's center.
-When we release the particles and camera, the camera and center of mass both move downward with acceleration $-GM/R^{2}\bvec{\hat{z}}$.  Because each particle feels a slightly different gravitational force, however, none of the particles falls with that exact acceleration: the top particle has a lower acceleration and the bottom, higher; while the left and right particles have some horizontal acceleration 
+When we release the particles and camera, the camera and center of mass both move downward with acceleration $-GM/R^{2}\;\bvec{\hat{z}}$.  Because each particle feels a slightly different gravitational force, however, none of the particles falls with that exact acceleration: the top particle has a lower acceleration and the bottom, higher; while the left and right particles have some horizontal acceleration 
 toward the center of mass.
 
 \begin{exercisebox}[Demonstration of tidal acceleration]
@@ -145,7 +27,7 @@ Compute the difference between the acceleration of each test mass and that of th
 
 For the Earth-moon system (Fig.~\ref{f.Earth-Moon-tides}), we can decompose the tidal force exerted by the moon into radial and tangential components.  The Earth-Moon separation is $a = 60.3 R_{\Earth}$, so expanding our expression for the tidal force to lowest order in $R_{\Earth}/a$ is a good approximation.
 
-Upon expanding\sidenote{The geometry can be worked out by consulting Fig.~\ref{f.Earth-Moon-tides}; it is straightforward, but tedious, and I won't go through the algebra here.} the tidal acceleration components to lowest order in $R_{\Earth}/a$ are found to be
+Upon expanding\sidenote[][-2\baselineskip]{The geometry can be worked out by consulting Fig.~\ref{f.Earth-Moon-tides}; it is straightforward, but tedious, and I won't go through the algebra here.} the tidal acceleration components to lowest order in $R_{\Earth}/a$ are found to be
 \begin{eqnarray}
 \label{e.moon-tide-radial}\rhat: &\qquad& \frac{GM_{\Moon}R_{\Earth}}{a^{3}}\left(3\sin^{2}\theta - 1\right)\\
 \label{e.moon-tide-tangential}\thetahat: &\qquad& \frac{3GM_{\Moon}R_{\Earth}}{2a^{3}}\sin2\theta.
@@ -228,3 +110,125 @@ Compute the orbital angular momentum of the Earth-Moon system.  Compute the spin
 \begin{exercisebox}[Affect of central concentration on the moment of inertia]
 Explain why having a higher density toward the center of a planet would reduce the moment of inertia.
 \end{exercisebox}
+
+
+\section{Motion in a rotating frame}
+
+\begin{marginfigure}[-4\baselineskip]
+\includegraphics[width=\linewidth]{polar-coordinates}
+\caption[Polar coordinates]{Polar coordinates for a particle.
+\label{f.polar-coordinates}}
+\end{marginfigure}
+To work out the equations of motion in a rotating frame, we start from an inertial frame in polar coordinates.  In this system, the particle is located at $(r,\theta)$; the position vector of the particle is $\rv = r\rhat$. After an internal $\Delta t$, the particle's position is $(r+\Delta r,\theta+\Delta\theta)$, as shown in Fig.~\ref{f.polar-coordinates}.  
+
+As the particle moves, both $\rhat$ and $\thetahat$ change as well.  Since both $\rhat$ and $\thetahat$ are unit vectors, only their direction changes with their magnitude remaining constant. Neither vector changes under purely radial motion, $\Delta\theta = 0$.  Under a change in angle $\Delta\theta$, however, both $\rhat$ and $\thetahat$ rotate by an angle $\Delta\theta$, as shown in Fig.~\ref{f.change-polar-unit-vectors}. In the limit $\Delta\theta \to 0$, 
+\[ \Delta \rhat \to \Delta\theta \thetahat; \quad \Delta\thetahat \to -\Delta\theta\rhat. \]
+Dividing by $\Delta t$ and calling $\omega = \dif\theta/\dif t$ the angular velocity, we have
+$\dif\rhat/\dif t = \omega\thetahat$ and $\dif\thetahat/\dif t = -\omega\rhat$.
+
+\begin{marginfigure}[-4\baselineskip]
+\includegraphics[width=\linewidth]{change-polar-unit-vectors}
+\caption[Change in unit vectors under rotation]{Change in the unit vectors $\rhat$ and $\thetahat$ under a change in the angular coordinate $\Delta\theta$.
+\label{f.change-polar-unit-vectors}}
+\end{marginfigure}
+
+We can then differentiate the particle's position with respect to time to get its velocity in polar coordinates, and then differentiate again to get the acceleration.
+\begin{eqnarray}
+\DDt{\rv} &=& \DDt{r}\rhat + r\omega\thetahat; \\
+\DDtt{\rv} &=& \DDtt{r}\rhat + 2\DDt{r}\omega\thetahat + r \DDt{\omega}\thetahat - r\omega^{2}\rhat.
+\end{eqnarray}
+Now suppose further that the angular velocity has two parts: a uniform rotation at velocity $\Omega$ plus a remain portion $\omega'$, so that $\omega = \omega'+\Omega$.  Further, since $\Omega$ represents uniform rotation, $\dif\Omega/\dif t = 0$ and the acceleration is
+\begin{eqnarray}
+\frac{1}{m}\bvec{F} = \DDtt{\rv} &=& \left(\DDtt{r} - r\omega'^{2}\right)\rhat + \left(2\DDt{r}\omega' + r\DDt{\omega'}\right)\thetahat\nonumber\\
+ && -r\Omega^{2}\rhat + 2\Omega\left(\DDt{r}\thetahat - r\omega'\rhat\right).
+\end{eqnarray}
+Here $\bvec{F}$ is the force in an inertial frame.
+
+Now the first two terms on the right-hand side are just the acceleration $\dif^{2}\rv'/\dif t^{2}$ that an observer rotating with velocity $\Omega$ would write down.  Hence, if we move the last two terms to the left, we are left with the equations of motion in a rotating frame,
+\marginnote{We also make the identification \[ v_{r} = \dif r/\dif t,\quad v_{\theta} = r\omega'.\]}
+\begin{equation}\label{e.motion-rotating}
+\DDtt{\rv'} = \frac{1}{m}\bvec{F}_{\mathrm{rot}} = \frac{1}{m}\bvec{F} 
+	+  \underbrace{r\Omega^{2}\rhat}_{\textrm{centrifugal}}
+	+	\underbrace{2\Omega\left(v_{\theta}\rhat - v_{r}\thetahat \right)}_{\textrm{Coriolis}}.
+\end{equation}
+The \textbf{centrifugal} force is outwards (along \rhat); the \textbf{Coriolis} force depends on velocity and deflects the motion of a particle at right angles to its velocity\sidenote{That is, if you are moving in the \rhat\ direction, the Coriolis force is in the \thetahat\ direction, and vice versa.}.  If you've ever tried to walk in a straight line on a spinning merry-go-round, then you've met the Coriolis force.
+
+\begin{exercisebox}[Coriolis acceleration on merry-go-round]
+\label{ex:coriolis}
+Figure~\ref{f.coriolis-exercise} depicts a merry-go-round rotating counter-clockwise with velocity $\Omega > 0$.  Four points, A--D are moving as shown.  Draw the deflections of their trajectories due to the Coriolis force.
+\end{exercisebox}
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{coriolis-exercise}
+\caption[Movement on a merry-go-round]{Schematic for Exercise~\ref{ex:coriolis}.
+\label{f.coriolis-exercise}}
+\end{marginfigure}
+
+\section{Lagrange and Roche}
+For analyzing the motion of a test particle in the vicinity of two massive orbiting bodies, we transform to a frame with an origin at the center of mass mass and with an angular velocity $\Omega$.  The bodies have masses $M_{1}$ and $M_{2}$, and we take $M_{1}$ to be the more massive of the two bodies.  The two bodies are located at coordinates
+\begin{eqnarray}
+	M_{1}:&\qquad& x_{1} = -a\frac{M_{2}}{M},\,y_{1} = 0;\\
+	M_{2}:&\qquad& x_{2} = a\frac{M_{1}}{M},\,y_{2} = 0,
+\end{eqnarray}
+Here $M = M_{1}+M_{2}$ is the total mass of the two bodies and $a$ their separation.
+
+Let's check that our rotating coordinate system is consistent: since $M_{2}$ is at rest, the net force on it vanishes, so from equation~(\ref{e.motion-rotating}),
+\[ -\frac{GM_{1}}{a^{2}} + a\frac{M_{1}}{M_{1}+M_{2}}\Omega^{2} = 0, \]
+or
+\[ P_{\mathrm{orb}}^{2} = \left(\frac{2\pi}{\Omega}\right)^{2} = \frac{4\pi^{2}}{GM}a^{3}. \]
+This is just what we would expect from Kepler's law.
+
+Now we are in a position to ask, are there any points where a particle could sit at rest in this frame?\marginnote{Remember, ``at rest in this frame'' means the particle is co-rotating with our two masses.}
+Between the two masses, for example, we expect that the net force must vanish at some point. The acceleration of a test mass is 
+\begin{equation}\label{e.test-mass-acceleration-x}
+\DDtt{\rv} = -\frac{GM_{1}}{|\rv-\rv_{1}|^{3}}(\rv-\rv_{1}) - \frac{GM_{2}}{|\rv-\rv_{2}|^{3}}(\rv-\rv_{2}) + \frac{G(M_{1}+M_{2})}{a^{3}} \rv.
+\end{equation}
+Along the $x$-axis, points where a particle would feel no acceleration are given by the roots of the equations
+\begin{eqnarray*}
+	x < x_{1}:&\qquad& \frac{M_{1}}{(x_{1}-x)^{2}} + \frac{M_{2}}{(x_{2}-x)^{2}} + \frac{G(M_{1}+M_{2})}{a^{3}} x = 0;\\
+	x_{1} < x < x_{2}:&\qquad& -\frac{M_{1}}{(x-x_{1})^{2}} + \frac{M_{2}}{(x_{2}-x)^{2}} + \frac{G(M_{1}+M_{2})}{a^{3}} x = 0;\\
+	x_{2} < x:&\qquad& \frac{M_{1}}{(x-x_{1})^{2}} + \frac{M_{2}}{(x-x_{2})^{2}} + \frac{G(M_{1}+M_{2})}{a^{3}} x = 0.
+\end{eqnarray*}
+This is a nasty quintic equation; however, if we take the limit $M_{2}\ll M_{1}$ then after some inspired algebra we find that there are three roots, which are the first three \textbf{Lagrange points}:
+\begin{eqnarray*}
+L_{1}: &\qquad& x_{L1} \approx a\left\{\frac{M_{1}}{M_{1}+M_{2}} - \left[\frac{M_{2}}{3(M_{1}+M_{2})}\right]^{1/3}\right\};\\
+L_{2}: &\qquad& x_{L2} \approx a\left\{\frac{M_{1}}{M_{1}+M_{2}} + \left[\frac{M_{2}}{3(M_{1}+M_{2})}\right]^{1/3}\right\};\\
+L_{3}: &\qquad& x_{L3} \approx a\left\{-\frac{M_{1}+2M_{2}}{M_{1}+M_{2}} + \frac{7M_{2}}{12M_{1}}\right\}.
+\end{eqnarray*}
+These points are depicted in Fig.~\ref{f.Roche} for a system with $M_{2} = 0.05\,M_{1}$.
+The remaining two Lagrange points $L_{4}$ and $L_{5}$ form equilateral triangles with $M_{1}$ and $M_{2}$.
+\begin{marginfigure}[-8\baselineskip]
+\includegraphics[width=\linewidth]{Roche}
+\caption{Lagrange points for a system with $M_{2} = 0.1\,M_{1}$.
+\label{f.Roche}}
+\end{marginfigure}
+We can draw an equipotential surface (in the rotating frame) that crosses through $L_{1}$: the surface is dumbbell-shaped and forms two \textbf{Roche lobes} (Fig.~\ref{f.Roche}) that touch at $L_{1}$.  Within each lobe the gradient of the potential is inward toward the center of the lobe.
+
+\begin{exercisebox}[Vanishing acceleration at $L_{4}$]
+Show that the acceleration vanishes at $L_{4}$:
+\begin{enumerate}\renewcommand{\labelenumi}{\alph{enumi})}
+   \item Find the coordinates of $L_{4}$;
+   \item Compute the net gravitational acceleration, due to both $M_{1}$ and $M_{2}$, on a particle at point $L_{4}$ and show that it points toward the center of mass; then
+   \item Show that the gravitational acceleration cancels the centrifugal, so that the net acceleration vanishes.
+\end{enumerate}
+\end{exercisebox}
+
+\newthought{From the expressions for $L_{1}$ and $L_{2}$, we notice that} they can be written
+as
+\sidenote{Recall that
+\[ a\frac{M_{1}}{M_{1}+M_{2}} = x_{2}, \]
+the location of body 2.}
+\[ 
+	x_{L1} \approx x_{2} - R_{\mathrm{H}};\quad x_{L2}\approx x_{2} + R_{\mathrm{H}},
+\]
+with
+\[ R_{\mathrm{H}}\approx a\left[\frac{M_{2}}{3(M_{1}+M_{2})}\right]^{1/3}. \]
+Particles within a sphere of radius $R_{\mathrm{H}}$ are dominated by the gravitational attraction of $M_{2}$; $R_{\mathrm{H}}$ is called the \textbf{Hill radius}.
+
+\begin{exercisebox}[Hill radius of the Sun-Jupiter system]
+Compute the Hill radius for the Sun-Jupiter system.
+\end{exercisebox}
+
+\begin{exercisebox}[Overflow of Roche lobe]
+Speculate on what would happen if $M_{2}$ had an atmosphere that extended outside its Roche lobe.
+\end{exercisebox}
+
