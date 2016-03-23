@@ -136,15 +136,17 @@ We can then differentiate the particle's position with respect to time to get it
 \begin{eqnarray}
 \DDt{\rv} &=& \DDt{r}\rhat + r\omega\thetahat; \\
 \DDtt{\rv} &=& \DDtt{r}\rhat + 2\DDt{r}\omega\thetahat + r \DDt{\omega}\thetahat - r\omega^{2}\rhat.
+\label{e.accel-polar}
 \end{eqnarray}
-Now suppose further that the angular velocity has two parts: a uniform rotation at velocity $\Omega$ plus a remain portion $\omega'$, so that $\omega = \omega'+\Omega$.  Further, since $\Omega$ represents uniform rotation, $\dif\Omega/\dif t = 0$ and the acceleration is
+Now suppose further that the angular velocity has two parts: $\omega = \Omega+\omega'$, a uniform rotation at velocity $\Omega$ plus a remaining portion $\omega'$.  Further, since $\Omega$ represents uniform rotation, $\dif\Omega/\dif t = 0$ and the acceleration is
 \begin{eqnarray}
 \frac{1}{m}\bvec{F} = \DDtt{\rv} &=& \left(\DDtt{r} - r\omega'^{2}\right)\rhat + \left(2\DDt{r}\omega' + r\DDt{\omega'}\right)\thetahat\nonumber\\
  && -r\Omega^{2}\rhat + 2\Omega\left(\DDt{r}\thetahat - r\omega'\rhat\right).
+\label{e.full-accel}
 \end{eqnarray}
 Here $\bvec{F}$ is the force in an inertial frame.
 
-Now the first two terms on the right-hand side are just the acceleration $\dif^{2}\rv'/\dif t^{2}$ that an observer rotating with velocity $\Omega$ would write down.  Hence, if we move the last two terms to the left, we are left with the equations of motion in a rotating frame,
+Now the first two terms on the right-hand side are just the acceleration $\dif^{2}\rv'/\dif t^{2}$ that an observer rotating with velocity $\Omega$ would write down (cf.\ eq.~[\ref{e.accel-polar}]).  Hence, if we move the last two terms of equation (\ref{e.full-accel}) to the left, we are left with the equations of motion in a rotating frame,
 \marginnote{We also make the identification \[ v_{r} = \dif r/\dif t,\quad v_{\theta} = r\omega'.\]}
 \begin{equation}\label{e.motion-rotating}
 \DDtt{\rv'} = \frac{1}{m}\bvec{F}_{\mathrm{rot}} = \frac{1}{m}\bvec{F} 
