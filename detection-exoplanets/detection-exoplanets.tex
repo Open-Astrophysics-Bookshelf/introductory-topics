@@ -85,13 +85,15 @@ This speed is detectable via doppler shift of the stellar absorption lines.
 \[ \frac{\Msun}{M_{\mathrm{\jupiter}}} = 1047; \qquad \rv_{\mathrm{\odot\jupiter}} = \val{5.2}{\AU}. \]
 \end{exercisebox}
 
-\section{The Doppler Shift}
+\section{The Doppler Shift}\label{s.doppler}
 
-Because light has wave-like behavior, it has properties in common with other waves you are familiar with, such as sound.  One property that is very useful in astronomy is the \emph{Doppler effect}: the wavelength changes depending on the motion of the source along your line of sight.  To give a concrete example, suppose we have a star that is moving towards us with velocity $v$.  We'll take $v$ positive if the motion is towards us.\sidenote{The convention here is not universal; astronomy often uses sets $v$ positive if the motion is away from us. In that case, replace $v$ with $-v$ in eq.~(\ref{e.doppler}) below. As always, one must pay attention to the context before using a formula.}
+Because light has wave-like behavior, it has properties in common with other waves you are familiar with, such as sound.  One property that is very useful in astronomy is the \emph{Doppler effect}: the wavelength changes depending on the motion of the source along your line of sight.  To give a concrete example, suppose we have a source that is moving towards us with velocity $v$.  We'll take $v$ positive for now.\sidenote{The convention here is not universal; in astronomy, $v$ is usually taken as positive if the motion is away from us. In that case, replace $v$ with $-v$ in eq.~(\ref{e.doppler0}) below. As always, one must pay attention to the context before using a formula.}
 
 If the source is emitting light with wavelength $\lambda$, then the period (time between successive crests) is $T = \lambda/c$.  In this time $T$, however, the source has moved towards us a distance $vT$. The back of the wave is therefore not at a distance $\lambda$ behind the head, but rather at a distance $\lambda - vT$ behind the head.  As a result, the wavelength we receive is not $\lambda$, but rather
-\[ \lambda' = \lambda - vT = \lambda - \frac{v}{c}\lambda = \lambda\left(1-\frac{v}{c}\right). \]
-In deriving this, you may have noticed that the speed of the light wave $c$ is unaffected by the motion of the source.  This is true: unlike other waves such as sound, a light wave always moves at a speed $c$ regardless of the motion of either the emitter or the receiver.
+\begin{equation}\label{e.doppler0}
+ \lambda' = \lambda - vT = \lambda - \frac{v}{c}\lambda = \lambda\left(1-\frac{v}{c}\right).
+\end{equation}
+In deriving this equation, you may have noticed that the speed of the light wave $c$ is unaffected by the motion of the source.  Unlike other waves such as sound, a light wave always moves at a speed $c$ regardless of the motion of either the emitter or the receiver. With light, only the relative speed of the source and observer matters in the expression for the doppler shift.
 
 \begin{figure*}
 \includegraphics[width=\linewidth]{doppler}
@@ -99,13 +101,17 @@ In deriving this, you may have noticed that the speed of the light wave $c$ is u
 \label{f.doppler}
 \end{figure*}
 
-A consequence of $c$ being a constant, however, is that time passes at different rates for the emitter and receiver.  This means the time $T$ in the above expression, which is in period in the source frame, is actually $T/\sqrt{1-v^{2}/c^{2}}$ in the observer's reference frame.
+This derivation is commonly done in physics textbooks. In the coordinate system used by observational astronomers (see chapter~\ref{ch.coordinates}) velocities are radial, and a positive velocity would be away from us. In this case, we replace $v$ in equation~(\ref{e.doppler0}) with $-v$.  
 
-Finally, there is one further adjustment: in the coordinate system of observational astronomy (see chapter~\ref{ch.coordinates}) a positive velocity would be away from us. In this case, we replace $v$ in the above example with $-v$. When these changes are made, the formula for the wavelength observed from a source moving at speed $v$ is
+There is one further modification to equation~(\ref{e.doppler0}).
+A consequence of $c$ being a constant is that time passes at different rates for the emitter and receiver.  The period of the wave $T$ is what is measured at the source.  The observer, however, measures that interval of time to be $T/\sqrt{1-v^{2}/c^{2}}$.  Since the wavelength is $\lambda = cT$, this means there is an additional redshift to the wavelength as well.
+
+When these changes are made, the formula for the wavelength observed from a source moving at speed $v$ is
 \begin{equation}\label{e.doppler}
-\lambda_{\mathrm{obs}} = \lambda_{\mathrm{source}} \left[\frac{1+v/c}{\sqrt{1-v^{2}/c^{2}}}\right].
+\lambda_{\mathrm{obs}} 
+ = \lambda_{\mathrm{source}} \left[\frac{1+v/c}{\sqrt{1-v^{2}/c^{2}}}\right].
 \end{equation}
-In this equation, $v$ is the velocity of the source along the line of sight; $v$ is positive if directed away from the observer.
+In this equation, $v$ is the velocity of the source along the line of sight; $v$ is positive if the source is moving away from the observer.
 
 For a source moving towards us, the observed wavelength is shortened; as a result, a line in the middle of the visible spectrum (yellow-green) is shifted toward the blue.  We call this a \emph{blueshift}, irrespective of the actual wavelength of the light.  For a source moving away from us, a line in the yellow-green is shifted toward the red; we term this a \emph{redshift}.
 
@@ -113,7 +119,7 @@ For a source moving towards us, the observed wavelength is shortened; as a resul
 A radar detector used by law enforcement measures speed by emitting a radar beam with frequency \val{22}{\Giga\Hz} and measuring the frequency of the reflected signal.
 \begin{enumerate}
 \item What is the wavelength $\lambda$ of the radar beam?
-\item If a motorist is going \val{40}{\meter/\second} (about 89~miles/hour) toward the officer, what is $\Delta\lambda = \lambda_{\mathrm{motorist}} - \lambda_{\mathrm{officer}}$? What is $\Delta\lambda/\lambda$?
+\item If a motorist is going \val{40}{\meter/\second} (about 89~miles/hour) away from the officer, what is $\Delta\lambda = \lambda_{\mathrm{motorist}} - \lambda_{\mathrm{officer}}$? What is $\Delta\lambda/\lambda$?
 \end{enumerate}
 \end{exercisebox}
 
@@ -124,6 +130,7 @@ A radar detector used by law enforcement measures speed by emitting a radar beam
 
 \section{Transits}
 
+In \S~\ref{s.doppler} we derived the doppler shift for motion along our line-of-sight.
 In general, however, the orbit is not edge-on, but rather inclined at an angle (Fig.~\ref{f.orbital-inclination}).
 In this case the speed that is measured via doppler shift of stellar lines is $v_{s}\sin i$.  Thus, our problem becomes, given a measurement of period $T$ and projected speed $K = v_{s}\sin i$, what can we learn about the planet?
 
