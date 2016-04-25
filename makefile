@@ -3,7 +3,7 @@ COMPILE = xelatex
 OPS =  --file-line-error --synctex=1
 RM = rm -f
 
-CHAPTERS = 	frontmatter \
+CHAPTERS =	frontmatter \
 			coordinates \
 			light-telescopes \
 			detection-exoplanets \
@@ -16,7 +16,7 @@ CHAPTERS = 	frontmatter \
 
 TEX_SRC = $(foreach chap, $(CHAPTERS), $(wildcard $(chap)/*.tex))
 
-FIGURES = 	frontmatter/cover-art.png \
+FIGURES =	frontmatter/cover-art.png \
 			coordinates/figs/celestial-sphere.pdf \
 			coordinates/figs/ecliptic.pdf \
 			coordinates/figs/right-ascension.pdf \
