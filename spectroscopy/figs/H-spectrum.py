@@ -12,6 +12,7 @@ height = 1.2
 
 plt.style.use('text-sans')
 plt.rc('xtick',**{'direction':'out'})
+plt.rc('font',**{'size':9})
 
 Nlines = 50
 greek = [r'$\alpha$',r'$\beta$',r'$\gamma$',r'$\delta$',r'$\epsilon$']
@@ -32,18 +33,18 @@ plt.vlines(Balmer,ymin,ymax,color='0.5',linestyle='-',linewidth=0.5)
 plt.annotate(s=r'Balmer ($m\to 2$)',fontsize='small',xytext=(0,3),
     textcoords='offset points',xy=(Balmer[-1],0),
     va='bottom',ha='right',rotation=90)
-plt.annotate(s=r'$m = 3$',fontsize='x-small',xy=(Balmer[0],0.5),
+plt.annotate(s=r'$3\to2$',fontsize='small',xy=(Balmer[0],0.5),
     va='center',ha='center')
-plt.annotate(s=r'$m = 4$',fontsize='x-small',xy=(Balmer[1],0.5),
+plt.annotate(s=r'$4\to2$',fontsize='small',xy=(Balmer[1],0.5),
     va='center',ha='center')
 
 plt.vlines(Paschen,ymin,ymax,color='0.5',linestyle='-',linewidth=0.5)
 plt.annotate(s=r'Paschen ($m\to 3$)',fontsize='small',xytext=(0,3),
     textcoords='offset points',xy=(Paschen[-1],0),
     va='bottom',ha='right',rotation=90)
-plt.annotate(s=r'$m = 5$',fontsize='x-small',xy=(Paschen[1],0.5),
+plt.annotate(s=r'$5\to3$',fontsize='small',xy=(Paschen[1],0.5),
     va='center',ha='center')
-plt.annotate(s=r'$m = 6$',fontsize='x-small',xy=(Paschen[2],0.5),
+plt.annotate(s=r'$6\to3$',fontsize='small',xy=(Paschen[2],0.5),
     va='center',ha='center')
 
 plt.xlabel(r'$\lambda$ (nm)')
