@@ -81,3 +81,42 @@ Conversely, suppose we have gas that is backlit by a strong source of photons---
 When a gas becomes sufficiently dense that it is opaque, meaning that no light gets through it, then the surface emits a broad \emph{continuous spectrum} of light, with the flux peaking at a wavelength that corresponds to the temperature of the gas. The hotter the gas, the shorter the peak wavelength.
 
 
+\section{The Doppler Shift}\label{s.doppler}
+
+In addition to telling us about the intrinsic properties of the medium producing the spectrum---its temperature, density, and composition---the spectrum can also tell us about its velocity. Because light has wave-like behavior, it has properties in common with other waves you are familiar with, such as sound.  One property that is very useful in astronomy is the \emph{Doppler effect}: the wavelength changes depending on the motion of the source along your line of sight.  To give a concrete example, suppose we have a source that is moving away from us with velocity $v$.  We'll take $v$ positive for motion away from us.\sidenote{The convention here is not universal; in physics texts, $v$ is usually taken as positive if the motion is towards from us. In that case, replace $v$ with $-v$ in eq.~(\ref{e.doppler0}) below. As always, one must pay attention to the context before using a formula.}
+
+If the source is emitting light with wavelength $\lambda$, then the period (time between successive crests) is $T = \lambda/c$.  In this time $T$, however, the source has moved away from us a distance $vT$. The tail of the wave is therefore not at a distance $\lambda$ from the head, but rather at a distance $\lambda + vT$.  As a result, the wavelength we receive is not $\lambda$, but rather
+\begin{equation}\label{e.doppler0}
+ \lambda' = \lambda + vT = \lambda + \frac{v}{c}\lambda = \lambda\left(1+\frac{v}{c}\right).
+\end{equation}
+In deriving this equation, you may have noticed that the speed of the light wave $c$ is unaffected by the motion of the source.  Unlike other waves such as sound, a light wave always moves at a speed $c$ regardless of the motion of either the emitter or the receiver. With light, only the relative speed of the source and observer matters in the expression for the doppler shift.
+
+\begin{figure*}
+\includegraphics[width=\linewidth]{doppler}
+\caption[Schematic of the doppler effect]{Schematic of the doppler effect for a source (red star) moving to the right at speed $v$.}
+\label{f.doppler}
+\end{figure*}
+
+There is one further modification to equation~(\ref{e.doppler0}).
+A consequence of $c$ being a constant is that time passes at different rates for the emitter and receiver.  The period of the wave $T$ is what is measured at the source.  The observer, however, measures that interval of time to be $T/\sqrt{1-v^{2}/c^{2}}$.  Since the wavelength is $\lambda = cT$, this means there is an additional redshift to the wavelength as well.
+
+When these changes are made, the formula for the wavelength observed from a source moving at radial velocity $v$ is
+\begin{equation}\label{e.doppler}
+\lambda_{\mathrm{obs}} 
+ = \lambda_{\mathrm{source}} \left[\frac{1+v/c}{\sqrt{1-v^{2}/c^{2}}}\right].
+\end{equation}
+In this equation, $v$ is the velocity of the source along the line of sight.
+For a source moving towards us, the observed wavelength is shortened; as a result, a line in the middle of the visible spectrum (yellow-green) is shifted toward the blue.  We call this a \emph{blueshift}, irrespective of the actual wavelength of the light.  For a source moving away from us, a line in the yellow-green is shifted toward the red; we term this a \emph{redshift}.
+
+\begin{exercisebox}[Doppler shift of radar beam]
+A radar detector used by law enforcement measures speed by emitting a radar beam with frequency \val{22}{\Giga\Hz} and measuring the frequency of the reflected signal.
+\begin{enumerate}
+\item What is the wavelength $\lambda$ of the radar beam?
+\item If a motorist is going \val{40}{\meter/\second} (about 89~miles/hour) away from the officer, what is $\Delta\lambda = \lambda_{\mathrm{motorist}} - \lambda_{\mathrm{officer}}$? What is $\Delta\lambda/\lambda$?
+\end{enumerate}
+\end{exercisebox}
+
+\begin{exercisebox}[Doppler shift of Sun]
+	What is the wavelength shift induced by the motion of the Sun, computed in exercise \ref{ex.sun-orbital-speed}, for an absorption line with rest wavelength $\val{600}{\nano\meter}$?
+\end{exercisebox}
+
