@@ -29,11 +29,11 @@ FIGURES =	frontmatter/cover-art.png \
 			light-telescopes/figs/diffraction.pdf \
 			light-telescopes/figs/vector-addition.pdf \
 			light-telescopes/figs/airmass.png \
+			spectroscopy/figs/doppler.pdf \
 			spectroscopy/figs/H-spectrum.pdf \
 			spectroscopy/figs/slit-and-grating.pdf \
 			detection-exoplanets/figs/center-of-mass.pdf \
 			detection-exoplanets/figs/elliptical-orbit.pdf \
-			detection-exoplanets/figs/doppler.pdf \
 			detection-exoplanets/figs/orbital-inclination.pdf \
 			detection-exoplanets/figs/transit.pdf \
 			detection-exoplanets/figs/inclination-probability.pdf \
