@@ -22,7 +22,7 @@ dividing by $\Delta r$ and taking the limit $\Delta r \to 0$ gives us the equati
 \end{equation}
 For an incompressible fluid in constant gravity, the pressure increases linearly with depth. This is a good approximation to the pressure in Earth's oceans: the density of sea water changes by less than 5\% between surface and floor.  In general, however, the density $\rho$ depends on the pressure $P$, and we need more information to solve for the atmospheric structure.
 
-\marginnote{The SI unit of pressure is the \textbf{Pascal}: $\val{1}{\unitstyle{Pa}} = \val{1}{\unitstyle{N}\usk\meter^{-2}}$. The mean pressure at terrestrial sea level is $\val{1}{\unitstyle{atm}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$. Other common units of pressure are the \textbf{bar} ($\val{1}{\unitstyle{bar}} = \val{10^{5}}{\unitstyle{Pa}}$) and the \textbf{Torr} ($\val{760}{\unitstyle{Torr}} = \val{1}{\unitstyle{atm}}$).}
+\marginnote{The SI unit of pressure is the \newterm{Pascal}: $\val{1}{\unitstyle{Pa}} = \val{1}{\unitstyle{N}\usk\meter^{-2}}$. The mean pressure at terrestrial sea level is $\val{1}{\unitstyle{atm}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$. Other common units of pressure are the \newterm{bar} ($\val{1}{\unitstyle{bar}} = \val{10^{5}}{\unitstyle{Pa}}$) and the \newterm{Torr} ($\val{760}{\unitstyle{Torr}} = \val{1}{\unitstyle{atm}}$).}
 \begin{exercisebox}[Pressure increase in water]
 Water is nearly incompressible and has a density of $\val{10^{3}}{\kilo\gram\usk\meter^{-3}}$.  How deep would you need to dive for the pressure to increase by $\val{1}{\unitstyle{atm}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$?  The gravitational acceleration at Earth's surface is $\val{9.8}{\meter\usk\second^{-2}}$.
 \end{exercisebox}
@@ -46,14 +46,14 @@ that is, the weight per unit area of our column.  Let's apply this to our atmosp
 if we take the top of our column to infinity and the pressure at the top to zero, then the pressure at the bottom (sea level) is just the weight of a column of atmosphere with a cross-sectional area of $\val{1}{\meter^{2}}$.
 
 \section{The ideal gas}\label{s.ideal-gas}
-To solve equation~(\ref{e.hydrostatic-equilibrium}) we need at a minimum a relation between pressure and density. A relation between pressure, density, and temperature is called an \textbf{equation of state}.
+To solve equation~(\ref{e.hydrostatic-equilibrium}) we need at a minimum a relation between pressure and density. A relation between pressure, density, and temperature is called an \newterm{equation of state}.
 For an ideal gas\sidenote[][\baselineskip]{By \emph{ideal} gas, we mean that the particles are non-interacting; as a result, the energy of the gas only depends on the kinetic energy of the particles and in particular is independent of the volume.} of $N$ particles in a volume $V$ at pressure and temperature $P$ and $T$, the equation of state is
 \begin{equation}\label{e.ideal-gas-eos}
 PV = NkT
 \end{equation}
-where $k = \val{\sci{1.381}{-23}}{\unitstyle{J}\usk\K^{-1}}$ is \textbf{Boltzmann's constant}.
+where $k = \val{\sci{1.381}{-23}}{\unitstyle{J}\usk\K^{-1}}$ is \newterm{Boltzmann's constant}.
 
-In chemistry, it is convenient to count the number of particles by \textbf{moles}.  One mole of a gas has $\NA = \sci{6.022}{23}$ particles\sidenote{The constant $\NA$ is known as \textbf{Avogadro's number}.}, and the number of moles in a sample is $n = N/\NA$.  If we divide and multiply equation~(\ref{e.ideal-gas-eos}) by $\NA$, then our ideal gas equation becomes
+In chemistry, it is convenient to count the number of particles by \newterm{moles}.  One mole of a gas has $\NA = \sci{6.022}{23}$ particles\sidenote{The constant $\NA$ is known as \newterm{Avogadro's number}.}, and the number of moles in a sample is $n = N/\NA$.  If we divide and multiply equation~(\ref{e.ideal-gas-eos}) by $\NA$, then our ideal gas equation becomes
 \[ PV = n\left[\NA k\right]T \equiv n R T, \]
 where $R = \NA k = \val{8.314}{\unitstyle{J}\usk\K^{-1}\usk\mol^{-1}}$ is the gas constant. This is perhaps the most familiar form of the ideal gas law---but it is not in a form useful to astronomers.
 
@@ -74,17 +74,17 @@ Integrating from $z=0$, where $P(z=0)=P_{0}$, to a height $z$ gives us an equati
 \end{equation}
 Since the argument of the exponential is dimensionless, we see that we can write $P(z) = P_{0}e^{-z/H_{P}}$, where
 \[  H_{P} = \frac{\NA kT}{mg} \]
-is the \textbf{pressure scale height}---the height over which the pressure decreases by a factor $1/e$.
+is the \newterm{pressure scale height}---the height over which the pressure decreases by a factor $1/e$.
 
 \begin{exercisebox}[Scale height for dry air]
-Evaluate $H_{P}$ for dry air at a temperature of $\val{288}{\K}$ ($\val{15}{^{\circ}\unitstyle{C}}$).  Check that your answer is reasonable based on your experience.  In fact, this value of $H_{P}$ is overly large because the temperature in the troposphere does, in fact, decrease with height at an average \textbf{lapse rate} of
+Evaluate $H_{P}$ for dry air at a temperature of $\val{288}{\K}$ ($\val{15}{^{\circ}\unitstyle{C}}$).  Check that your answer is reasonable based on your experience.  In fact, this value of $H_{P}$ is overly large because the temperature in the troposphere does, in fact, decrease with height at an average \newterm{lapse rate} of
 \[
 	\DD{T}{z} = -\val{6.5}{^{\circ}\unitstyle{C}\usk\kilo\meter^{-1}}.
 \]
 \end{exercisebox}
 
 \section{The adiabatic thermal gradient}\label{s.adiabatic-gradient}
-Hot air rises. This simple phenomenon sets the lapse rate in the troposphere. Warm surface air rises quickly enough that there is little exchange of heat with colder, downward moving air.  As a result, the fluid motions are \textbf{adiabatic}.  To understand what this means, recall the first law of thermodynamics\cite{Fermi1956Thermodynamics}, which relates the change in internal energy $\dif U$ and in volume $\dif V$ to the heat transferred $\dif Q$:
+Hot air rises. This simple phenomenon sets the lapse rate in the troposphere. Warm surface air rises quickly enough that there is little exchange of heat with colder, downward moving air.  As a result, the fluid motions are \newterm{adiabatic}.  To understand what this means, recall the first law of thermodynamics\cite{Fermi1956Thermodynamics}, which relates the change in internal energy $\dif U$ and in volume $\dif V$ to the heat transferred $\dif Q$:
 \begin{equation}\label{e.first-law-thermo}
 	\dif Q = \dif U + P\dif V,
 \end{equation}
@@ -171,7 +171,7 @@ In addition to the Coriolis acceleration from the Earth rotation, horizontal pre
 \[
 	-\frac{1}{\rho}\grad P.
 \]
-A typical horizontal gradient for a weather system is about $\val{0.03}{\milli\unitstyle{bar}/\kilo\meter}$.\marginnote{Recall that $\val{1}{\unitstyle{bar}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$.  The density of air at sea level is $\val{1.3}{\kilo\gram\usk\meter^{-3}}$.} Consider a \textbf{cyclone} in which the winds swirl counterclockwise about a low.  Let's look at a small parcel of fluid a distance $r$ from the center of the cyclone, which has a height $H$. The mass of our fluid parcel is $\Delta S\,\Delta r\,H\,\rho$, and the acceleration of the fluid is $-v^{2}/r\,\hat{r}$. The equation for force and acceleration along $\hat{r}$ is therefore
+A typical horizontal gradient for a weather system is about $\val{0.03}{\milli\unitstyle{bar}/\kilo\meter}$.\marginnote{Recall that $\val{1}{\unitstyle{bar}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$.  The density of air at sea level is $\val{1.3}{\kilo\gram\usk\meter^{-3}}$.} Consider a \newterm{cyclone} in which the winds swirl counterclockwise about a low.  Let's look at a small parcel of fluid a distance $r$ from the center of the cyclone, which has a height $H$. The mass of our fluid parcel is $\Delta S\,\Delta r\,H\,\rho$, and the acceleration of the fluid is $-v^{2}/r\,\hat{r}$. The equation for force and acceleration along $\hat{r}$ is therefore
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{cyclone}
 \caption{Forces on a parcel of air circulating about a low.

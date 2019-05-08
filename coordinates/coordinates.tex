@@ -16,7 +16,7 @@ First, let's describe our measurement of position on the sky.
 The local gravitational acceleration $\bvec{g}$ specifies the \emph{local vertical}; this picks out a point on the celestial sphere, our \emph{zenith}.  Our \emph{horizon} is then defined by points that lie $90^{\circ}$ from this zenith, measured along a great circle passing through the zenith.  The zeniths above the north and south poles define the \emph{north and south celestial poles}.  A great circle connecting the celestial poles and our zenith defines our \emph{meridian} (see Fig.~\ref{f.meridian}).  As the Earth rotates, celestial objects appear to move westward on circles about the celestial poles.  
 
 Midway between the north and south celestial poles lies the celestial equator.  For any star, you specify its declination $\delta$ as the angle north (positive) or south (negative) of the celestial equator along that star's meridian.  For example, Betelgeuse, the red star in the shoulder of Orion, has a declination $\delta = \dec{7}{24}{25}$.  Polaris, the North star, has $\delta = \dec{89}{15}{51}$.
-\marginnote[-2\baselineskip]{Declination is quoted in degrees ($^{\circ}$), arcminutes ($'$), and arcseconds ($''$).  There are 60 arcminutes in 1 degree and 60 arcseconds in 1 arcminute.}
+\marginnote{Declination is quoted in degrees ($^{\circ}$), arcminutes ($'$), and arcseconds ($''$).  There are 60 arcminutes in 1 degree and 60 arcseconds in 1 arcminute.}
 
 \begin{exercisebox}[Altitude of Betelgeuse]
 How far above our southern horizon will Betelgeuse be when it crosses our meridian? Our latitude is \dec{42}{43}{25}N.
@@ -136,17 +136,17 @@ on $\theta$ and $\eta_{1}-\eta_{2}$ in equation~(\ref{e.angular-distance}):
 	1-\frac{\theta^{2}}{2} &\approx& \cos\delta_{1}\cos\delta_{2} \left[1-\frac{(\eta_{1}-\eta_{2})^{2}}{2}\right] + \sin\delta_{1}\sin\delta_{2}\\
 		&=& \cos(\delta_{1}-\delta_{2}) - \cos\delta_{1}\cos\delta_{2}\frac{(\eta_{1}-\eta_{2})^{2}}{2}.
 \end{eqnarray*}
-\marginnote[-5\baselineskip]{%
-We make heavy use of the sine and cosine addition formula: $\cos(x+y) = \cos x\cos y - \sin x\sin y$, and $\sin(-y) = -\sin y$, $\cos(-x) = \cos(x)$.}
 We can now expand $\cos(\delta_{1}-\delta_{2})$, cancel common factors and multiply by 2,
 \[ \theta^{2} \approx (\delta_{1}-\delta_{2})^{2} + \cos\delta_{1}\cos\delta_{2}(\eta_{1} - \eta_{2})^{2}. \]
 Finally, we notice that to lowest order, $\cos\delta_{1}\cos\delta_{2}\approx \cos^{2}\delta$, where $\delta = (\delta_{1}+\delta_{2})/2$ is the average of the two declinations.  This gives us a formula for the angular distance $\theta$ between two nearby points,
+\marginnote{%
+We make heavy use of the sine and cosine addition formula: $\cos(x+y) = \cos x\cos y - \sin x\sin y$, and $\sin(-y) = -\sin y$, $\cos(-x) = \cos(x)$.}
 \begin{equation}
 \theta \approx \sqrt{\cos^{2}\delta\left(\eta_{1}-\eta_{2}\right)^{2} + \left(\delta_{1}-\delta_{2}\right)^{2}}.
 \end{equation}
 This looks like the pythagorean formula; the factor of $\cos\delta$ accounts for the lines of constant RA converging as they approach the poles.
 
-\begin{marginfigure}[12\baselineskip]
+\begin{marginfigure}[4\baselineskip]
 \includegraphics[width=\linewidth]{angular-distance2}
 \caption[Angular distance between lines of constant right ascension]{The distance between two RAs $\eta_{1}$ and $\eta_{2}$, measured along a circle of radius $\cos\delta$.}
 \label{f.angular-pythagorean}
