@@ -21,8 +21,8 @@ dividing by $\Delta r$ and taking the limit $\Delta r \to 0$ gives us the equati
 	\DD{P}{r} = -\rho g.
 \end{equation}
 For an incompressible fluid in constant gravity, the pressure increases linearly with depth. This is a good approximation to the pressure in Earth's oceans: the density of sea water changes by less than 5\% between surface and floor.  In general, however, the density $\rho$ depends on the pressure $P$, and we need more information to solve for the atmospheric structure.
+\marginnote[-3\baselineskip]{The SI unit of pressure is the \newterm{Pascal}: $\val{1}{\unitstyle{Pa}} = \val{1}{\unitstyle{N}\usk\meter^{-2}}$. The mean pressure at terrestrial sea level is $\val{1}{\unitstyle{atm}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$. Other common units of pressure are the \newterm{bar} ($\val{1}{\unitstyle{bar}} = \val{10^{5}}{\unitstyle{Pa}}$) and the \newterm{Torr} ($\val{760}{\unitstyle{Torr}} = \val{1}{\unitstyle{atm}}$).}
 
-\marginnote{The SI unit of pressure is the \newterm{Pascal}: $\val{1}{\unitstyle{Pa}} = \val{1}{\unitstyle{N}\usk\meter^{-2}}$. The mean pressure at terrestrial sea level is $\val{1}{\unitstyle{atm}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$. Other common units of pressure are the \newterm{bar} ($\val{1}{\unitstyle{bar}} = \val{10^{5}}{\unitstyle{Pa}}$) and the \newterm{Torr} ($\val{760}{\unitstyle{Torr}} = \val{1}{\unitstyle{atm}}$).}
 \begin{exercisebox}[Pressure increase in water]
 Water is nearly incompressible and has a density of $\val{10^{3}}{\kilo\gram\usk\meter^{-3}}$.  How deep would you need to dive for the pressure to increase by $\val{1}{\unitstyle{atm}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$?  The gravitational acceleration at Earth's surface is $\val{9.8}{\meter\usk\second^{-2}}$.
 \end{exercisebox}
@@ -114,6 +114,7 @@ From this we see that the heat needed to raise the temperature of one mole when 
 C_{P}\equiv \tderiv{Q}{T}{P} = C_{V} + \frac{k\NA}{m}.
 \end{equation}
 The specific heat of one mole of various ideal gases is given in Table~\ref{t.specific-heat}.
+It is important to remember that these relations for the specific heats are for an ideal gas and are not universally true.
 \begin{table}
 \caption{Specific heats for ideal gases.\label{t.specific-heat}}
 \begin{tabular}{lrrr}
@@ -123,7 +124,6 @@ monatomic & $(3/2) k\NA/m$ & $(5/2)k\NA/m$ & $5/3$\\
 diatomic & $(5/2) k\NA/m$ & $(7/2)k\NA/m$ & $7/5$\\
 \end{tabular}
 \end{table}
-It is important to remember that these relations for the specific heats are for an ideal gas and are not universally true.
 
 \newthought{During convection, hot air rises and cool air descends, and both move adiabatically.}  By adiabatically, we mean that there is no heat exchange:
 \[ 0 = \dif Q = C_{P}\dif T - \frac{1}{\rho} \dif P.\]
@@ -171,8 +171,10 @@ In addition to the Coriolis acceleration from the Earth rotation, horizontal pre
 \[
 	-\frac{1}{\rho}\grad P.
 \]
-A typical horizontal gradient for a weather system is about $\val{0.03}{\milli\unitstyle{bar}/\kilo\meter}$.\marginnote{Recall that $\val{1}{\unitstyle{bar}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$.  The density of air at sea level is $\val{1.3}{\kilo\gram\usk\meter^{-3}}$.} Consider a \newterm{cyclone} in which the winds swirl counterclockwise about a low.  Let's look at a small parcel of fluid a distance $r$ from the center of the cyclone, which has a height $H$. The mass of our fluid parcel is $\Delta S\,\Delta r\,H\,\rho$, and the acceleration of the fluid is $-v^{2}/r\,\hat{r}$. The equation for force and acceleration along $\hat{r}$ is therefore
-\begin{marginfigure}
+A typical horizontal gradient for a weather system is about $\val{0.03}{\milli\unitstyle{bar}/\kilo\meter}$.
+%\marginnote[-4\baselineskip]{Recall that $\val{1}{\unitstyle{bar}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$.  The density of air at sea level is $\val{1.3}{\kilo\gram\usk\meter^{-3}}$.}
+Consider a \newterm{cyclone} in which the winds swirl counterclockwise about a low.  Let's look at a small parcel of fluid a distance $r$ from the center of the cyclone, which has a height $H$. The mass of our fluid parcel is $\Delta S\,\Delta r\,H\,\rho$, and the acceleration of the fluid is $-v^{2}/r\,\hat{r}$. The equation for force and acceleration along $\hat{r}$ is therefore
+\begin{marginfigure}[-4\baselineskip]
 \includegraphics[width=\linewidth]{cyclone}
 \caption{Forces on a parcel of air circulating about a low.
 \label{f.cyclone}}
@@ -192,7 +194,7 @@ or
 \renewcommand{\theenumi}{\alph{enumi}}
 \renewcommand{\labelenumi}{\alph{enumi})}
 \item\label{v-wind}
-When $r$ is sufficiently large, we can neglect the centripetal term in equation~(\ref{e.force-balance}).  In that case, for a pressure gradient of $\val{3}{\milli\unitstyle{bar}}/\val{100}{\kilo\meter}$, what is a velocity satisfying this equation. Does this seem realistic?
+When $r$ is sufficiently large, we can neglect the centripetal term in equation~(\ref{e.force-balance}).  In that case, for a pressure gradient of $\val{3}{\milli\unitstyle{bar}}/\val{100}{\kilo\meter}$, what is a velocity satisfying this equation. Does this seem realistic? Recall that $\val{1}{\unitstyle{bar}} = \val{\sci{1.013}{5}}{\unitstyle{Pa}}$.  The density of air at sea level is $\val{1.3}{\kilo\gram\usk\meter^{-3}}$.
 
 \item Using the velocity you found in part \ref{v-wind}, determine the size $r$ of the weather system at which the centripetal term becomes comparable to the Coriolis term.
 \end{enumerate}

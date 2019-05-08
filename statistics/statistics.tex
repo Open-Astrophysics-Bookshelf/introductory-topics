@@ -227,12 +227,12 @@ A student takes an exam with 10 multiple choice questions, each with 4 possible 
 \subsection{The mean}
 
 You are probably familiar with taking a simple average of a set of numbers: do a sum over the set and divide by the number of items in the set.  A related quantity for a probability distribution is the \emph{mean},
-\begin{equation}\label{e.mean}
- \mean{m} \equiv \sum_{m=0}^{n} m\binom{n}{m}{p}.
-\end{equation}
 \marginnote{More formally, we can define taking the moment of a distribution with respect to a function $f(x)$ as
 \[ \mean{f(x)} = \sum f(x)\prob(x). \]
 In general, $\mean{f(x)} \ne f(\mean{x})$.}
+\begin{equation}\label{e.mean}
+ \mean{m} \equiv \sum_{m=0}^{n} m\binom{n}{m}{p}.
+\end{equation}
 To show that this behaves as expected, there are some mathematical preliminaries we need to address.  First, let's demonstrate that $\sum\binom{n}{m}{p} = 1$.  The easiest way to do this is to take a concrete example, say $n=5$.  Then
 \begin{eqnarray*} \sum_{m=0}^{5}\binom{5}{m}{p} &=& \sum_{m=0}^{5}{5\choose m}p^{m}(1-p)^{n-m}\\
 	&=&	p^{5}+5p^{4}(1-p)+10p^{3}(1-p)^{2}+10p^{2}(1-p)^{3}\\

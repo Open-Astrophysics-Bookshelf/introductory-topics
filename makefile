@@ -1,5 +1,5 @@
 BASE = planets-notes
-TEX = xelatex
+TEX = pdflatex
 BIB = bibtex
 OPS =  --file-line-error --synctex=1
 COMPILE = $(TEX) $(OPS)
