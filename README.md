@@ -1,8 +1,11 @@
-# Notes for AST 208, "Planets and Telescopes"
+# Planet and Telescopes
 
-These notes were written while teaching a sophomore-level astronomy course at Michigan State University. The background required is an introductory calculus sequence and a freshman-level physics course.
+Part of the [Open Astrophysics Bookshelf](http://open-astrophysics-bookshelf.git
+hub.io/).  A pdf of these notes is available at [https://www.pa.msu.edu/~ebrown/docs/AST208-notes.pdf](http://www.pa.msu.edu/~ebrown/docs/AST208-notez.pdf).
 
-These notes are meant to supplement the course's main texts, Lissauer and de Pater (2013)  and Bennett et al. (2013).  The text layout uses the [`tufte-book`](https://tufte-latex.github.io/tufte-latex/) LaTeX class:  the main feature is a large right margin in which the students can take notes; this margin also holds small figures and sidenotes. Exercises are embedded throughout the text.  These range from ``reading exercises'' to longer, more challenging problems.  Because the exercises are spread throughout the text, there is a "List of Exercises" in the front matter to help with looking for specific problems.
+These notes were written while teaching a sophomore-level astronomy course at Michigan State University. The background required is an introductory calculus sequence and a freshman-level physics course. The reason for the odd juxtaposition of topics is that the course was created from the merger of two undergraduate courses, one of which was a laboratory course with observing done at the campus observatory.
+
+These notes were meant to supplement the course's main texts, Ryden and Peterson, _Foundations of Astrophysics_, and Taylor, _An Introduction to Error Analysis_.  The text layout uses the [`tufte-book`](https://tufte-latex.github.io/tufte-latex/) LaTeX class:  the main feature is a large right margin in which the students can take notes; this margin also holds small figures and sidenotes. Exercises are embedded throughout the text.  These range from ``reading exercises'' to longer, more challenging problems.  Because the exercises are spread throughout the text, there is a "List of Exercises" in the front matter to help with looking for specific problems.
 
 ## License
 
@@ -20,7 +23,7 @@ Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license
 ## To build
 
 1. For a default installation, simply `make`.  This will build the document using pdfLaTeX.
-2. If you wish to use XeLaTeX, change line 2 of the makefile to read `COMPILE=xelatex`
+2. The default TeX engine is XeLaTeX; if you wish to use pdfLaTeX, change line 2 of the makefile to read `COMPILE=pdflatex`
 
     1. If you have Chaparral Pro, Source Code Pro, and Raleway Medium fonts available, add the option `profonts` to the `\documentclass` directive in AST208-notes.tex.
     2. If you wish to use the STIX fonts for greek letters, add the option `stix` to the `\documentclass` directive in AST208-notes.tex.
