@@ -1,6 +1,8 @@
-BASE = AST208-notes
-COMPILE = xelatex
+BASE = planets-notes
+TEX = xelatex
+BIB = bibtex
 OPS =  --file-line-error --synctex=1
+COMPILE = $(TEX) $(OPS)
 RM = rm -f
 
 CHAPTERS =	frontmatter \
@@ -9,7 +11,6 @@ CHAPTERS =	frontmatter \
 			spectroscopy \
 			detection-exoplanets \
 			beyond-kepler \
-			resonance \
 			planetary-atmospheres \
 			constants-units \
 			math-review \
@@ -46,10 +47,6 @@ FIGURES =	frontmatter/cover-art.png \
 			beyond-kepler/figs/lunar-tidal-force.pdf \
 			beyond-kepler/figs/tidal-torque.pdf \
 			beyond-kepler/figs/Inertia.png \
-			resonance/figs/simple-spring.png \
-			resonance/figs/beats.pdf \
-			resonance/figs/damped.pdf \
-			resonance/figs/damped-driven.pdf \
 			planetary-atmospheres/figs/hydrostatic-equilibrium.pdf \
 			planetary-atmospheres/figs/column.pdf \
 			planetary-atmospheres/figs/beta-plane.pdf \
@@ -68,15 +65,17 @@ FIGURES =	frontmatter/cover-art.png \
 
 BIBS = bibs/ast208.bib
 
+default = $(BASE).pdf
+
 $(BASE).pdf: $(BASE).tex $(TEX_SRC) $(BIBS) $(FIGURES)
 	git rev-parse --short=8 HEAD > git-info.tex
-	$(COMPILE) $(OPS) $(BASE).tex
-	bibtex AST208-notes.aux
-	$(COMPILE) $(OPS) $(BASE).tex
-	$(COMPILE) $(OPS) $(BASE).tex
+	$(COMPILE) $(BASE).tex
+	$(BIB) $(BASE).aux
+	$(COMPILE) $(BASE).tex
+	$(COMPILE) $(BASE).tex
 
 clean:
-	$(RM) *.aux *.log *.dvi *.bbl *.blg *.toc *.lof *.log *.synctex* *.out
+	$(RM) *.aux *.log *.dvi *.bbl *.blg *.toc *.lof *.loe *.log *.synctex* *.out
 
 realclean: clean
 	$(RM) $(BASE).pdf
