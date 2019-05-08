@@ -73,6 +73,7 @@ $(BASE).pdf: $(BASE).tex $(TEX_SRC) $(BIBS) $(FIGURES)
 	$(BIB) $(BASE).aux
 	$(COMPILE) $(BASE).tex
 	$(COMPILE) $(BASE).tex
+	$(COMPILE) $(BASE).tex
 
 clean:
 	$(RM) *.aux *.log *.dvi *.bbl *.blg *.toc *.lof *.loe *.log *.synctex* *.out
