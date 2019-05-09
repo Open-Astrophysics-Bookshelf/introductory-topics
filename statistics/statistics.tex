@@ -40,8 +40,7 @@ When we say ``$A$ or $B$'' we mean ``$A$ or $B$ or both'' and denote this by $A\
 Finally, when we say ``$A$ and $B$'' we write $A\cap B$ (Fig.~\ref{f.set-4}).  If ``$A$ and $B$ are mutually exclusive'' then we write $A\cap B =\emptyset$ and we say that the sets are 
 \emph{disjoint}, like $A$ and $B$ in Fig.~\ref{f.set-1}.
 
-For example, if we roll two dice, there are $6\times 6 = 36$ possible outcomes. This is our sample space.  How many events are there for which the sum of the two dice is a nine?  Answer: there are four such possibilities, $\{(3,6),(4,5),(5,4),(6,3)\}$. Let's call this event $A$.  If event $B$ denotes those rolls in which at least one die is a 3, then $A\cap B = \{(3,6),(6,3)\}$. 
-
+For example, if we roll two dice, there are $6\times 6 = 36$ possible outcomes. This is our sample space.  How many events are there for which the sum of the two dice is a seven?  There are six such possibilities: $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}$. Let's call this event $A$.  If event $B$ denotes those rolls in which at least one die is a 2, then $A\cap B = \{(2,5),(5,2)\}$. 
 
 \begin{exercisebox}[Probability of various draws from a deck of cards]
 We have a deck of cards consisting of 4 suits ($\clubsuit$, $\diamondsuit$, $\heartsuit$, $\spadesuit$) with 13 cards per suit (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K).  Suppose we draw one card.  There are $13\times 4=52$ possible outcomes.
@@ -82,11 +81,15 @@ We have a deck of cards consisting of 4 suits ($\clubsuit$, $\diamondsuit$, $\he
 \item For a set of disjoint (mutually exclusive) events\sidenote[][\baselineskip]{We'll need to be careful when we deal with continuous, rather than discrete, sets.} $\{A_{i}\}$,
 \begin{eqnarray*}
  \prob\left(\cup_{i}A_{i}\right) &=& \sum_{i}\prob(A_{i}):\\
- \prob\left(A_{1}\cup A_{2}\cup A_{3}\cup\ldots\cup A_{N}\right) &=&
- 	\prob(A_{1})+\prob(A_{2}) + \prob(A_{3}) +\ldots+\prob(A_{N}).
+ \prob\left(A_{1}\cup A_{2}\cup\ldots\cup A_{N}\right) &=&
+ 	\prob(A_{1})+\prob(A_{2}) +\ldots+\prob(A_{N}).
 \end{eqnarray*}
 \item If $A$ and $B$ are independent---meaning that the outcome of $A$ has no influence on the outcome of $B$, and vice versa---then the probability of both events occurring is $\prob(A\cap B) = \prob(A)\prob(B)$.
 \end{enumerate}
+For an example of independent events,
+\[
+ \prob(\textrm{``drawing a 4 and a $\spadesuit$''}) = \prob(4)\prob(\spadesuit) = \frac{1}{13}\frac{1}{4} = \frac{1}{52}.
+ \]
 
 For example, suppose we roll a die. Each of the possible outcomes are mutually exclusive, so by rules 2 and 3,
 \[
@@ -105,7 +108,7 @@ There are a few other properties of sets that are useful to know.
 Using these properties and our rules for assigning probabilities, we can deduce a few more formulae. For example, $\prob(A^{c}\cup A) =  \prob(A^{c}) + \prob(A) = \prob(\Omega) = 1$; therefore, $\prob(A^{c}) = 1-\prob(A)$.  Likewise, we can show that $\prob(\emptyset)=0$.  
 Finally, we can show that if $A$ and $B$ are not mutually exclusive, but have some overlap, then
 \[ \prob(A\cup B) = \prob(A)+\prob(B) - \prob(A\cap B). \]
-We encountered an instance of this last rule in exercise~\ref{ex.card-deck}.
+We encountered an instance of this last rule in exercise~\ref{ex.card-deck}: $\prob(4\cup\spadesuit) = \prob(4)+\prob(\spadesuit) - \prob(4\cap\spadesuit)$.
 
 \begin{exercisebox}[Probability of two events that are not mutually exclusive]
 Suppose we draw 1 card from each of 2 decks.  Find the probability that at least one card is an ace, using the following two formulae:
@@ -115,21 +118,18 @@ Suppose we draw 1 card from each of 2 decks.  Find the probability that at least
 \prob(\textrm{``at least one ace''}) &=& 1-\prob(\textrm{``drawing no ace''}).
 \end{eqnarray*}
 \end{exercisebox}
-
-For an example of independent events,
-\[
- \prob(\textrm{``drawing a 4 and a $\spadesuit$''}) = \prob(4)\prob(\spadesuit) = \frac{1}{13}\frac{1}{4} = \frac{1}{52}.
- \]
  
-\newthought{Before continuing, we need to discuss techniques for handling large numbers of possible outcomes.} For example, suppose we want to put 5 people in a line. How many ways are there to do this?  For the first spot there are 5 choices.  After assigning this first spot, we move to the second for which there are 4 choices.  Proceeding along in this fashion, the number of possible arrangements is $P_{5} = 5\cdot4\cdot3\cdot2\cdot1 \equiv 5!$.\marginnote{The factorial fcn.\ is recursively defined by $m! = m\cdot(m-1)!$, with $0! = 1$, $1! = 1$.}
+\newthought{Before continuing, we need to discuss techniques for handling large numbers of possible outcomes.} For example, suppose we want to put 5 people in a line. How many ways are there to do this?  For the first spot there are 5 choices.  After assigning this first spot, we move to the second for which there are 4 choices.  Proceeding along in this fashion, the number of possible arrangements is $5\cdot4\cdot3\cdot2\cdot1 \equiv 5!$.\marginnote{The factorial fcn.\ is recursively defined by $m! = m\cdot(m-1)!$, with $0! = 1$, $1! = 1$.}
 
-Suppose we are not picking everything; for example, in our class of 32 we may wish to pick a president, vice-president, secretary, and treasurer. The number of possibilities is
+Suppose we are not picking everything; for example, in a class of 32 we may wish to select just 3 people for different jobs. The number of possibilities is
 \begin{equation}\label{e.permutation-class}
- P_{32} = 32\cdot31\cdot30\cdot29 = \frac{32\cdot31\cdot30\cdot29\cdot28\cdot\ldots\cdot 1}{28\cdot\ldots 1} = \frac{32!}{(32-4)!}.
+ P(32,3) = 32\cdot31\cdot30 = \frac{32\cdot31\cdot30\cdot29\cdot\ldots\cdot 1}{29\cdot\ldots 1} = \frac{32!}{(32-3)!}.
 \end{equation}
-Now suppose we aren't picking individuals for distinct offices, but just 4 individuals.  The order of how we pick is irrelevant---Autumn, Brook, Collin, and Dustin is the same as Brook, Dustin, Collin, and Autumn.  To avoid over-counting different arrangements, we divide $P_{32}$ from equation~(\ref{e.permutation-class}) by $4!$, giving
+Here $P(n,k)$ means we are picking $k$ items from a set of $n$ items.
+
+Now suppose we aren't picking individuals for distinct jobs, but just 3 individuals. In this case, the order of how we pick is irrelevant---Autumn, Brook, and Collin is the same as Brook, Collin, and Autumn.  To avoid over-counting different arrangements, we divide $P(32,3)$ from equation~(\ref{e.permutation-class}) by $3!$, giving
 \begin{equation}\label{e.combination-class}
-\textrm{``32 choose 4''} \equiv {32\choose4} \equiv \mathcal{C}^{32}_{4} = \frac{32!}{(32-4)!4!}.
+\textrm{``32 choose 3''} \equiv {32\choose3} \equiv \mathcal{C}^{32}_{3} = \frac{32!}{(32-3)!3!}.
 \end{equation}
 More formally, ${n\choose m}$ is the number of ways of choosing $m$ objects from a set of $n$, without regard to order.
 
@@ -137,7 +137,7 @@ One example you may have seen often is the expansion of a binomial.  For example
 \[
 	(a+b)^{5} = S_{5}a^{5}+S_{4}a^{4}b+S_{3}a^{3}b^{2}+S_{2}a^{2}b^{3}+S_{1}ab^{4}+S_{0}b^{5}.
 \]
-For $S_{5}$, there is only one way to get $a^{5}$: we must take one $a$ from each of the terms.  For $S_{4}$, we pick an $a$ from four of the terms, and a $b$ from the fifth. There are five ways to do this.  To get $S_{3}$, we must pick an $a$ from 3 of terms.  We don't care about order, so there are ${5\choose3} = 5!/(2!3!) = 5\cdot4\cdot3/(3\cdot2)=10$ ways to do this.  Our coefficients are therefore
+For $S_{5}$, there is only one way to get $a^{5}$: we must take one $a$ from each of the terms. As a result, $S_{5}=1$. For $S_{4}$, we pick an $a$ from four of the terms, and a $b$ from the fifth. There are five ways to do this, so $S_{5} =5$. To get $S_{3}$, we must pick an $a$ from 3 of terms.  We don't care about order, so there are ${5\choose3} = 5!/(2!3!) = 5\cdot4\cdot3/(3\cdot2)=10$ ways to do this. Following this line of reasoning, our coefficients are
 \begin{center}
 \begin{tabular}{rrl}
 $m$ & term 			& $S_{m}$\\
@@ -150,7 +150,7 @@ $m$ & term 			& $S_{m}$\\
 0	& $b^{5}$		& ${5\choose0}=1$\\
 \end{tabular}
 \end{center}
-and
+and so
 \[ (a+b)^{5} = a^{5}+5a^{4}b+10a^{3}b^{2}+10a^{2}b^{3}+5ab^{4}+b^{5}. \]
 
 These coefficients $n\choose m$ obey several neat recurrence relations. When we are picking our $m$ objects, we have a choice: to pick or not to pick the last item, item number $n$. If we pick the last item, then we must pick the remaining $m-1$ objects from the set $n-1$.  There are ${n-1\choose m-1}$ ways to do so.  If we do not pick the last item, then we must pick all $m$ objects from the set $n-1$. There are ${n-1\choose m}$ ways to do so.  The number of ways for both of these choices must add up to the total number of ways of picking $m$ from $n$:
@@ -179,18 +179,18 @@ Show that
 Then use this recurrence relation to derive ${6\choose m}, m=1,\ldots 6$, starting from ${6\choose 0} = 1$.
 \end{exercisebox}
 
-We now have enough machinery to compute the probability of drawing certain hands in poker.  To make this concrete, we insist on no wild cards.  If we draw 5 cards from a deck, there are
+\newthought{We now have enough machinery to compute the probability of drawing certain hands in poker.} To make this concrete, we insist on no wild cards.  If we draw 5 cards from a deck, there are
 \[
 {52\choose5} = \frac{52\cdot51\cdot50\cdot49\cdot48}{5\cdot4\cdot3\cdot2\cdot1} = 2\,598\,960 
 \]
-different possible hands. Suppose we want the probability of getting a full house (3 of a kind plus one pair; e.g., 3 eights and 2 kings)?  First, there are 13 possibilities for the 3 of a kind.  For each of those kinds, we pick 3 out of 4 cards. We then have 12 choices for the pair, and once we have that choice we'll pick 2 of 4 cards.  The number of such full house combinations is therefore
+different possible hands. What is the probability of getting a full house (3 of a kind plus one pair; e.g., 3 eights and 2 kings)? First, there are 13 possibilities for the 3 of a kind: we could have 3 ones, or 3 twos, or 3 jacks, and so on. Once we have the type of card for the 3 of a kind selected, there are 12 choices for the pair. For our 3 of a kind, there are 4 cards of that type in the deck, and we are selecting 3 of them. For our pair, we are only selecting 2 of the 4 possible cards. The number of such full house combinations is therefore
 \[
 	13\cdot{4\choose3}\cdot12\cdot{4\choose2} = 13\cdot 4\cdot12\cdot 6 = 3744
 \]
 and the probability of a full house is therefore $3744/2\,598\,960 = 0.0014$.
 
 \begin{exercisebox}[Probability of drawing a flush]
-What is the probability of drawing a flush (5 cards of the same suit)?
+What is the probability of drawing a flush (5 cards of the same suit)? To avoid complications, don't worry about whether the combination is a straight flush (cards are in numerical sequence) or a royal flush (cards are A,K,Q,J,10).
 \end{exercisebox}
 
 \section{A Probability Distribution: The Random Walk}
@@ -363,9 +363,11 @@ To derive this, assume that our time intervals $\dif t$ are sufficiently short t
 	\prob_{\mu}(N;t+\dif t) = (1-\mu\dif t)\prob_{\mu}(N;t) + \mu\dif t \prob_{\mu}(N-1;t).
 \]
 Rearranging terms and taking the limit $\dif t \to 0$,
-\begin{equation}\label{e.poisson-recursion}
-\DD{\prob_{\mu}(N;t)}{t} = \lim_{\dif t\to 0} \frac{\prob_{\mu}(N;t+\dif t)-\prob_{\mu}(N;t)}{\dif t} = \mu\left[\prob_{\mu}(N-1;t)-\prob_{\mu}(N;t)\right].
-\end{equation}
+\begin{eqnarray}
+\DD{\prob_{\mu}(N;t)}{t} &=& \lim_{\dif t\to 0} \frac{\prob_{\mu}(N;t+\dif t)-\prob_{\mu}(N;t)}{\dif t} \nonumber\\
+&=& \mu\left[\prob_{\mu}(N-1;t)-\prob_{\mu}(N;t)\right].
+\label{e.poisson-recursion}
+\end{eqnarray}
 The probability of getting no events in $t+\dif t$ is easier:
 \[ \prob_{\mu}(N=0;t+\dif t) = (1-\mu\dif t)\prob_{\mu}(N=0;t), \]
 with solution $\prob_{\mu}(N=0;t) = e^{-\mu t}$.  We fix the constant of integration by setting $\prob_{\mu}(N=0;t=0) = 1$.

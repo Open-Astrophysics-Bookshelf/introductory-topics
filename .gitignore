@@ -9,5 +9,5 @@ git-info.tex
 *.toc
 *.lof
 *.loe
-handout.pdf
+*-handout.pdf
 
