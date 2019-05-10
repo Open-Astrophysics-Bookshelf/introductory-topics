@@ -75,8 +75,61 @@ $(BASE).pdf: $(BASE).tex $(TEX_SRC) $(BIBS) $(FIGURES)
 	$(COMPILE) $(BASE).tex
 	$(COMPILE) $(BASE).tex
 
+coordinates-handout.pdf: coordinates-handout.tex
+	$(COMPILE) $?
+	$(COMPILE) $?
+	$(COMPILE) $?
+
+light-telescopes-handout.pdf: light-telescopes-handout.tex
+	$(COMPILE) $?
+	$(BIB) light-telescopes-handout.aux
+	$(COMPILE) $?
+	$(COMPILE) $?
+	$(COMPILE) $?
+		
+spectroscopy-handout.pdf: spectroscopy-handout.tex
+	$(COMPILE) $?
+	$(COMPILE) $?
+	$(COMPILE) $?
+
+detection-exoplanets-handout.pdf: detection-exoplanets-handout.tex
+	$(COMPILE) $?
+	$(COMPILE) $?
+	$(COMPILE) $?
+
+beyond-kepler-handout.pdf: beyond-kepler-handout.tex
+	$(COMPILE) $?
+	$(COMPILE) $?
+	$(COMPILE) $?
+
+planetary-atmospheres-handout.pdf: planetary-atmospheres-handout.tex
+	$(COMPILE) $?
+	$(BIB) planetary-atmospheres-handout.aux
+	$(COMPILE) $?
+	$(COMPILE) $?
+	$(COMPILE) $?
+
+constants-units-handout.pdf: constants-units-handout.tex
+	$(COMPILE) $?
+	$(COMPILE) $?
+	$(COMPILE) $?
+
+math-review-handout.pdf: math-review-handout.tex
+	$(COMPILE) $?
+	$(COMPILE) $?
+	$(COMPILE) $?
+
+statistics-handout.pdf: statistics-handout.tex
+	$(COMPILE) $?
+	$(BIB) statistics-handout.aux
+	$(COMPILE) $?
+	$(COMPILE) $?
+	$(COMPILE) $?		
+
+handouts: coordinates-handout.pdf light-telescopes-handout.pdf spectroscopy-handout.pdf detection-exoplanets-handout.pdf beyond-kepler-handout.pdf planetary-atmospheres-handout.pdf constants-units-handout.pdf math-review-handout.pdf statistics-handout.pdf
+
 clean:
 	$(RM) *.aux *.log *.dvi *.bbl *.blg *.toc *.lof *.loe *.log *.synctex* *.out
 
 realclean: clean
-	$(RM) $(BASE).pdf
+	$(RM) $(BASE).pdf *-handout.pdf

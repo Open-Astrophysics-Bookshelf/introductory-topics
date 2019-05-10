@@ -29,9 +29,9 @@ backmatter=r'''
 '''
 
 titles = {
-	"coordinates":"Coordinates: Specifying Locations on the Sky",
+    "coordinates":"Coordinates: Specifying Locations on the Sky",
     "light-telescopes":"Light and Telescopes",
-	"spectroscopy":"Spectroscopy",
+    "spectroscopy":"Spectroscopy",
     "detection-exoplanets":"Detection of Exoplanets",
     "beyond-kepler":"Beyond Kepler's Laws",
     "planetary-atmospheres":"Planetary Atmospheres",
