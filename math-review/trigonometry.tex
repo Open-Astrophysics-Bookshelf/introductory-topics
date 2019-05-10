@@ -3,7 +3,7 @@
 
 \subsection{Definitions in terms of the unit circle}
 
-You may remember that in high school you memorized the definitions of the sine, cosine, and tangent of an angle in a right triangle.  The $\sin x$ is the ratio of the side of the triangle opposite the angle $x$ to the hypotenuse; the $\cos x$ is the ratio of the side adjacent the angle $x$ to the hypotenuse; and the $\tan x$ is the ratio of the side opposite the angle $x$ to the side adjacent the angle $x$. A useful mnemonic is \allcaps{soh-cah-toa}: Sine-Opposite-Hypotenuse --- Cosine-Adjacent-Hypotenuse --- Tangent-Opposite-Adjacent.
+You may remember memorizing the definitions of the sine, cosine, and tangent of an angle in a right triangle. The $\sin x$ is the ratio of the side of the triangle opposite the angle $x$ to the hypotenuse; the $\cos x$ is the ratio of the side adjacent the angle $x$ to the hypotenuse; and the $\tan x$ is the ratio of the side opposite the angle $x$ to the side adjacent the angle $x$. A useful mnemonic is \allcaps{soh-cah-toa}: Sine-Opposite-Hypotenuse --- Cosine-Adjacent-Hypotenuse --- Tangent-Opposite-Adjacent.
 
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{high-school-triangle}
@@ -59,7 +59,7 @@ Further, one can show\cite{Courant1996What-is-Mathema} that
 
 \subsection{Trigonometric addition formulae}
 
-To develop the formulae for $\sin(x+y)$ and $\cos(x+y)$, consider the schematic in Figure~\ref{f.trig-addition}. The grey arc is again a segment of a unit circle. The length of $OF$ is $\cos(x+y)$ and the length of $CF$ is $\sin(x+y)$.  By construction, $CE = \sin y$ and $OE = \cos y$.
+To develop the formulae for $\sin(x+y)$ and $\cos(x+y)$, consider the schematic in Figure~\ref{f.trig-addition}. Here both OA and OC have unit length. The length of $OF$ is $\cos(x+y)$ and the length of $CF$ is $\sin(x+y)$.  By construction, $CE = \sin y$ and $OE = \cos y$.
 
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{trig-addition}
@@ -87,7 +87,7 @@ We can now use equations (\ref{e.lim-sine}), (\ref{e.lim-cosine}), (\ref{e.sine-
 \begin{eqnarray}
 	\DDx{\sin x} &=& \lim_{h\to 0}\frac{\sin(x+h)-\sin x}{h}\nonumber\\
 		&=& \lim_{h\to 0}\frac{\sin x\cos h + \cos x \sin h - \sin x}{h}\nonumber\\
-		&=& \cos x. \label{e.dsin}
+		&=& \lim_{h\to0}\left(\cos x\frac{\sin h}{h} + \sin x\frac{\cos h-1}{h}\right) = \cos x. \label{e.dsin}
 \end{eqnarray}
 Likewise,
 \begin{eqnarray}
@@ -96,20 +96,6 @@ Likewise,
 		&=& -\sin x. \label{e.dcos}
 \end{eqnarray}
 The formulae for the derivatives of the tangent, cotangent, secant, and cosecant can be derived by using the chain rule on equations~(\ref{e.tan})--(\ref{e.cot}).
-
-\newthought{For a continuously differentiable function $f(x)$}, Taylor's theorem allows us to expand the function at  a point $x_{0}+h$ as a series in powers of $h$,
-\[ f(x_{0}+h) = f(x_{0}) + \left.\DDx{f}\right|_{x_{0}} h + \frac{1}{2}\left.\frac{\dif^{2}f}{\dif x^{2}}\right|_{x_{0}} h^{2} + \frac{1}{3\cdot 2}\left.\frac{\dif^{3} f}{\dif x^{3}} \right|_{x_{0}} h^{3} + \ldots
-\]
-See \S~\ref{s.taylor-expansion} for details.
-
-Applying this expansion to $\sin x$ and $\cos x$ about the point $x_{0} = 0$, we have to order $h^{2}$,
-\begin{eqnarray}
-	\sin h = \sin(0) + \cos(0)h - \frac{1}{2}\sin(0) h^{2} + \ldots 
-		\approx h,\label{e.Taylor-sine}\\
-	\cos h = \cos(0) - \sin(0) h - \frac{1}{2} \cos(0) h^{2} + \ldots
-		\approx 1-\frac{h^{2}}{2}\label{e.Taylor-cosine}
-\end{eqnarray}
-since $\sin(0) = 0$, $\cos(0) = 1$.
 
 \section{The Taylor Expansion}\label{s.taylor-expansion}
 Suppose we wish to approximate a function $f(x)$ in the neighborhood of some point $x_{0}$ by a power series.  That it, we wish to write for some $h \ll 1$,
@@ -133,3 +119,18 @@ Thus our expansion out to the term in $h^{2}$ is
  f(x_{0}+h) = f(x_{0}) + \left.\DDx{f(x)}\right|_{x=x_{0}} h + \frac{1}{2}\left.\frac{\dif^{2}f(x)}{\dif x^{2}}\right|_{x=x_{0}} h^{2} + \mathcal{O}(h^{3}).
 \]
 Here the expressions $\mathcal{O}(h^{3})$ means that the remaining terms are of the same size as $h^{3}$.
+
+%\newthought{For a continuously differentiable function $f(x)$}, Taylor's theorem allows us to expand the function at  a point $x_{0}+h$ as a series in powers of $h$,
+%\[ f(x_{0}+h) = f(x_{0}) + \left.\DDx{f}\right|_{x_{0}} h + \frac{1}{2}\left.\frac{\dif^{2}f}{\dif x^{2}}\right|_{x_{0}} h^{2} + \frac{1}{3\cdot 2}\left.\frac{\dif^{3} f}{\dif x^{3}} \right|_{x_{0}} h^{3} + \ldots
+%\]
+%See \S~\ref{s.taylor-expansion} for details.
+
+Applying this expansion to $\sin x$ and $\cos x$ about the point $x_{0} = 0$, we have to order $h^{2}$,
+\begin{eqnarray}
+	\sin h = \sin(0) + \cos(0)h - \frac{1}{2}\sin(0) h^{2} + \ldots 
+		\approx h,\label{e.Taylor-sine}\\
+	\cos h = \cos(0) - \sin(0) h - \frac{1}{2} \cos(0) h^{2} + \ldots
+		\approx 1-\frac{h^{2}}{2}\label{e.Taylor-cosine}
+\end{eqnarray}
+since $\sin(0) = 0$, $\cos(0) = 1$.
+

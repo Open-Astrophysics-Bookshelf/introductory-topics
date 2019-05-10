@@ -40,7 +40,7 @@ When we say ``$A$ or $B$'' we mean ``$A$ or $B$ or both'' and denote this by $A\
 Finally, when we say ``$A$ and $B$'' we write $A\cap B$ (Fig.~\ref{f.set-4}).  If ``$A$ and $B$ are mutually exclusive'' then we write $A\cap B =\emptyset$ and we say that the sets are 
 \emph{disjoint}, like $A$ and $B$ in Fig.~\ref{f.set-1}.
 
-For example, if we roll two dice, there are $6\times 6 = 36$ possible outcomes. This is our sample space.  How many events are there for which the sum of the two dice is a seven?  There are six such possibilities: $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}$. Let's call this event, rolling a sum of seven, event $A$. Now denote by event $B$ those rolls in which at least one die is a 2 (how many possibilities are there for event $B$?); then $A\cap B = \{(2,5),(5,2)\}$. 
+For example, if we roll two dice, there are $6\times 6 = 36$ possible outcomes. This is our sample space. Suppose we wish to have the sum of our two dice be seven; we'll call this event $A$. There are six such possibilities for event $A$: $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}$. Now denote by event $B$ those rolls in which at least one die is a 2 (how many possibilities are there for event $B$?); then $A\cap B = \{(2,5),(5,2)\}$. Suppose event $C$ is rolling a sum of 11, for which there are two possibilities: $\{(5,6),(6,5)\}$. In this case, $C\cap B = \emptyset$.
 
 \begin{exercisebox}[Probability of various draws from a deck of cards]
 We have a deck of cards consisting of 4 suits ($\clubsuit$, $\diamondsuit$, $\heartsuit$, $\spadesuit$) with 13 cards per suit (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K).  Suppose we draw one card.  There are $13\times 4=52$ possible outcomes.
@@ -76,19 +76,19 @@ We have a deck of cards consisting of 4 suits ($\clubsuit$, $\diamondsuit$, $\he
 
 \newthought{A probability is a rule} that assigns a number $\prob(A)$ to an event $A$ and obeys the following conditions:
 \begin{enumerate}
-\item $0\le\prob(A) \le 1$
-\item $\prob(\Omega) = 1$
-\item For a set of disjoint (mutually exclusive) events\sidenote[][\baselineskip]{We'll need to be careful when we deal with continuous, rather than discrete, sets.} $\{A_{i}\}$,
+\item\label{prob.range} $0\le\prob(A) \le 1$
+\item\label{prob.complete} $\prob(\Omega) = 1$
+\item\label{prob.disjoint} For a set of disjoint (mutually exclusive) events\sidenote[][\baselineskip]{We'll need to be careful when we deal with continuous, rather than discrete, sets.} $\{A_{i}\}$,
 \begin{eqnarray*}
  \prob\left(\cup_{i}A_{i}\right) &=& \sum_{i}\prob(A_{i}):\\
  \prob\left(A_{1}\cup A_{2}\cup\ldots\cup A_{N}\right) &=&
  	\prob(A_{1})+\prob(A_{2}) +\ldots+\prob(A_{N}).
 \end{eqnarray*}
-\item If $A$ and $B$ are independent---meaning that the outcome of $A$ has no influence on the outcome of $B$, and vice versa---then the probability of both events occurring is $\prob(A\cap B) = \prob(A)\prob(B)$.
+\item\label{prob.independent} If $A$ and $B$ are independent---meaning that the outcome of $A$ has no influence on the outcome of $B$, and vice versa---then the probability of both events occurring is $\prob(A\cap B) = \prob(A)\prob(B)$.
 \end{enumerate}
 For an example of independent events,
 \[
- \prob(\textrm{``drawing a 4 and a $\spadesuit$''}) = \prob(4)\prob(\spadesuit) = \frac{1}{13}\frac{1}{4} = \frac{1}{52}.
+ \prob(\textrm{``drawing a 4 and a $\spadesuit$''}) = \prob(4\cap\spadesuit) = \prob(4)\prob(\spadesuit) = \frac{1}{13}\frac{1}{4} = \frac{1}{52}.
  \]
 As another example, suppose we roll a die. Each of the possible outcomes are mutually exclusive, so by rules 2 and 3,
 \[
@@ -118,7 +118,7 @@ Suppose we draw 1 card from each of 2 decks.  Find the probability that at least
 \end{eqnarray*}
 \end{exercisebox}
  
-\newthought{Before continuing, we need to discuss techniques for handling large numbers of possible outcomes.} For example, suppose we want to put 5 people in a line. How many ways are there to do this?  For the first spot there are 5 choices.  After assigning this first spot, we move to the second for which there are 4 choices.  Proceeding along in this fashion, the number of possible arrangements is $5\cdot4\cdot3\cdot2\cdot1 \equiv 5!$.\marginnote{The factorial fcn.\ is recursively defined by $m! = m\cdot(m-1)!$, with $0! = 1$, $1! = 1$.}
+\newthought{Before continuing, we need to discuss techniques for handling large numbers of possible outcomes.} For example, suppose we want to put 5 people in a line. How many ways are there to do this?  For the first spot there are 5 choices.  After assigning this first spot, we move to the second for which there are now 4 choices. Proceeding along in this fashion, the number of possible arrangements is $5\cdot4\cdot3\cdot2\cdot1 \equiv 5!$.\marginnote{The factorial fcn.\ is recursively defined by $m! = m\cdot(m-1)!$, with $0! = 1$, $1! = 1$.}
 
 Suppose we are not picking everything in our set; for example, in a class of 32 we may wish to select just 3 people for different jobs. The number of possibilities is
 \begin{equation}\label{e.permutation-class}
@@ -186,34 +186,43 @@ different possible hands. What is the probability of getting a full house (3 of 
 \[
 	13\cdot{4\choose3}\cdot12\cdot{4\choose2} = 13\cdot 4\cdot12\cdot 6 = 3744
 \]
-and the probability of a full house is therefore $3744/2\,598\,960 = 0.0014$.
+and the probability of drawing a full house is therefore $3744/2\,598\,960 = 0.0014$.
+
+What is the probability of getting two pair (e.g., 2 eights, 2 sixes, and a random card)? First, we have to select two types of cards for our pairs. Unlike in the full house, the order is unimportant: 2 eights and 2 sixes is the same as 2 sixes and 2 eights. We therefore choose 2 types of cards out of 13 possible, ${13\choose 2}$, for our pairs. For each pair, we are picking 2 of the 4 possible cards. After doing this, there are 11 possibilities for the remaining card, and for each type there are 4 suits. Thus the number of two pair combinations is
+\[
+	{13\choose 2}\cdot{4\choose 2}^{2}\cdot11\cdot4 = 123\,552
+\]
+and the probability of drawing two pair is therefore $123\,552/2\,598\,960 = 0.0475$.
 
 \begin{exercisebox}[Probability of drawing a flush]
 What is the probability of drawing a flush (5 cards of the same suit)? To avoid complications, don't worry about whether the combination is a straight flush (cards are in numerical sequence) or a royal flush (cards are A,K,Q,J,10).
 \end{exercisebox}
 
 \section{A Probability Distribution: The Random Walk}
-We are now ready to tackle a problem that occurs frequently in physics, e.g., when modeling molecular motion: the random walk.  Imagine a person who flips a coin before each step---heads to go right, tails to go left.  On average, this person doesn't go anywhere, but from experience you know that sometimes you will get several heads or tails in a row; you wouldn't want to try this random walk if you were a few steps from the edge of a cliff!
+We are now ready to tackle a problem that occurs frequently in physics\sidenote{For example, when modeling molecular motion}: the random walk.  Imagine a person who flips a coin before each step---heads to go right, tails to go left.  On average, this person doesn't go anywhere, but from experience you know that sometimes you will get several heads or tails in a row; you wouldn't want to try this random walk if you were a few steps from the edge of a cliff!
 
-To formulate this problem, call the probability to go right $p$; the probability to go left is then $(1-p)$.  We wish to find the probability $\binom{n}{m}{p}$ that after $n$ steps, $m$ will have been to the right and $(n-m)$ to the left, for a net displacement $m-(n-m) = 2m-n$ steps.
-\marginnote{A positive distance means to the right; negative, to the left.}
-Clearly $\binom{n}{m}{p} = 0$ for $m>n$ or $m<0$.  Since each step is independent of the others, the probability for a specific sequence, e.g., RRLRLLRRRL, is
-\begin{equation}\label{e.one-sequence}
-	\prob_{n}(RRLRLLRRRL) = p^{6}(1-p)^{4}
-\end{equation}
-since there were 6 steps to the right and 4 to the left.  Of course, any sequence of 6 steps to the right and 4 steps to the left has the same probability, so to get the total probability $\prob_{10}(6)$ of having 6 steps out of ten be to the right, we must multiply $p^{6}(1-p)^{4}$ by the number of ways of picking $6$ steps out of $10$ total, which is just $10\choose6$.  More generally, the probability of taking $m$ steps out of $n$ to the right, with each step having a probability $p$ to be to the right, is
+We wish to find the probability $\binom{n}{m}{p}$ that after $n$ steps, $m$ will have been to the right and $(n-m)$ to the left, for a net displacement $m-(n-m) = 2m-n$ steps\sidenote{A positive distance means to the right; negative, to the left.}.
+To formulate this problem, call the probability to go right $p$; the probability to go left is then $(1-p)$.
+Clearly $\binom{n}{m}{p} = 0$ for $m>n$ or $m<0$. Since each step is independent of the others, we can use rule \ref{prob.independent} to obtain the probability for a specific sequence, e.g., RRLRLLRRRL:
+\begin{eqnarray}
+	\lefteqn{\prob_{n}(RRLRLLRRRL) } \nonumber\\
+	&=& p\cdot p\cdot(1-p)\cdot p\cdot(1-p)\cdot(1-p)\cdot p\cdot p\cdot p\cdot(1-p) \nonumber\\
+	&=& p^{6}(1-p)^{4}
+\label{e.one-sequence},
+\end{eqnarray}
+since there were 6 steps to the right and 4 to the left. Of course, any sequence of 6 steps to the right and 4 steps to the left has the same probability, so to get the total probability $\prob_{10}(6)$ of having 6 steps out of ten be to the right, we must multiply $p^{6}(1-p)^{4}$ by the number of ways of picking $6$ steps out of $10$ total, which is just $10\choose6$.  More generally, the probability of taking $m$ steps out of $n$ to the right, with each step having a probability $p$ to be to the right, is
 \begin{equation}\label{e.binomial}
 	\binom{n}{m}{p} = {n\choose m} p^{m}(1-p)^{n-m}.
 \end{equation}
 This function $\binom{n}{m}{p}$ is called the \emph{binomial distribution}.
 
-For example, suppose you flip a coin 20 times.  What is the probability of getting exactly 10 heads?
+For example, suppose you flip a coin 20 times.  What is the probability of getting exactly 10 heads, assuming even odds for heads:tails?
 \[
-	\textrm{Answer:}\quad\prob_{20}(10) = {20\choose10} \left(\frac{1}{2}\right)^{20} = 0.176.
+	\textrm{Answer:}\quad\binom{20}{10}{\frac{1}{2}} = {20\choose10} \left(\frac{1}{2}\right)^{20} = 0.176.
 \]
 \begin{exercisebox}[Probability distribution for a coin flip]
 \label{e.prob-distribution}
-Compute $\prob_{20}(m)$ for $m = 0\ldots20$ and $p= 1/2$.  What is the probability of getting 9, 10, or 11 heads?  What is the probability of getting between 7 and 13 heads?
+Compute $\binom{20}{m}{\frac{1}{2}}$ for $m = 0\ldots20$.  What is the probability of getting 9, 10, or 11 heads?  What is the probability of getting between 7 and 13 heads?
 \end{exercisebox}
 
 Of course, as the next exercise illustrates, this probability distribution occurs in many contexts, not just in the context of flipping coins or staggering home.
@@ -225,7 +234,7 @@ A student takes an exam with 10 multiple choice questions, each with 4 possible 
 \section{Describing the distribution}
 \subsection{The mean}
 
-You are probably familiar with taking a simple average of a set of numbers: do a sum over the set and divide by the number of items in the set.  A related quantity for a probability distribution is the \emph{mean},
+You are probably familiar with taking a simple average of a set of numbers: sum over the set and divide by the number of items in the set.  A related quantity for a probability distribution is the \emph{mean},
 \marginnote{More formally, we can define taking the moment of a distribution with respect to a function $f(x)$ as
 \[ \mean{f(x)} = \sum f(x)\prob(x). \]
 In general, $\mean{f(x)} \ne f(\mean{x})$.}
@@ -296,7 +305,7 @@ Notice that although the width of the distribution increases with $n$, the ratio
 
 \section{The Poisson distribution}
 
-A limiting case that comes up often is when $p$ is very small, but $n$ is large.  For example, suppose we are receiving X-rays from a dim source with a photon countrate $\val{36}{\hour^{-1}}$; that is, in one hour we receive on average just 36 photons.  In any given second the probability of receiving a photon is $\val{36}{\hour^{-1}}\times \val{1}{\hour}/\val{3600}{\second} = \val{0.01}{\second^{-1}}$.  If we point our detector at the source for $\val{500}{\second}$, however, we can expect to receive on average $\lambda = \val{500}{\second}\times\val{0.01}{\second^{-1}} = 5$ photons.
+A common limiting case is to have a very small $p$ and a very large $n$. For example, suppose we are receiving X-rays from a dim source with a photon countrate $\val{36}{\hour^{-1}}$; that is, in one hour we receive on average just 36 photons.  In any given second the probability of receiving a photon is $\val{36}{\hour^{-1}}\times \val{1}{\hour}/\val{3600}{\second}\times \val{1}{\second} = 0.01$.  If we point our detector at the source for $\val{500}{\second}$, however, we can expect to receive on average $\lambda = \val{500}{\second}\times\val{0.01}{\second^{-1}} = 5$ photons.
 
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{Poisson}
@@ -304,22 +313,21 @@ A limiting case that comes up often is when $p$ is very small, but $n$ is large.
 \label{f.Poisson}
 \end{marginfigure}
 
-
 If we take the binomial distribution, eq.~(\ref{e.binomial}), in the limit of $p\ll 1$ while holding $Np=\lambda=\mathrm{const.}$, we obtain the \emph{Poisson distribution}:
 \begin{equation}\label{e.Poisson}
 	\prob(m,\lambda) = \frac{\lambda^{m}}{m!}e^{-\lambda}.
 \end{equation}
-Thus in our example, if we have an average photon countrate of $\val{36}{\hour^{-1}}$ and we stare at our source for $\val{500}{\second}$, then $\lambda = 5$ is our expected number of photons, and $\prob(3,\lambda)$ would be the probability of receiving 3 photons in that time.
+Thus in our example, if we have an average photon countrate of $\val{36}{\hour^{-1}} = \val{0.01}{\second^{-1}}$ and we stare at our source for $\val{500}{\second}$, then $\lambda = 5$ is our expected number of photons, and $\prob(3,\lambda)$ would be the probability of receiving 3 photons in that time.
 
 Not surprisingly, the mean number of events $\mean{m}$ is
-\marginnote{Recall the expansion
-\[ e^{\lambda} = \sum_{m=0}^{\infty}\frac{\lambda^{m}}{m!}. \]
-}
 \begin{eqnarray*}
 	\mean{m} &=& \sum_{m=0}^{\infty} m \frac{\lambda^{m}}{m!}e^{-\lambda}\\
 		&=& e^{-\lambda} \lambda \DD{}{\lambda}\sum_{m=0}^{\infty} \frac{\lambda^{m}}{m!}\\
 		&=& \lambda.
 \end{eqnarray*}
+\marginnote[-3\baselineskip]{Recall the expansion
+\[ e^{\lambda} = \sum_{m=0}^{\infty}\frac{\lambda^{m}}{m!}. \]
+}
 The standard deviation is
 \begin{eqnarray*}
 	\sigma = \sqrt{\mean{\left(m-\mean{m}\right)^{2}}} = \sqrt{\mean{m^{2}}-\mean{m}^{2}}
@@ -355,9 +363,9 @@ This matches the observed distribution well, and the pattern of hits is therefor
 
 \section{An alternate derivation of the Poisson distribution}
 \marginnote{This section is not essential and can be omitted}
-Another probability distribution occurs in situations where the probability of an individual event $p$ is very small but there are a large number of trials.  In astronomy, this comes up frequently in looking at some sources in X- or $\gamma$-rays: the probability of receiving a single photon in any given second is small, but over a long period of time (several thousands of seconds, e.g.) there will be a sizable number of photons collected.  What is the probability of receiving $N$ photons in a given time interval?
+The Poisson distribution is frequently encountered when observing in X- or $\gamma$-rays: the probability of receiving a single photon in any given second is small, but over a long period of time (several thousands of seconds, e.g.) there will be a sizable number of photons collected.  What is the probability of receiving $N$ photons in a given time interval? In this case, we can derive the Poisson distribution independently from the binomial distribution.
 
-To derive this, assume that our time intervals $\dif t$ are sufficiently short that the chance of receiving more than one photon in $\dif t$ is negligible.  Then in $\dif t$ we either receive one photon with probability $\mu\dif t \ll 1$ or we receive no photons with probability $(1-\mu)\dif t$.  Let us take $\mu$ to be a constant, and assume that non-overlapping intervals of time are statistically independent---that is, the chance of receiving a photon in a given interval doesn't depend on what happened in the previous interval.  Then there are two ways to receive $N$ photons in a time $t+\dif t$: we can receive $N$ photons in a time $t$ and no photons in the interval $(t,t+\dif t)$; or we can receive $N-1$ photons in a time $t$ and one photon in the interval $(t,t+\dif t)$.  The probability of receiving $N$ photons in a time $t+\dif t$ is the sum of the probabilities of these two scenarios,
+To do so, assume that our time intervals $\dif t$ are sufficiently short that the chance of receiving more than one photon in $\dif t$ is negligible.  Then in $\dif t$ we either receive one photon with probability $\mu\dif t \ll 1$ or we receive no photons with probability $(1-\mu)\dif t$.  Let us take $\mu$ to be a constant, and assume that non-overlapping intervals of time are statistically independent---that is, the chance of receiving a photon in a given interval doesn't depend on what happened in the previous interval.  Then there are two ways to receive $N$ photons in a time $t+\dif t$: we can receive $N$ photons in a time $t$ and no photons in the interval $(t,t+\dif t)$; or we can receive $N-1$ photons in a time $t$ and one photon in the interval $(t,t+\dif t)$.  The probability of receiving $N$ photons in a time $t+\dif t$ is the sum of the probabilities of these two scenarios,
 \[
 	\prob_{\mu}(N;t+\dif t) = (1-\mu\dif t)\prob_{\mu}(N;t) + \mu\dif t \prob_{\mu}(N-1;t).
 \]
@@ -369,9 +377,11 @@ Rearranging terms and taking the limit $\dif t \to 0$,
 \end{eqnarray}
 The probability of getting no events in $t+\dif t$ is easier:
 \[ \prob_{\mu}(N=0;t+\dif t) = (1-\mu\dif t)\prob_{\mu}(N=0;t), \]
+so
+\[ \DD{\prob_{\mu}(0;t)}{t} = -\mu\prob_{\mu}(0;t) \]
 with solution $\prob_{\mu}(N=0;t) = e^{-\mu t}$.  We fix the constant of integration by setting $\prob_{\mu}(N=0;t=0) = 1$.
 
-Once we have $\prob_{\mu}(N=0;t)$, we can solve the differential equation~(\ref{e.poisson-recursion}) for $\prob_{\mu}(N=1;t)$,
+Now that we have $\prob_{\mu}(N=0;t) = e^{-\mu t}$, we can solve the differential equation~(\ref{e.poisson-recursion}) for $\prob_{\mu}(N=1;t)$,
 \[ \DD{\prob_{\mu}(N=1;t)}{t} = \mu\left[e^{-\mu t} - \prob_{\mu}(N=1;t)\right], \]
 with solution $\prob_{\mu}(N=1;t) = (\mu t)e^{-\mu t}$, as you can verify.  We can then find a solution for $\prob_{\mu}(N=2;t)$ and continue in that fashion to find the \emph{Poisson distribution}:
 \begin{equation}\label{e.Poisson-alt}
@@ -394,7 +404,7 @@ Although the formal proof is beyond the scope of the course, it can be shown tha
 \begin{equation}\label{e.gaussian}
 p(x; \mu,\sigma) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left[-\frac{\left(x-\mu\right)^{2}}{2\sigma^{2}}\right];
 \end{equation}
-for this random walk with steps of average length $\mean{s}$, $\mu = (2\mean{m}-n)\mean{s}$ and $\sigma  \propto \sqrt{n}\mean{s}$.  This distribution is known as the normal, or gaussian, probability distribution.  The factor $1/(\sqrt{2\pi}\sigma)$ ensures that the probability has the correct normalization,
+for this random walk with steps of average length $\mean{s}$, $\mu = (2\mean{m}-n)\mean{s}$ and $\sigma  \propto \sqrt{n}\mean{s}$.  This distribution is known as the normal, or Gaussian, probability distribution.  The factor $1/(\sqrt{2\pi}\sigma)$ ensures that the probability has the correct normalization,
 \marginnote{Recall that
 \[ \int_{-\infty}^{\infty} e^{-\beta x^{2}}\,\dif x = \sqrt{\frac{\pi}{\beta}}.\]
 }
@@ -531,19 +541,17 @@ and the width $\sigma_{f}^{2}$ is
 		\left.\dd{f}{x_{i}}\right|_{x=\mu_{i}} (x_{i}-\mu_{i})\right]^{2}\right\rangle .
 \]
 We then expand the square of the term in $\left[\,\right]$ to obtain
-%\begin{fullwidth}
 \begin{eqnarray}
 	\lefteqn{\left\langle\sum_{i=1}^{N}\left(\dd{f}{x_{i}}\right)^{2}
 			\left(x_{i}-\mu_{i}\right)^{2}
 		+ \sum_{i\neq j} \dd{f}{x_{i}}\dd{f}{x_{j}} 
-			\left(x_{i}-\mu_{i}\right)\left(x_{j}-\mu_{j}\right)\right\rangle =} \nonumber\\
-	&& \sum_{i=1}^{N} \left(\dd{f}{x_{i}}\right)^{2}
-		\left\langle\left(x_{i}-\mu_{i}\right)^{2}\right\rangle 
-	 + \sum_{i\neq j} \dd{f}{x_{i}}\dd{f}{x_{j}} 
+			\left(x_{i}-\mu_{i}\right)\left(x_{j}-\mu_{j}\right)\right\rangle} \nonumber\\
+	&=& \sum_{i=1}^{N} \left(\dd{f}{x_{i}}\right)^{2}
+		\left\langle\left(x_{i}-\mu_{i}\right)^{2}\right\rangle \nonumber\\
+	 && + \sum_{i\neq j} \dd{f}{x_{i}}\dd{f}{x_{j}} 
 			\left\langle\left(x_{i}-\mu_{i}\right)\left(x_{j}-\mu_{j}\right)\right\rangle .
 \label{e.width-expanded}
 \end{eqnarray}
-%\end{fullwidth}
 Now, if the variables $x_{i}$ are completely independent, then
 \[ \left\langle\left(x_{i}-\mu_{i}\right)\left(x_{j}-\mu_{j}\right)\right\rangle
 	= 	\left\langle\left(x_{i}-\mu_{i}\right)\right\rangle
@@ -554,8 +562,9 @@ and therefore
 \sigma_{f}^{2} = \langle\left(f-\langle f\rangle\right)^{2}\rangle 
 	= \sum_{i=1}^{N} \left(\dd{f}{x_{i}}\right)^{2} \sigma_{i}^{2}
 \end{equation}
-This is an important result: it tells us how to propagate uncertainties.  To go back to our example, suppose we measure the length $L$, width $W$, and height $H$ of a block with associated uncertainties $\sigma_L$, $\sigma_W$, and $\sigma_H$.  The uncertainty in our volume is then
-\marginnote{We use the relation $\partial V/\partial L = W\times H = V/L$, and so on for the derivatives w.r.t.\ $W$ and $H$.}
+This is an important result: it tells us how to propagate uncertainties.  To go back to our example, suppose we measure the length $L$, width $W$, and height $H$ of a block with associated uncertainties $\sigma_L$, $\sigma_W$, and $\sigma_H$.
+The uncertainty in our volume is then\marginnote{%
+We use the relation $\partial V/\partial L = W\times H = V/L$, and so on for the derivatives w.r.t.\ $W$ and $H$.}
 \begin{equation}\label{e.uncertainty-volume}
 	\sigma_{V}^{2} = \left(\frac{V}{L}\right)^{2}\sigma_{L}^{2}
 		+ \left(\frac{V}{W}\right)^{2}\sigma_{W}^{2}
@@ -570,7 +579,7 @@ or
 Using equation~(\ref{e.propagation-uncertainities}) we can derive general rules for propagating uncertainties.
 
 \begin{exercisebox}[Propagation of uncertainties]
-Demonstrate the following relations.  In these equations, $x$ and $y$ are independent random variables, and $a$ and $b$ are constants.
+Demonstrate the following rules for propagating uncertainties. In these equations, $x$ and $y$ are independent random variables, and $a$ and $b$ are constants.
 \begin{enumerate}
 \item For $f = ax + by$, show that 
 \[ \sigma_{f} = \sqrt{ a^{2}\sigma_{x}^{2} + b^{2}\sigma_{y}^{2}}. \]
@@ -582,11 +591,11 @@ Demonstrate the following relations.  In these equations, $x$ and $y$ are indepe
 \end{enumerate}
 \end{exercisebox}
 
-\newthought{An interesting special case of equation~(\ref{e.propagation-uncertainities}) is when we make a number of repeated measurements $x_{i}, i=1,\ldots,N$ and} 
-\[ f = \frac{1}{N}\sum_{i=1}^{N}x_{i} = \langle x\rangle, \]
-that is, $f$ is the average of our measurements.  Since each measurement has the same uncertainty $\sigma$, the uncertainty in our average---the error in the mean---is
+\newthought{An interesting special case of equation~(\ref{e.propagation-uncertainities})} is when we make a number of repeated measurements $x_{i}, i=1,\ldots,N$ and we wish to compute their average
+\[ \bar{x} = \frac{1}{N}\sum_{i=1}^{N}x_{i} . \]
+Since each measurement has the same uncertainty $\sigma$, the uncertainty in our average---the \newterm{error in the mean}---is
 \begin{equation}\label{e.error-mean}
- \sigma_{\langle x\rangle} = \frac{1}{N}\sqrt{\sum_{i=1}^{N}\sigma^{2}}
+ \sigma_{\bar{x}} = \frac{1}{N}\sqrt{\sum_{i=1}^{N}\sigma^{2}}
  	= \frac{1}{N}\sqrt{N\sigma^{2}}
   = \frac{\sigma}{\sqrt{N}}.
 \end{equation}
