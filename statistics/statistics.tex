@@ -313,7 +313,15 @@ A common limiting case is to have a very small $p$ and a very large $n$. For exa
 \label{f.Poisson}
 \end{marginfigure}
 
-If we take the binomial distribution, eq.~(\ref{e.binomial}), in the limit of $p\ll 1$ while holding $Np=\lambda=\mathrm{const.}$, we obtain the \emph{Poisson distribution}:
+Let's take the binomial distribution, eq.~(\ref{e.binomial}), in the limit of $p\ll 1$ while holding $Np=\lambda=\mathrm{const.}$, so that $N = \lambda/p \gg 1$:
+\begin{eqnarray*}
+	\lefteqn{\lim_{p\to 0,Np\to\lambda}\binom{n}{m}{p}}\\
+	 &=& \lim_{p\to 0,Np\to\lambda} \frac{N!}{(N-m)!m!} p^{m} (1-p)^{N-m}\\
+	&=& \lim_{p\to 0,Np\to\lambda} \frac{\overbrace{N(N-1)\ldots(N-m+1)}^{\textrm{$m$ terms}}}{m!}p^{m}\frac{(1-\lambda/N)^{N}}{(1-p)^{m}}\\
+	&=& \lim_{p\to 0,Np\to\lambda} \frac{(Np)^{m}}{m!}\left[\left(1-\frac{1}{N}\right)\ldots\left(1-\frac{m-1}{N}\right)\right]\frac{(1-\lambda/N)^{N}}{(1-p)^{m}}\\
+	&=& \frac{\lambda^{m}}{m!}\lim_{N\to\infty}\left(1-\frac{\lambda}{N}\right)^{N}.
+\end{eqnarray*}
+Recognizing that the last term is just $e^{-\lambda}$, we obtain the \emph{Poisson distribution}:
 \begin{equation}\label{e.Poisson}
 	\prob(m,\lambda) = \frac{\lambda^{m}}{m!}e^{-\lambda}.
 \end{equation}
