@@ -10,4 +10,4 @@ git-info.tex
 *.lof
 *.loe
 *-handout.pdf
-
+.ipynb_checkpoints
