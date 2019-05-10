@@ -2,10 +2,11 @@
 
 \begin{quote}The true logic of this world is  in the calculus of probabilities. ---James Clerk Maxwell\end{quote}
 
-\newthought{Astronomical observations produce \emph{data}}---sets of numbers from measurements. To advance our understanding of astronomy, we must compare this data to an underlying hypothesis or model.  That is, we compute some \emph{statistic} $s$ from the data $\{\mathcal{D}\}$ and assess the likelihood of the value of $s$.
+\newthought{Astronomical observations produce \emph{data}}---sets of numbers from measurements. To advance our understanding of astronomy, we must compare this data to an underlying hypothesis or model.  To make this comparison, we compute some \emph{statistic} $s$ from the data $\{\mathcal{D}\}$ and assess the likelihood of the value of $s$ given our hypothesis.
 
 As a naive example, we might sum over the differences between the predictions $\prob = \{p_{i}\}$ of a model and the observations $\{D_{i}\}$:
 \[ s = \sum_{i} \left(p_{i}-D_{i}\right)^{2}. \]
+The data $D_{i}$ could be the transit times for an exoplanet, and $p_{i}$ would be our predicted transit times given a model of the orbit.
 In this case, $s=0$ would signify perfect agreement. Nothing is ever perfect, however; what would we make of $s$ being small but non-zero?  We need a figure-of-merit\sidenote{And of course, we want to find the best choice of statistic $s$ for assessing how well the model fits the data.}: given some small value of $s$, is it \emph{likely} that the model is consistent with the data?  If we judge the value of $s$ to be implausible, we say that the model, or hypothesis, is not supported by the data.  
 
 The converse case of $s$ having a value with a high probability does \emph{not}, however, ``rule in'' the hypothesis---at best, the hypothesis is consistent with observations, but other hypotheses may also be consistent. The goal is to amass an ever larger body of evidence supporting the hypothesis, but one can never prove it conclusively.
@@ -14,7 +15,6 @@ The converse case of $s$ having a value with a high probability does \emph{not},
 
 Having motivated the problem, we now step back and ask, what is meant by probability? We are familiar with many examples from our everyday experience. What is the probability of drawing an ace from a deck of cards? What is the probability of rain tomorrow? What is the probability that our candidate will win the election?
 
-\newpage
 \begin{exercisebox}[Meaning of ``probability'']
 Think of some different situations in which you might use the word \emph{probability}.  How does the definition of probability differ among these situations?
 \end{exercisebox}
@@ -40,7 +40,7 @@ When we say ``$A$ or $B$'' we mean ``$A$ or $B$ or both'' and denote this by $A\
 Finally, when we say ``$A$ and $B$'' we write $A\cap B$ (Fig.~\ref{f.set-4}).  If ``$A$ and $B$ are mutually exclusive'' then we write $A\cap B =\emptyset$ and we say that the sets are 
 \emph{disjoint}, like $A$ and $B$ in Fig.~\ref{f.set-1}.
 
-For example, if we roll two dice, there are $6\times 6 = 36$ possible outcomes. This is our sample space.  How many events are there for which the sum of the two dice is a seven?  There are six such possibilities: $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}$. Let's call this event $A$.  If event $B$ denotes those rolls in which at least one die is a 2, then $A\cap B = \{(2,5),(5,2)\}$. 
+For example, if we roll two dice, there are $6\times 6 = 36$ possible outcomes. This is our sample space.  How many events are there for which the sum of the two dice is a seven?  There are six such possibilities: $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}$. Let's call this event, rolling a sum of seven, event $A$. Now denote by event $B$ those rolls in which at least one die is a 2 (how many possibilities are there for event $B$?); then $A\cap B = \{(2,5),(5,2)\}$. 
 
 \begin{exercisebox}[Probability of various draws from a deck of cards]
 We have a deck of cards consisting of 4 suits ($\clubsuit$, $\diamondsuit$, $\heartsuit$, $\spadesuit$) with 13 cards per suit (A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K).  Suppose we draw one card.  There are $13\times 4=52$ possible outcomes.
@@ -90,8 +90,7 @@ For an example of independent events,
 \[
  \prob(\textrm{``drawing a 4 and a $\spadesuit$''}) = \prob(4)\prob(\spadesuit) = \frac{1}{13}\frac{1}{4} = \frac{1}{52}.
  \]
-
-For example, suppose we roll a die. Each of the possible outcomes are mutually exclusive, so by rules 2 and 3,
+As another example, suppose we roll a die. Each of the possible outcomes are mutually exclusive, so by rules 2 and 3,
 \[
 	1 = \prob\left(\{1,2,3,4,5,6\}\right) = \prob(1) + \prob(2) +\ldots+\prob(6).
 \]
@@ -121,7 +120,7 @@ Suppose we draw 1 card from each of 2 decks.  Find the probability that at least
  
 \newthought{Before continuing, we need to discuss techniques for handling large numbers of possible outcomes.} For example, suppose we want to put 5 people in a line. How many ways are there to do this?  For the first spot there are 5 choices.  After assigning this first spot, we move to the second for which there are 4 choices.  Proceeding along in this fashion, the number of possible arrangements is $5\cdot4\cdot3\cdot2\cdot1 \equiv 5!$.\marginnote{The factorial fcn.\ is recursively defined by $m! = m\cdot(m-1)!$, with $0! = 1$, $1! = 1$.}
 
-Suppose we are not picking everything; for example, in a class of 32 we may wish to select just 3 people for different jobs. The number of possibilities is
+Suppose we are not picking everything in our set; for example, in a class of 32 we may wish to select just 3 people for different jobs. The number of possibilities is
 \begin{equation}\label{e.permutation-class}
  P(32,3) = 32\cdot31\cdot30 = \frac{32\cdot31\cdot30\cdot29\cdot\ldots\cdot 1}{29\cdot\ldots 1} = \frac{32!}{(32-3)!}.
 \end{equation}
@@ -183,7 +182,7 @@ Then use this recurrence relation to derive ${6\choose m}, m=1,\ldots 6$, starti
 \[
 {52\choose5} = \frac{52\cdot51\cdot50\cdot49\cdot48}{5\cdot4\cdot3\cdot2\cdot1} = 2\,598\,960 
 \]
-different possible hands. What is the probability of getting a full house (3 of a kind plus one pair; e.g., 3 eights and 2 kings)? First, there are 13 possibilities for the 3 of a kind: we could have 3 ones, or 3 twos, or 3 jacks, and so on. Once we have the type of card for the 3 of a kind selected, there are 12 choices for the pair. For our 3 of a kind, there are 4 cards of that type in the deck, and we are selecting 3 of them. For our pair, we are only selecting 2 of the 4 possible cards. The number of such full house combinations is therefore
+different possible hands. What is the probability of getting a full house (3 of a kind plus one pair; e.g., 3 eights and 2 kings)? First, there are 13 possibilities for the 3 of a kind: we could have 3 ones, or 3 twos, or 3 jacks, and so on. For our 3 of a kind, there are 4 cards of that type in the deck, and we are selecting 3 of them. After drawing our 3 of a kind, we have 12 choices for the pair. Once we set the type of card for the pair, we then select 2 of the 4 possible cards of that type. The number of such full house combinations is therefore
 \[
 	13\cdot{4\choose3}\cdot12\cdot{4\choose2} = 13\cdot 4\cdot12\cdot 6 = 3744
 \]
@@ -194,7 +193,7 @@ What is the probability of drawing a flush (5 cards of the same suit)? To avoid 
 \end{exercisebox}
 
 \section{A Probability Distribution: The Random Walk}
-We are now ready to tackle a problem that occurs when modeling molecular motion: the random walk.  Imagine a person who flips a coin before each step---heads to go right, tails to go left.  On average, this person doesn't go anywhere, but from experience you know that sometimes you will get several heads or tails in a row; you wouldn't want to try this random walk if you were a few steps from the edge of a cliff!
+We are now ready to tackle a problem that occurs frequently in physics, e.g., when modeling molecular motion: the random walk.  Imagine a person who flips a coin before each step---heads to go right, tails to go left.  On average, this person doesn't go anywhere, but from experience you know that sometimes you will get several heads or tails in a row; you wouldn't want to try this random walk if you were a few steps from the edge of a cliff!
 
 To formulate this problem, call the probability to go right $p$; the probability to go left is then $(1-p)$.  We wish to find the probability $\binom{n}{m}{p}$ that after $n$ steps, $m$ will have been to the right and $(n-m)$ to the left, for a net displacement $m-(n-m) = 2m-n$ steps.
 \marginnote{A positive distance means to the right; negative, to the left.}
@@ -233,7 +232,7 @@ In general, $\mean{f(x)} \ne f(\mean{x})$.}
 \begin{equation}\label{e.mean}
  \mean{m} \equiv \sum_{m=0}^{n} m\binom{n}{m}{p}.
 \end{equation}
-To show that this behaves as expected, there are some mathematical preliminaries we need to address.  First, let's demonstrate that $\sum\binom{n}{m}{p} = 1$.  The easiest way to do this is to take a concrete example, say $n=5$.  Then
+To show that this behaves as expected, there are some mathematical preliminaries we need to address.  First, let's demonstrate that $\sum\binom{n}{m}{p} = 1$.  The easiest way to show this is to take a concrete example, say $n=5$.  Then
 \begin{eqnarray*} \sum_{m=0}^{5}\binom{5}{m}{p} &=& \sum_{m=0}^{5}{5\choose m}p^{m}(1-p)^{n-m}\\
 	&=&	p^{5}+5p^{4}(1-p)+10p^{3}(1-p)^{2}+10p^{2}(1-p)^{3}\\
 	&& +5p(1-p)^{4}+(1-p)^{5}.
@@ -293,7 +292,7 @@ Our expression for the rms width is therefore
 	\left[\mean{\left(m-\mean{m}\right)^{2}}\right]^{1/2} &=& \left[ np + (np)^{2}-np^{2} - (np)^{2}\right]^{1/2}\nonumber\\
 	 &=& \left[np(1-p)\right]^{1/2}.
 \end{eqnarray}
-Notice that although the width of the distribution increases with $n$, the ratio of the width to the average value decreases, $\textrm{width}/\textrm{mean} \propto 1/\sqrt{n}$.  Thus the relative size of fluctuates about the mean decreases as $n$ becomes larger.
+Notice that although the width of the distribution increases with $n$, the ratio of the width to the average value decreases, $\textrm{width}/\textrm{mean} \propto 1/\sqrt{n}$.  Thus the relative size of fluctuations about the mean decreases as $n$ becomes larger.
 
 \section{The Poisson distribution}
 
@@ -399,6 +398,7 @@ for this random walk with steps of average length $\mean{s}$, $\mu = (2\mean{m}-
 \marginnote{Recall that
 \[ \int_{-\infty}^{\infty} e^{-\beta x^{2}}\,\dif x = \sqrt{\frac{\pi}{\beta}}.\]
 }
+\[ \int_{-\infty}^{\infty}p(x;\mu,\sigma)\,\dif x = 1. \]
 The peak, or most probable value, of this distribution is at $x=\mu$.
 
 We can verify that the mean of the normal distribution is $\mu$: letting $z = x-\mu$,
@@ -411,18 +411,6 @@ The first term on the RHS vanishes because it is odd in $z$; that is,
 	\int_{-\infty}^{0} \frac{z}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z^{2}}{2\sigma^{2}}\right] \,\dif z = -\int_{0}^{\infty} \frac{z}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z^{2}}{2\sigma^{2}}\right] \,\dif z.
 \]
 The second term is just $\mu \int_{-\infty}^{\infty} p(z)\,\dif z = \mu$.
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{Normal_sigma1}
-\caption[Normal distributions with different means]{Normal, or Gaussian, probability distribution for different values of $\mu$ with $\sigma=1$.}
-\label{f.Normal-vary-mu}
-\end{marginfigure}
-\[ \int_{-\infty}^{\infty}p(x;\mu,\sigma)\,\dif x = 1. \]
-
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{Normal_mu0}
-\caption[Normal distributions with different standard deviations]{Normal distribution for $\mu=0$ and varying values of $\sigma$.}
-\label{f.Normal-vary-sigma}
-\end{marginfigure}
 
 To compute the standard deviation, $\sqrt{\mean{(x-\mean{x})^{2}}} = \sqrt{\mean{x^{2}}-\mean{x}^{2}}$, 
 we use the following trick:
@@ -436,12 +424,23 @@ To use this, we first change variables to $z = x-\mu$; then
 		&=& \int_{-\infty}^{\infty}\frac{z^{2}}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z^{2}}{2\sigma^{2}}\right]\,\dif z + 2\mu \int_{-\infty}^{\infty}\frac{z}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z}{2\sigma^{2}}\right]\,\dif z \\
 		&& + \mu^{2}\left\{ \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z}{2\sigma^{2}}\right]\,\dif z - 1\right\}.
 \end{eqnarray*}
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{Normal_sigma1}
+\caption[Normal distributions with different means]{Normal, or Gaussian, probability distribution for different values of $\mu$ with $\sigma=1$.}
+\label{f.Normal-vary-mu}
+\end{marginfigure}
 You should see that the last term (in $\{\,\}$) is zero; also, the middle term vanishes because it is odd in $z$.  We then use our trick to evaluate the first term and obtain,
 \begin{eqnarray*}
 	\mean{x^{2}} - \mean{x}^{2} &=& \int_{-\infty}^{\infty}\frac{z^{2}}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z^{2}}{2\sigma^{2}}\right]\,\dif z \\
 	&=& \frac{\sqrt{\pi}}{2}(2\sigma^{2})^{3/2}\frac{1}{\sqrt{2\pi}\sigma} = \sigma^{2}.
 \end{eqnarray*}
 Plots of the normal distribution for different values of $\sigma$ and $\mu=0$ are shown in Figure~\ref{f.Normal-vary-sigma}.
+
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{Normal_mu0}
+\caption[Normal distributions with different standard deviations]{Normal distribution for $\mu=0$ and varying values of $\sigma$.}
+\label{f.Normal-vary-sigma}
+\end{marginfigure}
 
 \section{The cumulative probability distribution}
 
@@ -532,7 +531,7 @@ and the width $\sigma_{f}^{2}$ is
 		\left.\dd{f}{x_{i}}\right|_{x=\mu_{i}} (x_{i}-\mu_{i})\right]^{2}\right\rangle .
 \]
 We then expand the square of the term in $\left[\,\right]$ to obtain
-\begin{fullwidth}
+%\begin{fullwidth}
 \begin{eqnarray}
 	\lefteqn{\left\langle\sum_{i=1}^{N}\left(\dd{f}{x_{i}}\right)^{2}
 			\left(x_{i}-\mu_{i}\right)^{2}
@@ -544,7 +543,7 @@ We then expand the square of the term in $\left[\,\right]$ to obtain
 			\left\langle\left(x_{i}-\mu_{i}\right)\left(x_{j}-\mu_{j}\right)\right\rangle .
 \label{e.width-expanded}
 \end{eqnarray}
-\end{fullwidth}
+%\end{fullwidth}
 Now, if the variables $x_{i}$ are completely independent, then
 \[ \left\langle\left(x_{i}-\mu_{i}\right)\left(x_{j}-\mu_{j}\right)\right\rangle
 	= 	\left\langle\left(x_{i}-\mu_{i}\right)\right\rangle
