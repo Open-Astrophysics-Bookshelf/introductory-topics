@@ -86,7 +86,7 @@ We have a deck of cards consisting of 4 suits ($\clubsuit$, $\diamondsuit$, $\he
 \end{eqnarray*}
 \item\label{prob.independent} If $A$ and $B$ are independent---meaning that the outcome of $A$ has no influence on the outcome of $B$, and vice versa---then the probability of both events occurring is $\prob(A\cap B) = \prob(A)\prob(B)$.
 \end{enumerate}
-For an example of independent events,
+For an example of independent events, consider drawing a $4\spadesuit$,
 \[
  \prob(\textrm{``drawing a 4 and a $\spadesuit$''}) = \prob(4\cap\spadesuit) = \prob(4)\prob(\spadesuit) = \frac{1}{13}\frac{1}{4} = \frac{1}{52}.
  \]
@@ -118,7 +118,7 @@ Suppose we draw 1 card from each of 2 decks.  Find the probability that at least
 \end{eqnarray*}
 \end{exercisebox}
  
-\newthought{Before continuing, we need to discuss techniques for handling large numbers of possible outcomes.} For example, suppose we want to put 5 people in a line. How many ways are there to do this?  For the first spot there are 5 choices.  After assigning this first spot, we move to the second for which there are now 4 choices. Proceeding along in this fashion, the number of possible arrangements is $5\cdot4\cdot3\cdot2\cdot1 \equiv 5!$.\marginnote{The factorial fcn.\ is recursively defined by $m! = m\cdot(m-1)!$, with $0! = 1$, $1! = 1$.}
+\newthought{We next need to consider different arrangements of items in a set.} For example, suppose we want to put 5 people in a line. How many ways are there to do this?  For the first spot there are 5 choices.  After assigning this first spot, we move to the second for which there are now 4 choices. Proceeding along in this fashion, the number of possible arrangements is $5\cdot4\cdot3\cdot2\cdot1 \equiv 5!$.\marginnote{The factorial fcn.\ is recursively defined by $m! = m\cdot(m-1)!$, with $0! = 1$, $1! = 1$.}
 
 Suppose we are not picking everything in our set; for example, in a class of 32 we may wish to select just 3 people for different jobs. The number of possibilities is
 \begin{equation}\label{e.permutation-class}
