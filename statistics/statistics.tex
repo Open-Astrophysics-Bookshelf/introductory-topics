@@ -2,7 +2,7 @@
 
 \begin{quote}The true logic of this world is  in the calculus of probabilities. ---James Clerk Maxwell\end{quote}
 
-\newthought{Astronomical observations produce \emph{data}}---sets of numbers from measurements. To advance our understanding of astronomy, we must compare this data to an underlying hypothesis or model.  To make this comparison, we compute some \emph{statistic} $s$ from the data $\{\mathcal{D}\}$ and assess the likelihood of the value of $s$ given our hypothesis.
+\newthought{Astronomical observations produce \emph{data}}---sets of numbers from measurements. To advance our understanding of astronomy, we must compare this data to an underlying hypothesis or model.  To make this comparison, we compute some \newterm{statistic} $s$ from the data $\{\mathcal{D}\}$ and assess the likelihood of the value of $s$ given our hypothesis.
 
 As a naive example, we might sum over the differences between the predictions $\prob = \{p_{i}\}$ of a model and the observations $\{D_{i}\}$:
 \[ s = \sum_{i} \left(p_{i}-D_{i}\right)^{2}. \]
@@ -16,7 +16,7 @@ The converse case of $s$ having a value with a high probability does \emph{not},
 Having motivated the problem, we now step back and ask, what is meant by probability? We are familiar with many examples from our everyday experience. What is the probability of drawing an ace from a deck of cards? What is the probability of rain tomorrow? What is the probability that our candidate will win the election?
 
 \begin{exercisebox}[Meaning of ``probability'']
-Think of some different situations in which you might use the word \emph{probability}.  How does the definition of probability differ among these situations?
+Think of some different situations in which you might use the word ``probability''.  How does the definition of probability differ among these situations?
 \end{exercisebox}
 
 It is not immediately obvious that different usages of the term are consistent. To give two examples:
@@ -34,11 +34,11 @@ This is a different sense of probability than that in the first example: the val
 
 \newthought{To start making this more precise,} let's introduce some terms\cite{Durrett1994The-Essentials-}:
 For an experiment or observation there is a set of all possible outcomes, called the 
-\emph{sample space}. A subset of possible outcomes is an \emph{event}.
+\newterm{sample space}. A subset of possible outcomes is an \newterm{event}.
 We describe our events as subsets of a sample space $\Omega$, as shown in Figure~\ref{f.set-1}.  We write, e.g., $A \subset \Omega$. An impossible event is $\emptyset$, the empty set.  When we say ``not $A$'' we mean $A^{c}$,  the complement of $A$ (shaded region in Fig.~\ref{f.set-2}).
 When we say ``$A$ or $B$'' we mean ``$A$ or $B$ or both'' and denote this by $A\cup B$ (Fig.~\ref{f.set-3}).
 Finally, when we say ``$A$ and $B$'' we write $A\cap B$ (Fig.~\ref{f.set-4}).  If ``$A$ and $B$ are mutually exclusive'' then we write $A\cap B =\emptyset$ and we say that the sets are 
-\emph{disjoint}, like $A$ and $B$ in Fig.~\ref{f.set-1}.
+\newterm{disjoint}, like $A$ and $B$ in Fig.~\ref{f.set-1}.
 
 For example, if we roll two dice, there are $6\times 6 = 36$ possible outcomes. This is our sample space. Suppose we wish to have the sum of our two dice be seven; we'll call this event $A$. There are six such possibilities for event $A$: $\{(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\}$. Now denote by event $B$ those rolls in which at least one die is a 2 (how many possibilities are there for event $B$?); then $A\cap B = \{(2,5),(5,2)\}$. Suppose event $C$ is rolling a sum of 11, for which there are two possibilities: $\{(5,6),(6,5)\}$. In this case, $C\cap B = \emptyset$.
 
@@ -158,7 +158,7 @@ These coefficients $n\choose m$ obey several neat recurrence relations. When we 
 \end{equation}
 We can make a nice table by putting the coefficients for each $n$ on a row, with $n$ increasing as we go down the table. If $m<0$ or $m>n$ in one of the terms in equation~(\ref{e.choose-recurrence}), we take that term to be 0.  Also, we stagger the entries, so that the terms on the RHS of equation~(\ref{e.choose-recurrence}) are diagonally to the left and right above ${n\choose m}$, like so:
 \[ \begin{array}{ccc}{n-1\choose m-1} &  & {n-1\choose m} \\ & {n\choose m} & \end{array}. \]
-This gives us the following arrangement, known as \emph{Pascal's triangle}:
+This gives us the following arrangement, known as \newterm{Pascal's triangle}:
 \begin{center}
 \begin{tabular}{ccccccccccccc}
 	&	&	&	&	&	& 1	&	&	&	&	&	&	\\
@@ -214,11 +214,11 @@ since there were 6 steps to the right and 4 to the left. Of course, any sequence
 \begin{equation}\label{e.binomial}
 	\binom{n}{m}{p} = {n\choose m} p^{m}(1-p)^{n-m}.
 \end{equation}
-This function $\binom{n}{m}{p}$ is called the \emph{binomial distribution}.
+This function $\binom{n}{m}{p}$ is called the \newterm{binomial distribution}.
 
 For example, suppose you flip a coin 20 times.  What is the probability of getting exactly 10 heads, assuming even odds for heads:tails?
 \[
-	\textrm{Answer:}\quad\binom{20}{10}{\frac{1}{2}} = {20\choose10} \left(\frac{1}{2}\right)^{20} = 0.176.
+	\textrm{Answer:}\quad\binom{20}{10}{1/2} = {20\choose10} \left(\frac{1}{2}\right)^{20} = 0.176.
 \]
 \begin{exercisebox}[Probability distribution for a coin flip]
 \label{e.prob-distribution}
@@ -234,7 +234,7 @@ A student takes an exam with 10 multiple choice questions, each with 4 possible 
 \section{Describing the distribution}
 \subsection{The mean}
 
-You are probably familiar with taking a simple average of a set of numbers: sum over the set and divide by the number of items in the set.  A related quantity for a probability distribution is the \emph{mean},
+You are probably familiar with taking a simple average of a set of numbers: sum over the set and divide by the number of items in the set.  A related quantity for a probability distribution is the \newterm{mean},
 \marginnote{More formally, we can define taking the moment of a distribution with respect to a function $f(x)$ as
 \[ \mean{f(x)} = \sum f(x)\prob(x). \]
 In general, $\mean{f(x)} \ne f(\mean{x})$.}
@@ -321,7 +321,7 @@ Let's take the binomial distribution, eq.~(\ref{e.binomial}), in the limit of $p
 	&=& \lim_{p\to 0,Np\to\lambda} \frac{(Np)^{m}}{m!}\left[\left(1-\frac{1}{N}\right)\ldots\left(1-\frac{m-1}{N}\right)\right]\frac{(1-\lambda/N)^{N}}{(1-p)^{m}}\\
 	&=& \frac{\lambda^{m}}{m!}\lim_{N\to\infty}\left(1-\frac{\lambda}{N}\right)^{N}.
 \end{eqnarray*}
-Recognizing that the last term is just $e^{-\lambda}$, we obtain the \emph{Poisson distribution}:
+Recognizing that the last term is just $e^{-\lambda}$, we obtain the \newterm{Poisson distribution}:
 \begin{equation}\label{e.Poisson}
 	\prob(m,\lambda) = \frac{\lambda^{m}}{m!}e^{-\lambda}.
 \end{equation}
@@ -373,25 +373,25 @@ This matches the observed distribution well, and the pattern of hits is therefor
 \marginnote{This section is not essential and can be omitted}
 The Poisson distribution is frequently encountered when observing in X- or $\gamma$-rays: the probability of receiving a single photon in any given second is small, but over a long period of time (several thousands of seconds, e.g.) there will be a sizable number of photons collected.  What is the probability of receiving $N$ photons in a given time interval? In this case, we can derive the Poisson distribution independently from the binomial distribution.
 
-To do so, assume that our time intervals $\dif t$ are sufficiently short that the chance of receiving more than one photon in $\dif t$ is negligible.  Then in $\dif t$ we either receive one photon with probability $\mu\dif t \ll 1$ or we receive no photons with probability $(1-\mu)\dif t$.  Let us take $\mu$ to be a constant, and assume that non-overlapping intervals of time are statistically independent---that is, the chance of receiving a photon in a given interval doesn't depend on what happened in the previous interval.  Then there are two ways to receive $N$ photons in a time $t+\dif t$: we can receive $N$ photons in a time $t$ and no photons in the interval $(t,t+\dif t)$; or we can receive $N-1$ photons in a time $t$ and one photon in the interval $(t,t+\dif t)$.  The probability of receiving $N$ photons in a time $t+\dif t$ is the sum of the probabilities of these two scenarios,
+To do so, assume that our time intervals $\dif t$ are sufficiently short that the chance of receiving more than one photon in $\dif t$ is negligible.  Then in $\dif t$ we either receive one photon with probability $\mu\dif t \ll 1$ or we receive no photons with probability $(1-\mu)\dif t$.  Let us take $\mu$ to be a constant, and assume that non-overlapping intervals of time are statistically independent---that is, the chance of receiving a photon in a given interval doesn't depend on what happened in the previous interval.  Then there are two ways to receive $N$ photons in a time $t+\dif t$: we can receive $N$ photons in a time $t$ and no photons in the interval $(t,t+\dif t)$; or we can receive $N-1$ photons in a time $t$ and one photon in the interval $(t,t+\dif t)$.  The probability of receiving $N$ photons in a time $t+\dif t$ is the sum of the probabilities of these two scenarios:
 \[
 	\prob_{\mu}(N;t+\dif t) = (1-\mu\dif t)\prob_{\mu}(N;t) + \mu\dif t \prob_{\mu}(N-1;t).
 \]
-Rearranging terms and taking the limit $\dif t \to 0$,
+Rearranging terms and taking the limit $\dif t \to 0$ gives us a differential equation,
 \begin{eqnarray}
 \DD{\prob_{\mu}(N;t)}{t} &=& \lim_{\dif t\to 0} \frac{\prob_{\mu}(N;t+\dif t)-\prob_{\mu}(N;t)}{\dif t} \nonumber\\
 &=& \mu\left[\prob_{\mu}(N-1;t)-\prob_{\mu}(N;t)\right].
 \label{e.poisson-recursion}
 \end{eqnarray}
-The probability of getting no events in $t+\dif t$ is easier:
+The probability of getting no events in $t+\dif t$ is
 \[ \prob_{\mu}(N=0;t+\dif t) = (1-\mu\dif t)\prob_{\mu}(N=0;t), \]
-so
+which gives the differential equation
 \[ \DD{\prob_{\mu}(0;t)}{t} = -\mu\prob_{\mu}(0;t) \]
 with solution $\prob_{\mu}(N=0;t) = e^{-\mu t}$.  We fix the constant of integration by setting $\prob_{\mu}(N=0;t=0) = 1$.
 
 Now that we have $\prob_{\mu}(N=0;t) = e^{-\mu t}$, we can solve the differential equation~(\ref{e.poisson-recursion}) for $\prob_{\mu}(N=1;t)$,
 \[ \DD{\prob_{\mu}(N=1;t)}{t} = \mu\left[e^{-\mu t} - \prob_{\mu}(N=1;t)\right], \]
-with solution $\prob_{\mu}(N=1;t) = (\mu t)e^{-\mu t}$, as you can verify.  We can then find a solution for $\prob_{\mu}(N=2;t)$ and continue in that fashion to find the \emph{Poisson distribution}:
+with solution $\prob_{\mu}(N=1;t) = (\mu t)e^{-\mu t}$, as you can verify.  We can then find a solution for $\prob_{\mu}(N=2;t)$; and continue in that fashion to find the Poisson distribution:
 \begin{equation}\label{e.Poisson-alt}
 	\prob_{\mu}(N;t) = \frac{\lambda^{N}}{N!} e^{-\lambda}
 \end{equation}
@@ -405,14 +405,13 @@ Show that $\prob_{\mu}(N;t)$ (eq.~[\ref{e.Poisson-alt}]) satisfies the recursion
 
 To motivate our discussion of the probability distribution for a continuous variable, suppose we wish to find the average location of a person doing the random walk.  If all the steps have the same unit length, then for $m$ steps to the right the position is $x = m - (n-m) = 2m-n$ with mean value $\mean{x} = 2\mean{m}-n$.  Now suppose that the steps are not all of the same length, but instead have some random distribution with mean length $\mean{\ell}$. We'd like to know the probability, $\prob_{n}(x)$, of our walker being at  position $x$.
 
-\newthought{The first conceptual hurdle we reach is that it makes no sense to ask this question.}
-We cannot ask, ``What is the probability $\prob_{n}(x)$ of the walker being at \emph{exactly} $x=0.2914578329$?'': there are an innumerable infinity of real numbers, so the probability of hitting any particular real number exactly is vanishingly small.  What we instead must ask is, ``What is the probability $\prob_{n}(x;\Delta x) = p(x)\Delta x$ of being in some interval $\Delta x$ about $x$''?  We call $p(x)$ the \emph{probability density} or \emph{probability distribution} and assume that $\prob(x) \propto \Delta x$ for sufficiently small $\Delta x$.
+\newthought{The first conceptual hurdle we reach} is that it makes no sense to ask: ``What is the probability $\prob_{n}(x)$ of the walker being at \emph{exactly} $x=0.2914578329$?'' There are an innumerable infinity of real numbers, so the probability of hitting any particular real number exactly is vanishingly small.  What we instead must ask is, ``What is the probability $\prob_{n}(x;\Delta x) = p(x)\Delta x$ of being in some interval $\Delta x$ about $x$''?  We call $p(x)$ the \newterm{probability density} or \newterm{probability distribution} and assume that $\prob(x) \propto \Delta x$ for sufficiently small $\Delta x$.
 
 Although the formal proof is beyond the scope of the course, it can be shown that in the limit of large $N$,
 \begin{equation}\label{e.gaussian}
 p(x; \mu,\sigma) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left[-\frac{\left(x-\mu\right)^{2}}{2\sigma^{2}}\right];
 \end{equation}
-for this random walk with steps of average length $\mean{s}$, $\mu = (2\mean{m}-n)\mean{s}$ and $\sigma  \propto \sqrt{n}\mean{s}$.  This distribution is known as the normal, or Gaussian, probability distribution.  The factor $1/(\sqrt{2\pi}\sigma)$ ensures that the probability has the correct normalization,
+for this random walk with steps of average length $\mean{s}$, $\mu = (2\mean{m}-n)\mean{s}$ and $\sigma  \propto \sqrt{n}\mean{s}$.  This distribution is known as the \newterm{normal}, or \newterm{Gaussian}, probability distribution.  The factor $1/(\sqrt{2\pi}\sigma)$ ensures that the probability has the correct normalization,
 \marginnote{Recall that
 \[ \int_{-\infty}^{\infty} e^{-\beta x^{2}}\,\dif x = \sqrt{\frac{\pi}{\beta}}.\]
 }
@@ -447,7 +446,7 @@ To use this, we first change variables to $z = x-\mu$; then
 \caption[Normal distributions with different means]{Normal, or Gaussian, probability distribution for different values of $\mu$ with $\sigma=1$.}
 \label{f.Normal-vary-mu}
 \end{marginfigure}
-You should see that the last term (in $\{\,\}$) is zero; also, the middle term vanishes because it is odd in $z$.  We then use our trick to evaluate the first term and obtain,
+\noindent You should convince yourself that the last term (in $\{\,\}$) is zero; also, the middle term vanishes because it is odd in $z$.  We then use our trick to evaluate the first term and obtain,
 \begin{eqnarray*}
 	\mean{x^{2}} - \mean{x}^{2} &=& \int_{-\infty}^{\infty}\frac{z^{2}}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z^{2}}{2\sigma^{2}}\right]\,\dif z \\
 	&=& \frac{\sqrt{\pi}}{2}(2\sigma^{2})^{3/2}\frac{1}{\sqrt{2\pi}\sigma} = \sigma^{2}.
@@ -471,7 +470,7 @@ To answer questions like these, we integrate $p$ over the range of interest:
 \end{eqnarray*}
 A common application is to assess the probability that a measurement will lie within some range about $\mu$: for example, ``What is the probability of measuring $x$ in a range $(\mu-\sigma,\mu+\sigma)$?'' 
 
-As shown in Figure~\ref{f.sigma}, the $1\sigma$ region (light gray) contains 68\% of the probability; that is, for a normal distribution you would expect about 2/3 of your measurements to lie within $\mu \pm \sigma$.  For the range $\mu \pm 2\sigma$, the probability is 95\%; that is, you would expect only 1 in 20 measurements to lie outside this range.
+As shown in Figure~\ref{f.sigma}, the $1\sigma$ region (light gray) contains 68\% of the probability; that is, for a normal distribution you would expect about 2/3 of your measurements to lie within $\mu \pm \sigma$.  For the range $\mu \pm 2\sigma$ (dark gray), the probability is 95\%; that is, you would expect only 1 in 20 measurements to lie outside this range.
 
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{sigma}
@@ -488,7 +487,7 @@ It is plausible that each of these fluctuations produces an upward or downward e
 \[ p(x)\,\dif x = \frac{1}{\sqrt{2\pi}\sigma}\exp\left[-\frac{(x-\mu)^{2}}{2\sigma^{2}}\right]\,\dif x. \]
 In this case $\mu$ is the ``true'' value of the signal, which we don't know \emph{a priori}.  We also don't know beforehand the value of $\sigma$, which indicates the precision of our measurement.
 
-\newthought{Suppose we make $N$ measurements with values $x_{i}, i=1,\ldots,N$.}  Question: what is the best estimate of $\mu$ and $\sigma$?  Intuitively we expect that these should be
+\newthought{Suppose we make $N$ measurements with values $x_{i}, i=1,\ldots,N$.}  What is the best estimate of $\mu$ and $\sigma$?  Intuitively we expect that these should be
 \marginnote{We use $\expect(\mu)$ to mean, ``The expected value of $\mu$'', and likewise for $\expect(\sigma)$.}
 \[
 	\expect(\mu) = \frac{1}{N}\sum x_{i}\quad\textrm{and}\quad\expect(\sigma) = \sqrt{\frac{1}{N}\sum\left(x_{i}-\bar{x}\right)^{2}},
