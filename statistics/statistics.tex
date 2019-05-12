@@ -598,6 +598,17 @@ Demonstrate the following rules for propagating uncertainties. In these equation
 \end{enumerate}
 \end{exercisebox}
 
+\begin{exercisebox}[Examples of propagation of uncertainties]
+\begin{enumerate}
+\item Given $g$ and $t$ with uncertainties $\sigma_{g}$ and $\sigma_{t}$, find $\sigma_{s}$ with
+\[	s = \frac{1}{2}gt^{2}.	\]
+\item Given $V$ and $\varpi$ with uncertainties $\sigma_{V}$ and $\sigma_{\varpi}$, find $\sigma_{M}$ with
+\[	M = V + 5 - 5\log\left(\frac{1}{\varpi}\right).	\]
+\item Given $A$ and $P$ with uncertainties $\sigma_{A}$ and $\sigma_{P}$, find $\sigma_{z}$ with
+\[	z = A\sin\left(\frac{2\pi t}{P}\right).	\]
+\end{enumerate}
+\end{exercisebox}
+
 \newthought{An interesting special case of equation~(\ref{e.propagation-uncertainities})} is when we make a number of repeated measurements $x_{i}, i=1,\ldots,N$ and we wish to compute their average
 \[ \bar{x} = \frac{1}{N}\sum_{i=1}^{N}x_{i} . \]
 Since each measurement has the same uncertainty $\sigma$, the uncertainty in our average---the \newterm{error in the mean}---is
