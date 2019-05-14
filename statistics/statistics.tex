@@ -222,13 +222,13 @@ For example, suppose you flip a coin 20 times.  What is the probability of getti
 \]
 \begin{exercisebox}[Probability distribution for a coin flip]
 \label{e.prob-distribution}
-Compute $\binom{20}{m}{\frac{1}{2}}$ for $m = 0\ldots20$.  What is the probability of getting 9, 10, or 11 heads?  What is the probability of getting between 7 and 13 heads?
+Compute $\binom{20}{m}{\frac{1}{2}}$ for $m = 0\ldots20$.  What is the probability of getting 9, 10, or 11 heads?  What is the probability of getting between 7 and 13 heads? \emph{See the accompanying notebook \texttt{binomial.ipynb}.}
 \end{exercisebox}
 
 Of course, as the next exercise illustrates, this probability distribution occurs in many contexts, not just in the context of flipping coins or staggering home.
 
 \begin{exercisebox}[Score for random guessing on a multiple-choice exam]
-A student takes an exam with 10 multiple choice questions, each with 4 possible responses.  Suppose the student guesses randomly for each question.  What is the probability the student gets 5 or more correct?
+A student takes an exam with 10 multiple choice questions, each with 4 possible responses.  Suppose the student guesses randomly for each question.  What is the probability the student gets 5 or more correct? \emph{See the accompanying notebook \texttt{binomial.ipynb}.}
 \end{exercisebox}
 
 \section{Describing the distribution}
@@ -397,7 +397,7 @@ with solution $\prob_{\mu}(N=1;t) = (\mu t)e^{-\mu t}$, as you can verify.  We c
 \end{equation}
 with $\lambda=\mu t$.
 
-\begin{exercisebox}[Recurrence relations for Poisson distribution]
+\begin{exercisebox}[Recurrence relations for the Poisson distribution]
 Show that $\prob_{\mu}(N;t)$ (eq.~[\ref{e.Poisson-alt}]) satisfies the recursion relation, equation~(\ref{e.poisson-recursion}). Since $\prob_{\mu}(N=1;t)$ also satisfies the equation, this proves via induction that equation~(\ref{e.Poisson-alt}) is the correct distribution.
 \end{exercisebox}
 
@@ -527,6 +527,7 @@ Show that
  \expect(\sigma) = \left[\frac{1}{N}\sum_{i=1}^{N}\left(x_{i}-\mu\right)^{2}\right]^{1/2}.
 \]
 \end{exercisebox}
+The notebook \texttt{mean-standard-deviation.ipynb} explores this concept in more detail.
 
 \newthought{We often want to know the probability distribution for a function of several random variables.}  For example, we might measure the volume of a block as $V=L\times W\times H$, where $L$, $W$, and $H$ are the measured length, width, and height, respectively, and each has an associated uncertainty $\sigma_L$, $\sigma_W$, and $\sigma_H$. What is the resulting uncertainty in $V$?
 
