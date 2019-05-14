@@ -222,13 +222,13 @@ For example, suppose you flip a coin 20 times.  What is the probability of getti
 \]
 \begin{exercisebox}[Probability distribution for a coin flip]
 \label{e.prob-distribution}
-Compute $\binom{20}{m}{\frac{1}{2}}$ for $m = 0\ldots20$.  What is the probability of getting 9, 10, or 11 heads?  What is the probability of getting between 7 and 13 heads? \emph{See the accompanying notebook \texttt{binomial.ipynb}.}
+Compute $\binom{20}{m}{\frac{1}{2}}$ for $m = 0\ldots20$.  What is the probability of getting 9, 10, or 11 heads?  What is the probability of getting between 7 and 13 heads? \notebook\ \emph{See the accompanying notebook \texttt{binomial.ipynb}.}
 \end{exercisebox}
 
 Of course, as the next exercise illustrates, this probability distribution occurs in many contexts, not just in the context of flipping coins or staggering home.
 
 \begin{exercisebox}[Score for random guessing on a multiple-choice exam]
-A student takes an exam with 10 multiple choice questions, each with 4 possible responses.  Suppose the student guesses randomly for each question.  What is the probability the student gets 5 or more correct? \emph{See the accompanying notebook \texttt{binomial.ipynb}.}
+A student takes an exam with 10 multiple choice questions, each with 4 possible responses.  Suppose the student guesses randomly for each question.  What is the probability the student gets 5 or more correct? \notebook\ \emph{See the accompanying notebook \texttt{binomial.ipynb}.}
 \end{exercisebox}
 
 \section{Describing the distribution}
@@ -349,6 +349,10 @@ As with the normal distribution, the ratio of width to mean, $\sigma/\mean{m} = 
 A high school graduating class has 400 students.  What is the probability that 2 people in that class have a birthday on January 1?  What about 3 students?
 \end{exercisebox}
 
+\begin{exercisebox}
+\notebook\ For a photon countrate of $\val{0.01}{\second^{-1}}$, how many seconds of observation are required so that the mean number of photons received is more than $3\sigma$ greater than $0$? The notebook \texttt{signal-to-noise.ipynb} explores the extraction of a weak signal from a noisy background in more detail.
+\end{exercisebox}
+
 A historical example of a Poisson distribution is from WWII, when London was targeted by V-1 flying bombs.  A total of 537 V-1 bombs hit London.  To look at where the bombs hit, \citetalt{clarke1946} divided London into 576 districts, each of $\val{0.25}{\kilo\meter^{2}}$ area.  The distribution of bomb strikes went as follows.
 \begin{center}
 \begin{tabular}{r|rrrrrr}
@@ -429,6 +433,13 @@ The first term on the RHS vanishes because it is odd in $z$; that is,
 \]
 The second term is just $\mu \int_{-\infty}^{\infty} p(z)\,\dif z = \mu$.
 
+
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{Normal_sigma1}
+\caption[Normal distributions with different means]{Normal, or Gaussian, probability distribution for different values of $\mu$ with $\sigma=1$.}
+\label{f.Normal-vary-mu}
+\end{marginfigure}
+
 To compute the standard deviation, $\sqrt{\mean{(x-\mean{x})^{2}}} = \sqrt{\mean{x^{2}}-\mean{x}^{2}}$, 
 we use the following trick:
 \[
@@ -441,17 +452,16 @@ To use this, we first change variables to $z = x-\mu$; then
 		&=& \int_{-\infty}^{\infty}\frac{z^{2}}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z^{2}}{2\sigma^{2}}\right]\,\dif z + 2\mu \int_{-\infty}^{\infty}\frac{z}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z}{2\sigma^{2}}\right]\,\dif z \\
 		&& + \mu^{2}\left\{ \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z}{2\sigma^{2}}\right]\,\dif z - 1\right\}.
 \end{eqnarray*}
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{Normal_sigma1}
-\caption[Normal distributions with different means]{Normal, or Gaussian, probability distribution for different values of $\mu$ with $\sigma=1$.}
-\label{f.Normal-vary-mu}
-\end{marginfigure}
+
 \noindent You should convince yourself that the last term (in $\{\,\}$) is zero; also, the middle term vanishes because it is odd in $z$.  We then use our trick to evaluate the first term and obtain,
 \begin{eqnarray*}
 	\mean{x^{2}} - \mean{x}^{2} &=& \int_{-\infty}^{\infty}\frac{z^{2}}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z^{2}}{2\sigma^{2}}\right]\,\dif z \\
 	&=& \frac{\sqrt{\pi}}{2}(2\sigma^{2})^{3/2}\frac{1}{\sqrt{2\pi}\sigma} = \sigma^{2}.
 \end{eqnarray*}
 Plots of the normal distribution for different values of $\sigma$ and $\mu=0$ are shown in Figure~\ref{f.Normal-vary-sigma}.
+\begin{quote}
+\notebook\ The notebook \texttt{mean-standard-deviation.ipynb} explores the properties of the normal distribution in more detail.
+\end{quote}
 
 \begin{marginfigure}
 \includegraphics[width=\linewidth]{Normal_mu0}
@@ -527,7 +537,10 @@ Show that
  \expect(\sigma) = \left[\frac{1}{N}\sum_{i=1}^{N}\left(x_{i}-\mu\right)^{2}\right]^{1/2}.
 \]
 \end{exercisebox}
-The notebook \texttt{mean-standard-deviation.ipynb} explores this concept in more detail.
+
+\begin{quote}
+\notebook\ The notebook \texttt{distribution.ipynb} explores further how one assesses the \emph{quality} of these estimates of the mean and standard deviation from a set of measurements. This is followed by \texttt{FittingData.ipynb}, which looks at how one \emph{tests} how well a set of measurements conforms to a hypothesis.
+\end{quote}
 
 \newthought{We often want to know the probability distribution for a function of several random variables.}  For example, we might measure the volume of a block as $V=L\times W\times H$, where $L$, $W$, and $H$ are the measured length, width, and height, respectively, and each has an associated uncertainty $\sigma_L$, $\sigma_W$, and $\sigma_H$. What is the resulting uncertainty in $V$?
 
