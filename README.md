@@ -1,4 +1,4 @@
-# Planet and Telescopes
+# Introductory Topics in Astronomy: Planet and Telescopes
 
 Part of the [Open Astrophysics Bookshelf](http://open-astrophysics-bookshelf.git
 hub.io/).  A pdf of these notes is available at [https://www.pa.msu.edu/~ebrown/docs/AST208-notes.pdf](http://www.pa.msu.edu/~ebrown/docs/AST208-notez.pdf).
