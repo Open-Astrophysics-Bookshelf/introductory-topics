@@ -7,6 +7,7 @@ frontmatter=r'''\documentclass[handout]{astro-bookshelf}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=black,urlcolor=blue}
 
 \usepackage{wasysym}
+\usepackage{fontawesome5}
 
 \graphicspath{{frontmatter/}{coordinates/figs/}{light-telescopes/figs/}{spectroscopy/figs/}{detection-exoplanets/figs/}{beyond-kepler/figs/}{planetary-atmospheres/figs/}{constants-units/figs/}{math-review/figs/}{statistics/figs/}}
 
@@ -15,6 +16,8 @@ frontmatter=r'''\documentclass[handout]{astro-bookshelf}
 \usepackage[units,derivatives,vectors,code,symbols]{starType}
 \input{symbols}
 \newcommand{\newterm}[1]{\textsc{#1}}
+\newcommand{\notebook}{\faLaptopCode}
+
 
 \author{Edward Brown}
 \publisher{Open Astrophysics Bookshelf}
