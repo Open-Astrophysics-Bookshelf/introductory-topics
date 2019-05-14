@@ -1,9 +1,9 @@
-# Introductory Topics in Astronomy: Planet and Telescopes
+# Introductory Topics in Astronomy: Planets and Telescopes
 
 Part of the [Open Astrophysics Bookshelf](http://open-astrophysics-bookshelf.git
 hub.io/).  A pdf of these notes is available at [https://www.pa.msu.edu/~ebrown/docs/AST208-notes.pdf](http://www.pa.msu.edu/~ebrown/docs/AST208-notez.pdf).
 
-These notes were written while teaching a sophomore-level astronomy course at Michigan State University. The background required is an introductory calculus sequence and a freshman-level physics course. The reason for the odd juxtaposition of topics is that the course was created from the merger of two undergraduate courses, one of which was a laboratory course with observing done at the campus observatory.
+These notes were written while teaching (and revamping) a one-semester introductory astronomy course, "Planets and Telescopes" at Michigan State University. The background required was an introductory calculus sequence and first-year physics. The reason for the odd juxtaposition of topics&mdash;planets and telescope&mdash;is that the course was created from the merger of two undergraduate courses, one of which was a laboratory course with observing done at the campus observatory.
 
 These notes were meant to supplement the course's main texts, Ryden and Peterson, _Foundations of Astrophysics_, and Taylor, _An Introduction to Error Analysis_. The text layout uses the [`tufte-book`](https://tufte-latex.github.io/tufte-latex/) LaTeX class:  the main feature is a large right margin in which the students can take notes; this margin also holds small figures and sidenotes. Exercises are embedded throughout the text. These range from reading exercises to longer, more challenging problems. Because the exercises are spread throughout the text, there is a "List of Exercises" in the front matter to help with looking for specific problems. There are further notes and exercises on statistics in the form of \href{http://jupyter.org}{Jupyter Notebooks} in the folder \code{statistics/notebooks}.
 
