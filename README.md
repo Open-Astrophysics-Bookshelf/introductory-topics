@@ -20,7 +20,7 @@ Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license
 1. [`tufte-book`](https://tufte-latex.github.io/tufte-latex/) LaTeX class
 2. The [`starType`](https://github.com/nworbde/starType) macros.  You can install this from the source; alternatively, a shell script `install_local_starType` is provided to automatically fetch the macros into the directory of this package.
 3. The `wasysym` package is used to generate astronomical symbols.
-4. An up-to-date version of the `fontawesome5` LaTeX class; if you are using XeLaTeX, you will need to install the fontawesome otf glyphs as well. (Alternatively, you can redefine the `\notebook` command, defined in `planets-notes.tex` and in handout script `make_handouts.py`, to a standard LaTeX symbol.)
+4. An up-to-date version (5.8 or later) of the `fontawesome5` LaTeX class; if you are using XeLaTeX, you will need to install the fontawesome otf glyphs as well. (Alternatively, you can redefine the `\notebook` command, defined in `planets-notes.tex` and in handout script `make_handouts.py`, to a standard LaTeX symbol.)
 4. If you process the document with XeLaTeX, you will need either the TeX Gyre font family or the fonts Chaparral Pro, Source Code Pro, and Raleway Medium.
 
 ## To build
