@@ -1,7 +1,6 @@
 # Introductory Topics in Astronomy: Planets and Telescopes
 
-Part of the [Open Astrophysics Bookshelf](http://open-astrophysics-bookshelf.git
-hub.io/).  A pdf of these notes is available at [https://www.pa.msu.edu/~ebrown/docs/AST208-notes.pdf](http://www.pa.msu.edu/~ebrown/docs/AST208-notez.pdf).
+Part of the [Open Astrophysics Bookshelf](http://open-astrophysics-bookshelf.github.io/).  A pdf of these notes is available at [https://www.pa.msu.edu/~ebrown/docs/AST208-notes.pdf](http://www.pa.msu.edu/~ebrown/docs/AST208-notez.pdf).
 
 These notes were written while teaching (and revamping) a one-semester introductory astronomy course, "Planets and Telescopes" at Michigan State University. The background required was an introductory calculus sequence and first-year physics. The reason for the odd juxtaposition of topics&mdash;planets and telescope&mdash;is that the course was created from the merger of two undergraduate courses, one of which was a laboratory course with observing done at the campus observatory.
 
