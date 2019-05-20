@@ -610,10 +610,10 @@ Next, we expand $\bar{x}^{2}$. There are $N^{2}$ terms:
 		&=& \frac{1}{N^{2}} \left[\overbrace{\left(x_{1}^{2}+x_{2}^{2}+\ldots+x_{N}^{2}\right)}^{\textrm{$N$ terms}}\right. \\
 \nonumber
 		&& + \left.\underbrace{\left(x_{1}x_{2}+x_{1}x_{3} + \ldots + x_{1}x_{N} + x_{2}x_{1} + x_{2}x_{3} + \ldots\right)}_{\textrm{$N(N-1)$ terms}}\right]\\
-		&=& \frac{1}{N^{2}}\sum_{i=1}^{N}x_{i}^{2} + \sum_{i=1}^{N}\sum_{j\neq i}x_{i}x_{j}.
+		&=& \frac{1}{N^{2}}\left[\sum_{i=1}^{N}x_{i}^{2} + \sum_{i=1}^{N}\sum_{j\neq i}x_{i}x_{j}\right].
 \label{e.expand-sum-squares-2}
 \end{eqnarray}
-Multiply by $N$ and inserting into eq.~(\ref{e.expand-sum-squares}),
+Multiplying eq.~(\ref{e.expand-sum-squares-2}) by $N$ and inserting into eq.~(\ref{e.expand-sum-squares}), we obtain
 \[
 \mean{\sum_{i=1}^{N}(x_{i}-\bar{x})^{2}} = \left(1-\frac{1}{N}\right)\sum_{i=1}^{N} \mean{x_{i}^{2}} - \frac{1}{N} \sum_{i=1}^{N}\sum_{j\neq i}\mean{x_{i}x_{j}}.
 \]
@@ -625,7 +625,7 @@ in the second sum, since $x_{i}$ and $x_{j}$ are independent, $\mean{x_{i}x_{j}}
 \[
 \sum_{i=1}^{N}\sum_{j\neq i}\mean{x_{i}x_{j}} = N(N-1)\mu^{2}.
 \]
-Inserting these into eq.~(\ref{e.expand-sum-squares-2}) gives
+Inserting these expressions into eq.~(\ref{e.expand-sum-squares-2}) gives
 \[
 \mean{\sum_{i=1}^{N}(x_{i}-\bar{x})^{2}} = \left(1-\frac{1}{N}\right)N\left(\sigma^{2} + \mu^{2}\right) - \frac{N(N-1)}{N}\mu^{2} = (N-1)\sigma^{2}.
 \]
@@ -633,6 +633,7 @@ Hence a good estimate for $\sigma^{2}$ is
 \begin{equation}\label{e.sample-variance}
 \expect(\sigma^{2}) = \frac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^{2}.
 \end{equation}
+This is slightly larger, by $N/(N-1)$ than our initial guess. One way to justify this is to ask what would happen if we just had one measurement. \emph{If} we knew the true value $\mu$, then we could use the difference between our measurement $x_{1}$ and $\mu$ as an estimate of the uncertainty. Since we don't know $\mu$, however, we use $x_{1}$ as our best guess for $\mu$, but then we have no way of independently assessing the uncertainty. The fact that eq.~(\ref{e.sample-variance}) requires $N\ge 2$ reflects this constraint.
 In practice, the difference in the denominator between $N$ and $N-1$ is not usually important\sidenote{To quote \citet{Press2007Numerical-Recip}, ``if the difference between $N$ and $N-1$ [in the formula for $\expect(\sigma^{2})$] ever matters to you, then you are probably up to no good.''}.
 
 
