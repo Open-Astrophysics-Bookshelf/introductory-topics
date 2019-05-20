@@ -407,22 +407,78 @@ Show that $\prob_{\mu}(m;t)$ (eq.~[\ref{e.Poisson-alt}]) satisfies the recursion
 
 \section{The normal, or Gaussian, distribution}
 
-To motivate our discussion of the probability distribution for a continuous variable, suppose we wish to find the average location of a person doing the random walk.  If all the steps have the same unit length, then for $m$ steps to the right the position is $x = m - (n-m) = 2m-n$ with mean value $\mean{x} = 2\mean{m}-n$.  Now suppose that the steps are not all of the same length, but instead have some random distribution with mean length $\mean{\ell}$. We'd like to know the probability, $\prob_{n}(x)$, of our walker being at  position $x$.
-
-\newthought{The first conceptual hurdle we reach} is that it makes no sense to ask: ``What is the probability $\prob_{n}(x)$ of the walker being at \emph{exactly} $x=0.2914578329$?'' There are an innumerable infinity of real numbers, so the probability of hitting any particular real number exactly is vanishingly small.  What we instead must ask is, ``What is the probability $\prob_{n}(x;\Delta x) = p(x)\Delta x$ of being in some interval $\Delta x$ about $x$''?  We call $p(x)$ the \newterm{probability density} or \newterm{probability distribution} and assume that $\prob(x) \propto \Delta x$ for sufficiently small $\Delta x$.
-
-Although the formal proof is beyond the scope of the course, it can be shown that in the limit of large $N$,
-\begin{equation}\label{e.gaussian}
-p(x; \mu,\sigma) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left[-\frac{\left(x-\mu\right)^{2}}{2\sigma^{2}}\right];
+The Poisson distribution represents one limit, in which the probability $p$ of any one event is quite small, but $np$ remains finite. Another limit is for $n$ to become large while keeping $p$ fixed, so that the mean number of events $np$ also becomes large. In particular, this means we can no longer assume that $\mean{m}\ll n$. To handle the factorials, we will make use of \newterm{Stirling's formula}, which is increasingly accurate at large $n$,
+\marginnote{Stirling's formula is quite accurate even for small $n$: at $n=10$, it is off by 1\%; at $n=20$, it is off by only 0.4\%.}
+\begin{equation}\label{e.stirling}
+n! \simeq \sqrt{2\pi n}\left(\frac{n}{e}\right)^{n}.
 \end{equation}
-for this random walk with steps of average length $\mean{s}$, $\mu = (2\mean{m}-n)\mean{s}$ and $\sigma  \propto \sqrt{n}\mean{s}$.  This distribution is known as the \newterm{normal}, or \newterm{Gaussian}, probability distribution.  The factor $1/(\sqrt{2\pi}\sigma)$ ensures that the probability has the correct normalization,
+The symbol `$\simeq$` means that rhs of eq.~(\ref{e.stirling}) approaches $n!$ as $n\to\infty$.
+Using Stirling's formula, the combinatorial factor in $\binom{n}{m}{p}$ is
+\begin{eqnarray*}
+	{n\choose m} &\simeq& \frac{1}{\sqrt{2\pi}}\frac{n^{n+1/2}}{m^{m+1/2}(n-m)^{n-m+1/2}} e^{m+(n-m)-n}\\
+	&=& \frac{1}{\sqrt{2\pi n}}\left(\frac{n-m}{n}\right)^{-(n-m+1/2)} \left(\frac{m}{n}\right)^{-(m+1/2)}
+\end{eqnarray*}
+The factors of $e$ cancelled, and we multiplied top and bottom by $n^{m+1}$; the reason for this was to put the factors of $n-m$ and $m$ into ratios with $n$ since we are going to take the limit $n\to\infty$.
+
+Now for the factor of $p^{m}(1-p)^{n-m}$. Since the mean value of $m$ is $np$, we'd like to put $p$ and $(1-p)$ in the denominators of $m/n$ and $(n-m)/n$; multiplying and dividing by $\sqrt{p(1-p)}$ gives
+\[
+	\binom{n}{m}{p} \simeq \frac{1}{\sqrt{2\pi np(1-p)}} \left[\frac{n-m}{n(1-p)}\right]^{-(n-m+1/2)} \left[\frac{m}{np}\right]^{-(m+1/2)}.
+\]
+We showed earlier that the standard deviation $\left[\mean{\left(m-\mean{m}\right)^{2}}\right]^{1/2} = \left[np(1-p)\right]^{1/2}$ increases as $\sqrt n$, so that the ratio of the width of the distribution relative to the mean is
+\[
+	\frac{\left[np(1-p)\right]^{1/2}}{np} \propto \frac{1}{\sqrt{n}}.
+\]
+As a consequence the distribution becomes increasingly peaked as $n$ increases. We therefore expand $m$ about its mean value $np$: we substitute $m = np + h$, where $h \ll np$. To deal with the exponents, we take their logarithms,
+\begin{eqnarray*}
+	\lefteqn{\binom{n}{m}{p}\simeq \frac{1}{\sqrt{2\pi np(1-p)}} \times\exp\bigg\{ }\\
+	&& 
+		-\left[\left(n(1-p)+\frac{1}{2}\right) - h\right]\ln\left[1-\frac{h}{n(1-p)}\right]\\
+	&&	-\left.\left[\left(np+\frac{1}{2}\right) + h\right]\ln\left[1+\frac{h}{np}\right]\right\}.
+\end{eqnarray*}
+We then expand the logarithms
+\marginnote{Recall that \[\ln(1+u) = u-u^{2}/2+u^{3}/3-\ldots\] for small $u$.}
+in powers of $h/[n(1-p)]$ and $h/(np)$ and multiply through. We neglect the factor of $1/2$ compared to $n(1-p)$ and $np$; the argument of the exponential is then
+\begin{eqnarray*}
+\left\{\cdot\right\} &=& h + \frac{h^{2}}{2n(1-p)} - \frac{h^{2}}{n(1-p)} - \frac{h^{3}}{2n^{2}(1-p)^{2}} \\
+ && -h + \frac{h^{2}}{2np} - \frac{h^{2}}{np} + \frac{h^{3}}{2n^{2}p^{2}}.
+\end{eqnarray*}
+The terms linear in $h$ cancel; keeping the lowest-order terms, $\propto h^{2}$, we finally obtain
+\begin{equation}\label{e.binomiallimit}
+	\lim_{n\to\infty}\binom{n}{m}{p} = \frac{1}{\sqrt{2\pi np(1-p)}}
+		\exp\left[-\frac{m^{2}}{2np(1-p)}\right].
+\end{equation}
+We now introduce the parameters $\mu = np$ and $\sigma = np(1-p)$ and substitute $h = m-np$; the result is the \newterm{normal}, or \newterm{Gaussian}, distribution:
+\begin{equation}\label{e.gaussian-m}
+p(m; \mu,\sigma) = \frac{1}{\sqrt{2\pi}\sigma} \exp\left[-\frac{\left(m-\mu\right)^{2}}{2\sigma^{2}}\right].
+\end{equation}
+In taking this limit we have implicitly made the shift from $m$ being discrete (integer-valued) to being continuous (real-valued).
+
+\newthought{We are now ready to explore the probability distribution for a continuous variable.}
+To motivate our discussion, suppose we wish to find the average location of a particle doing a random walk (think of a $\mathrm{CH_{4}}$ molecule released into the room). Our particle travels on average a distance $\ell$ before it collides with another molecule and goes off in a random direction.\marginnote{To keep things conceptually simple, we'll assume all motion is along a line.}
+For $m$ steps, out of $n$, to the right the position\sidenote{We are taking steps to the right as a positive displacement.} of the particle is $x = \ell[m - (n-m)] = (2m-n)\ell$ with mean value $\mean{x} = (2\mean{m}-n)\ell = n\ell(2p-1)$. The distance between having $m$ steps to the right and $m+1$ steps to the right is $[2(m+1)-n]\ell - [2m-n]\ell = 2\ell$. Since each increment of $m$ away from the mean value moves the particle a distance of $2\ell$, the width of the distribution of particle positions is given by $2\ell\left[\mean{(x-\mean{x})^{2}}\right]^{1/2} = 2\ell\sqrt{np(1-p)}$.
+
+The first conceptual hurdle is that it makes no sense to ask: ``What is the probability $\prob_{n}(x)$ of the walker being at \emph{exactly} $x=0.2914578329$?'' There are an innumerable infinity of real numbers, so the probability of hitting any particular real number exactly is vanishingly small.  What we instead must ask is, ``What is the probability $\prob_{n}(x;\Delta x) = p(x)\Delta x$ of being in some interval $\Delta x$ about $x$''?  We call $p(x)$ the \newterm{probability density} or \newterm{probability distribution} and assume that $\prob(x) \propto \Delta x$ for sufficiently small $\Delta x$. In our example, if we are talking about a molecule moving about in a room, then the distance $\ell$ is on a microscopic scale, much smaller than the dimensions of the room. In that case, our $\Delta x$---the resolution of a measuring apparatus, say---would be much larger than $\ell$. Hence, when we ask for the probability of being in an interval $\Delta x$ about $x$, there are $\Delta x/(2\ell)$ values of $m$. But $m$ is large, so the difference in $p(m+1)$ and $p(m)$ will be small, so we can approximate the probability of landing in this interval as
+\[
+	p\left(m=\frac{1}{2}\left[n+\frac{x}{\ell}\right]\right) \frac{\Delta x}{2\ell}.
+\]
+Substituting this value for $m$ into the expression for $p(m)$, eq.~(\ref{e.binomiallimit}), and simplifying gives
+\begin{eqnarray}
+	p(x;\mu,\sigma)\dif x &=& \frac{1}{\sqrt{2\pi}\sqrt{4\ell^{2}np(1-p)}}
+		\exp\left[-\frac{\left(x - n\ell[2p-1]\right)^{2}}{8\ell^{2}np(1-p)^{2}}\right]\nonumber \\
+		&=& \frac{1}{\sqrt{2\pi}\sigma}\exp\left[-\frac{(x-\mu)^{2}}{2\sigma^{2}}\right]\dif x.
+\label{e.gaussian}
+\end{eqnarray}
+Here we've defined the parameter $\mu = n\ell(2p-1)$ as the mean displacement of the particle and $\sigma = 2\ell\sqrt{np(1-p)}$ as the standard deviation of the particle's displacement. The peak, or most probable value, of this distribution is at $x=\mu$.
+
+Now suppose that the steps are not all of the same length, but have some random distribution with mean length $\mean{\ell}$. In this case, the distribution of final position of our particle still follows eq.~(\ref{e.gaussian}) with $\mu = n\mean{\ell}(2p-1)$ and $\sigma = 2\mean{l}\sqrt{np(1-p)}$. This is a consequence of the \newterm{central limit theorem}\sidenote{The proof of which is beyond the scope of this text,}, which holds that sum of independent random variables (e.g., each step, which doesn't depend on the previous one) tends toward a normal distribution as then number of steps increases.
+
+\newthought{Having derived the normal probability distribution, we should check its properties.} First, the distribution should be normalized: if we integrate over all possible positions, 
 \marginnote{Recall that
 \[ \int_{-\infty}^{\infty} e^{-\beta x^{2}}\,\dif x = \sqrt{\frac{\pi}{\beta}}.\]
 }
 \[ \int_{-\infty}^{\infty}p(x;\mu,\sigma)\,\dif x = 1. \]
-The peak, or most probable value, of this distribution is at $x=\mu$.
-
-We can verify that the mean of the normal distribution is $\mu$: letting $z = x-\mu$,
+The factor $1/(\sqrt{2\pi}\sigma)$ ensures that the probability has the correct normalization.
+Second, the mean of the normal distribution is $\mu$: letting $z = x-\mu$,
 \begin{eqnarray*}
 \lefteqn{\int_{-\infty}^{\infty} \frac{x}{\sqrt{2\pi}\sigma} \exp\left[-\frac{\left(x-\mu\right)^{2}}{2\sigma^{2}}\right] \,\dif x = }  \\
 	&& \int_{-\infty}^{\infty} \frac{z}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z^{2}}{2\sigma^{2}}\right] \,\dif z + \int_{-\infty}^{\infty} \frac{\mu}{\sqrt{2\pi}\sigma} \exp\left[-\frac{z^{2}}{2\sigma^{2}}\right] \,\dif z 
