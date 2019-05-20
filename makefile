@@ -17,7 +17,15 @@ CHAPTERS =	frontmatter \
 			statistics
 
 TEX_SRC = $(foreach chap, $(CHAPTERS), $(wildcard $(chap)/*.tex))
-HANDOUTS = $(foreach chap, $(CHAPTERS), $(wildcard $(chap)-handout.pdf))
+HANDOUTS = 	coordinates-handout.pdf \
+			light-telescopes-handout.pdf \
+			spectroscopy-handout.pdf \
+			detection-exoplanets-handout.pdf \
+			beyond-kepler-handout.pdf \
+			planetary-atmospheres-handout.pdf \
+			constants-units-handout.pdf \
+			math-review-handout.pdf \
+			statistics-handout.pdf
 
 FIGURES =	frontmatter/cover-art.png \
 			coordinates/figs/celestial-sphere.pdf \
