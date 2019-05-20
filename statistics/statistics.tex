@@ -313,13 +313,13 @@ A common limiting case is to have a very small $p$ and a very large $n$. For exa
 \label{f.Poisson}
 \end{marginfigure}
 
-Let's take the binomial distribution, eq.~(\ref{e.binomial}), in the limit of $p\ll 1$ while holding $Np=\lambda=\mathrm{const.}$, so that $N = \lambda/p \gg 1$:
+Let's take the binomial distribution, eq.~(\ref{e.binomial}), in the limit of $p\ll 1$ while holding $np=\lambda=\mathrm{const.}$, so that $n = \lambda/p \gg 1$:
 \begin{eqnarray*}
-	\lefteqn{\lim_{p\to 0,Np\to\lambda}\binom{n}{m}{p}}\\
-	 &=& \lim_{p\to 0,Np\to\lambda} \frac{N!}{(N-m)!m!} p^{m} (1-p)^{N-m}\\
-	&=& \lim_{p\to 0,Np\to\lambda} \frac{\overbrace{N(N-1)\ldots(N-m+1)}^{\textrm{$m$ terms}}}{m!}p^{m}\frac{(1-\lambda/N)^{N}}{(1-p)^{m}}\\
-	&=& \lim_{p\to 0,Np\to\lambda} \frac{(Np)^{m}}{m!}\left[\left(1-\frac{1}{N}\right)\ldots\left(1-\frac{m-1}{N}\right)\right]\frac{(1-\lambda/N)^{N}}{(1-p)^{m}}\\
-	&=& \frac{\lambda^{m}}{m!}\lim_{N\to\infty}\left(1-\frac{\lambda}{N}\right)^{N}.
+	\lefteqn{\lim_{p\to 0,np\to\lambda}\binom{n}{m}{p}}\\
+	 &=& \lim_{p\to 0,np\to\lambda} \frac{n!}{(n-m)!m!} p^{m} (1-p)^{n-m}\\
+	&=& \lim_{p\to 0,np\to\lambda} \frac{\overbrace{n(n-1)\ldots(n-m+1)}^{\textrm{$m$ terms}}}{m!}p^{m}\frac{(1-\lambda/n)^{n}}{(1-p)^{m}}\\
+	&=& \lim_{p\to 0,np\to\lambda} \frac{(np)^{m}}{m!}\left[\left(1-\frac{1}{n}\right)\ldots\left(1-\frac{m-1}{n}\right)\right]\frac{(1-\lambda/n)^{n}}{(1-p)^{m}}\\
+	&=& \frac{\lambda^{m}}{m!}\lim_{n\to\infty}\left(1-\frac{\lambda}{n}\right)^{n}.
 \end{eqnarray*}
 Recognizing that the last term is just $e^{-\lambda}$, we obtain the \newterm{Poisson distribution}:
 \begin{equation}\label{e.Poisson}
@@ -377,32 +377,32 @@ This matches the observed distribution well, and the pattern of hits is therefor
 \marginnote{This section is not essential and can be omitted}
 The Poisson distribution is frequently encountered when observing in X- or $\gamma$-rays: the probability of receiving a single photon in any given second is small, but over a long period of time (several thousands of seconds, e.g.) there will be a sizable number of photons collected.  What is the probability of receiving $N$ photons in a given time interval? In this case, we can derive the Poisson distribution independently from the binomial distribution.
 
-To do so, assume that our time intervals $\dif t$ are sufficiently short that the chance of receiving more than one photon in $\dif t$ is negligible.  Then in $\dif t$ we either receive one photon with probability $\mu\dif t \ll 1$ or we receive no photons with probability $(1-\mu)\dif t$.  Let us take $\mu$ to be a constant, and assume that non-overlapping intervals of time are statistically independent---that is, the chance of receiving a photon in a given interval doesn't depend on what happened in the previous interval.  Then there are two ways to receive $N$ photons in a time $t+\dif t$: we can receive $N$ photons in a time $t$ and no photons in the interval $(t,t+\dif t)$; or we can receive $N-1$ photons in a time $t$ and one photon in the interval $(t,t+\dif t)$.  The probability of receiving $N$ photons in a time $t+\dif t$ is the sum of the probabilities of these two scenarios:
+To do so, assume that our time intervals $\dif t$ are sufficiently short that the chance of receiving more than one photon in $\dif t$ is negligible.  Then in $\dif t$ we either receive one photon with probability $\mu\dif t \ll 1$ or we receive no photons with probability $(1-\mu)\dif t$.  Let us take $\mu$ to be a constant, and assume that non-overlapping intervals of time are statistically independent---that is, the chance of receiving a photon in a given interval doesn't depend on what happened in the previous interval. Then there are two ways to receive $m$ photons in a time $t+\dif t$: we can receive $m$ photons in a time $t$ and no photons in the interval $(t,t+\dif t)$; or we can receive $m-1$ photons in a time $t$ and one photon in the interval $(t,t+\dif t)$.  The probability of receiving $m$ photons in a time $t+\dif t$ is the sum of the probabilities of these two scenarios:
 \[
-	\prob_{\mu}(N;t+\dif t) = (1-\mu\dif t)\prob_{\mu}(N;t) + \mu\dif t \prob_{\mu}(N-1;t).
+	\prob_{\mu}(m;t+\dif t) = (1-\mu\,\dif t)\prob_{\mu}(m;t) + \mu\,\dif t\, \prob_{\mu}(m-1;t).
 \]
 Rearranging terms and taking the limit $\dif t \to 0$ gives us a differential equation,
 \begin{eqnarray}
-\DD{\prob_{\mu}(N;t)}{t} &=& \lim_{\dif t\to 0} \frac{\prob_{\mu}(N;t+\dif t)-\prob_{\mu}(N;t)}{\dif t} \nonumber\\
-&=& \mu\left[\prob_{\mu}(N-1;t)-\prob_{\mu}(N;t)\right].
+\DD{\prob_{\mu}(m;t)}{t} &=& \lim_{\dif t\to 0} \frac{\prob_{\mu}(m;t+\dif t)-\prob_{\mu}(m;t)}{\dif t} \nonumber\\
+&=& \mu\left[\prob_{\mu}(m-1;t)-\prob_{\mu}(m;t)\right].
 \label{e.poisson-recursion}
 \end{eqnarray}
 The probability of getting no events in $t+\dif t$ is
-\[ \prob_{\mu}(N=0;t+\dif t) = (1-\mu\dif t)\prob_{\mu}(N=0;t), \]
+\[ \prob_{\mu}(m=0;t+\dif t) = (1-\mu\,\dif t)\prob_{\mu}(m=0;t), \]
 which gives the differential equation
 \[ \DD{\prob_{\mu}(0;t)}{t} = -\mu\prob_{\mu}(0;t) \]
-with solution $\prob_{\mu}(N=0;t) = e^{-\mu t}$.  We fix the constant of integration by setting $\prob_{\mu}(N=0;t=0) = 1$.
+with solution $\prob_{\mu}(m=0;t) = e^{-\mu t}$.  We fix the constant of integration by setting $\prob_{\mu}(m=0;t=0) = 1$.
 
-Now that we have $\prob_{\mu}(N=0;t) = e^{-\mu t}$, we can solve the differential equation~(\ref{e.poisson-recursion}) for $\prob_{\mu}(N=1;t)$,
-\[ \DD{\prob_{\mu}(N=1;t)}{t} = \mu\left[e^{-\mu t} - \prob_{\mu}(N=1;t)\right], \]
-with solution $\prob_{\mu}(N=1;t) = (\mu t)e^{-\mu t}$, as you can verify.  We can then find a solution for $\prob_{\mu}(N=2;t)$; and continue in that fashion to find the Poisson distribution:
+Now that we have $\prob_{\mu}(m=0;t) = e^{-\mu t}$, we can solve the differential equation~(\ref{e.poisson-recursion}) for $\prob_{\mu}(m=1;t)$,
+\[ \DD{\prob_{\mu}(m=1;t)}{t} = \mu\left[e^{-\mu t} - \prob_{\mu}(m=1;t)\right], \]
+with solution $\prob_{\mu}(m=1;t) = (\mu t)e^{-\mu t}$, as you can verify.  We can then find a solution for $\prob_{\mu}(m=2;t)$; and continue in that fashion to find the Poisson distribution:
 \begin{equation}\label{e.Poisson-alt}
-	\prob_{\mu}(N;t) = \frac{\lambda^{N}}{N!} e^{-\lambda}
+	\prob_{\mu}(m;t) = \frac{\lambda^{m}}{m!} e^{-\lambda}
 \end{equation}
 with $\lambda=\mu t$.
 
 \begin{exercisebox}[Recurrence relations for the Poisson distribution]
-Show that $\prob_{\mu}(N;t)$ (eq.~[\ref{e.Poisson-alt}]) satisfies the recursion relation, equation~(\ref{e.poisson-recursion}). Since $\prob_{\mu}(N=1;t)$ also satisfies the equation, this proves via induction that equation~(\ref{e.Poisson-alt}) is the correct distribution.
+Show that $\prob_{\mu}(m;t)$ (eq.~[\ref{e.Poisson-alt}]) satisfies the recursion relation, equation~(\ref{e.poisson-recursion}). Since $\prob_{\mu}(m=1;t)$ also satisfies the equation, this proves via induction that equation~(\ref{e.Poisson-alt}) is the correct distribution.
 \end{exercisebox}
 
 \section{The normal, or Gaussian, distribution}
