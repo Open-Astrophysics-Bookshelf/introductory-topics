@@ -597,6 +597,10 @@ You may notice that $\expect(\sigma^{2})$ depends on $\mu$, which we don't know 
 One way to justify the denominator $N-1$ is to ask what would happen if we just had one measurement. \emph{If} we knew the true value $\mu$, then we could use the difference between our measurement $x_{1}$ and $\mu$ as an estimate of the uncertainty. Since we don't know $\mu$, however, we use $x_{1}$ as our best guess for $\mu$, but then we have no way of independently assessing the uncertainty. The fact that eq.~(\ref{e.sample-variance}) requires $N\ge 2$ reflects this constraint.
 In practice, the difference in the denominator between $N$ and $N-1$ is not usually important\sidenote{To quote \citet{Press2007Numerical-Recip}, ``if the difference between $N$ and $N-1$ [in the formula for $\expect(\sigma^{2})$] ever matters to you, then you are probably up to no good.''}.
 
+\begin{quote}
+\notebook\ The notebook \texttt{distribution.ipynb} explores further how one assesses the \emph{quality} of these estimates of the mean and standard deviation from a set of measurements. This is followed by \texttt{fitting-data.ipynb}, which looks at how one \emph{tests} how well a set of measurements conforms to a hypothesis.
+\end{quote}
+
 \begin{sidebar}[A derivation of $\expect({\sigma^{2}})$]
 To understand why the denominator of eq.~(\ref{e.sample-variance}) is $N-1$ instead of $N$, let's imagine that there is an infinitude of copies of our universe, and in each copy, our set of measurements is performed. The mean (averaged over all universes) of $\bar{x}$ is then
 \[
@@ -639,10 +643,6 @@ Inserting these expressions into eq.~(\ref{e.expand-sum-squares-2}) gives
 	&=& (N-1)\sigma^{2}.
 \end{eqnarray*}
 \end{sidebar}
-
-\begin{quote}
-\notebook\ The notebook \texttt{distribution.ipynb} explores further how one assesses the \emph{quality} of these estimates of the mean and standard deviation from a set of measurements. This is followed by \texttt{fitting-data.ipynb}, which looks at how one \emph{tests} how well a set of measurements conforms to a hypothesis.
-\end{quote}
 
 \newthought{We often want to know the probability distribution for a function of several random variables.}  For example, we might measure the volume of a block as $V=L\times W\times H$, where $L$, $W$, and $H$ are the measured length, width, and height, respectively, and each has an associated uncertainty $\sigma_L$, $\sigma_W$, and $\sigma_H$. What is the resulting uncertainty in $V$?
 
