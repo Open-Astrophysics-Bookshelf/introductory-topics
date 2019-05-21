@@ -8,6 +8,8 @@ planets-notes.pdf
 git-info.tex
 *.toc
 *.lof
+*.lob
+*.lot
 *.loe
 *-handout.pdf
 .ipynb_checkpoints

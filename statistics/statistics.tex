@@ -373,8 +373,7 @@ $\mathcal{N}(m)$ & 227 & 211 & 99 & 31 & 7 & 1
 \end{center}
 This matches the observed distribution well, and the pattern of hits is therefore consistent with the bombs being scattered randomly over the London area.\sidenote{This was probably small consolation to the residents of the districts hit multiple times.}
 
-\section{An alternate derivation of the Poisson distribution}
-\marginnote{This section is not essential and can be omitted}
+\begin{sidebar}[An alternate derivation of the Poisson distribution]
 The Poisson distribution is frequently encountered when observing in X- or $\gamma$-rays: the probability of receiving a single photon in any given second is small, but over a long period of time (several thousands of seconds, e.g.) there will be a sizable number of photons collected.  What is the probability of receiving $N$ photons in a given time interval? In this case, we can derive the Poisson distribution independently from the binomial distribution.
 
 To do so, assume that our time intervals $\dif t$ are sufficiently short that the chance of receiving more than one photon in $\dif t$ is negligible.  Then in $\dif t$ we either receive one photon with probability $\mu\dif t \ll 1$ or we receive no photons with probability $(1-\mu)\dif t$.  Let us take $\mu$ to be a constant, and assume that non-overlapping intervals of time are statistically independent---that is, the chance of receiving a photon in a given interval doesn't depend on what happened in the previous interval. Then there are two ways to receive $m$ photons in a time $t+\dif t$: we can receive $m$ photons in a time $t$ and no photons in the interval $(t,t+\dif t)$; or we can receive $m-1$ photons in a time $t$ and one photon in the interval $(t,t+\dif t)$.  The probability of receiving $m$ photons in a time $t+\dif t$ is the sum of the probabilities of these two scenarios:
@@ -404,6 +403,7 @@ with $\lambda=\mu t$.
 \begin{exercisebox}[Recurrence relations for the Poisson distribution]
 Show that $\prob_{\mu}(m;t)$ (eq.~[\ref{e.Poisson-alt}]) satisfies the recursion relation, equation~(\ref{e.poisson-recursion}). Since $\prob_{\mu}(m=1;t)$ also satisfies the equation, this proves via induction that equation~(\ref{e.Poisson-alt}) is the correct distribution.
 \end{exercisebox}
+\end{sidebar}
 
 \section{The normal, or Gaussian, distribution}
 
@@ -590,18 +590,26 @@ By maximizing the probability of making a set of measurements, show that
 \]
 \end{exercisebox}
 
-You may notice that $\expect(\sigma^{2})$ depends on $\mu$, which we don't know \emph{a priori}. (That's the point of making the measurement!) We can try substituting $\bar{x}$ for $\mu$, but we need a way of assessing this guess. To do that, let's imagine that there is an infinitude of copies of our universe, and in each copy, our set of measurements is performed. The mean (averaged over all universes) of $\bar{x}$ is then
-\marginnote{Since each variable is drawn from the same distribution, $\sum_{i=1}^{N}\mean{x_{i}} = N\mean{x}$.}
+You may notice that $\expect(\sigma^{2})$ depends on $\mu$, which we don't know \emph{a priori}. (That's the point of making the measurement!) The best we can do is to use our estimate for $\mu$, $\bar{x}$. When we do this, however, we need to make the estimated uncertainty slightly larger:
+\begin{equation}\label{e.sample-variance}
+\expect(\sigma^{2}) = \frac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^{2}.
+\end{equation}
+One way to justify the denominator $N-1$ is to ask what would happen if we just had one measurement. \emph{If} we knew the true value $\mu$, then we could use the difference between our measurement $x_{1}$ and $\mu$ as an estimate of the uncertainty. Since we don't know $\mu$, however, we use $x_{1}$ as our best guess for $\mu$, but then we have no way of independently assessing the uncertainty. The fact that eq.~(\ref{e.sample-variance}) requires $N\ge 2$ reflects this constraint.
+In practice, the difference in the denominator between $N$ and $N-1$ is not usually important\sidenote{To quote \citet{Press2007Numerical-Recip}, ``if the difference between $N$ and $N-1$ [in the formula for $\expect(\sigma^{2})$] ever matters to you, then you are probably up to no good.''}.
+
+\begin{sidebar}[A derivation of $\expect({\sigma^{2}})$]
+To understand why the denominator of eq.~(\ref{e.sample-variance}) is $N-1$ instead of $N$, let's imagine that there is an infinitude of copies of our universe, and in each copy, our set of measurements is performed. The mean (averaged over all universes) of $\bar{x}$ is then
 \[
 \mean{\bar{x}} = \mean{\frac{1}{N}\sum_{i=1}^{N}x_{i}} = \frac{1}{N}\sum_{i=1}^{N}\mean{x_{i}} = \mean{x} = \mu.
 \]
+(Since each variable is drawn from the same distribution, $\sum_{i=1}^{N}\mean{x_{i}} = N\mean{x}$.)
 This is what we expect, and further justifies our using $\bar{x}$ as an estimate for $\mu$. It doesn't mean, however, that $\bar{x} = \mu$ for \emph{our} universe.
 
 Now, let's do the same thought experiment for $\sum_{i=1}^{N}(x_{i}-\bar{x})^{2}$. Expanding the square,
-\marginnote{Here \[\sum_{i=1}^{N}2x_{i}\bar{x} = 2\bar{x}\sum_{i=1}^{N}x_{i} = 2N\bar{x}^{2} \] and \[ \sum_{i=1}^{N}\bar{x}^{2} = N\bar{x}^{2}.\]}
 \begin{equation}\label{e.expand-sum-squares}
 \mean{\sum_{i=1}^{N}(x_{i}-\bar{x})^{2}} = \mean{\sum_{i=1}^{N}\left(x_{i}^{2} - 2 x_{i}\bar{x} + \bar{x}^{2}\right)} = \mean{\sum_{i=1}^{N}x_{i}^{2} - N\bar{x}^{2}}.
 \end{equation}
+Here \[\sum_{i=1}^{N}2x_{i}\bar{x} = 2\bar{x}\sum_{i=1}^{N}x_{i} = 2N\bar{x}^{2} \] and \[ \sum_{i=1}^{N}\bar{x}^{2} = N\bar{x}^{2}.\]
 Next, we expand $\bar{x}^{2}$. There are $N^{2}$ terms: 
 \begin{eqnarray}
 \nonumber
@@ -626,16 +634,11 @@ in the second sum, since $x_{i}$ and $x_{j}$ are independent, $\mean{x_{i}x_{j}}
 \sum_{i=1}^{N}\sum_{j\neq i}\mean{x_{i}x_{j}} = N(N-1)\mu^{2}.
 \]
 Inserting these expressions into eq.~(\ref{e.expand-sum-squares-2}) gives
-\[
-\mean{\sum_{i=1}^{N}(x_{i}-\bar{x})^{2}} = \left(1-\frac{1}{N}\right)N\left(\sigma^{2} + \mu^{2}\right) - \frac{N(N-1)}{N}\mu^{2} = (N-1)\sigma^{2}.
-\]
-Hence a good estimate for $\sigma^{2}$ is
-\begin{equation}\label{e.sample-variance}
-\expect(\sigma^{2}) = \frac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^{2}.
-\end{equation}
-This is slightly larger, by $N/(N-1)$ than our initial guess. One way to justify this is to ask what would happen if we just had one measurement. \emph{If} we knew the true value $\mu$, then we could use the difference between our measurement $x_{1}$ and $\mu$ as an estimate of the uncertainty. Since we don't know $\mu$, however, we use $x_{1}$ as our best guess for $\mu$, but then we have no way of independently assessing the uncertainty. The fact that eq.~(\ref{e.sample-variance}) requires $N\ge 2$ reflects this constraint.
-In practice, the difference in the denominator between $N$ and $N-1$ is not usually important\sidenote{To quote \citet{Press2007Numerical-Recip}, ``if the difference between $N$ and $N-1$ [in the formula for $\expect(\sigma^{2})$] ever matters to you, then you are probably up to no good.''}.
-
+\begin{eqnarray*}
+\mean{\sum_{i=1}^{N}(x_{i}-\bar{x})^{2}} &=& \left(1-\frac{1}{N}\right)N\left(\sigma^{2} + \mu^{2}\right) - \frac{N(N-1)}{N}\mu^{2} \\
+	&=& (N-1)\sigma^{2}.
+\end{eqnarray*}
+\end{sidebar}
 
 \begin{quote}
 \notebook\ The notebook \texttt{distribution.ipynb} explores further how one assesses the \emph{quality} of these estimates of the mean and standard deviation from a set of measurements. This is followed by \texttt{fitting-data.ipynb}, which looks at how one \emph{tests} how well a set of measurements conforms to a hypothesis.
