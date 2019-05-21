@@ -470,7 +470,7 @@ Substituting this value for $m$ into the expression for $p(m)$, eq.~(\ref{e.bino
 \end{eqnarray}
 Here we've defined the parameter $\mu = n\ell(2p-1)$ as the mean displacement of the particle and $\sigma = 2\ell\sqrt{np(1-p)}$ as the standard deviation of the particle's displacement. The peak, or most probable value, of this distribution is at $x=\mu$.
 
-Now suppose that the steps are not all of the same length, but have some random distribution with mean length $\mean{\ell}$. In this case, the distribution of final position of our particle still follows eq.~(\ref{e.gaussian}) with $\mu = n\mean{\ell}(2p-1)$ and $\sigma = 2\mean{l}\sqrt{np(1-p)}$. This is a consequence of the \newterm{central limit theorem}\sidenote{The proof of which is beyond the scope of this text,}, which holds that sum of independent random variables (e.g., each step, which doesn't depend on the previous one) tends toward a normal distribution as then number of steps increases.
+Now suppose that the steps are not all of the same length, but have some random distribution with mean length $\mean{\ell}$. In this case, the distribution of final position of our particle still follows eq.~(\ref{e.gaussian}) with $\mu = n\mean{\ell}(2p-1)$ and $\sigma = 2\mean{l}\sqrt{np(1-p)}$. This is a consequence of the \newterm{central limit theorem}\sidenote{The proof of which is beyond the scope of this text,}, which holds that sum of independent random variables (e.g., each step, which doesn't depend on the previous one) tends toward a normal distribution as the number of steps increases.
 
 \newthought{Having derived the normal probability distribution, we should check its properties.} First, the distribution should be normalized: if we integrate over all possible positions, 
 \marginnote{Recall that
@@ -559,16 +559,15 @@ In this case $\mu$ is the ``true'' value of the signal, which we don't know \emp
 	\expect(\mu) = \frac{1}{N}\sum x_{i}\quad\textrm{and}\quad\expect(\sigma^{2}) = \frac{1}{N}\sum\left(x_{i}-\bar{x}\right)^{2},
 \]
 respectively. To put our expectations on a firmer footing, we note that since the probability to measure a value $x$ is $\prob(x)$ and the $N$ measurements $x_{1}, x_{2}, \ldots, x_{N}$ are independent, the  probability that we measured the set $\{x_{i}\}_{i=1,\ldots,N}$ is
-\marginnote{%
-	The symbol $\prod$ indicates a product,
-	\[ \prod_{i=1}^{N} a_{i} \equiv a_{1}\times a_{2}\times\ldots\times a_{N}. \]
-}
 \begin{eqnarray*}
 	\prob\left(\left\{x_{i}\right\}_{i=1,\ldots,N}\right) &=& \prob(x_{1})\prob(x_{2})\times\ldots\times\prob(x_{N})\\	
 	&=& \prod_{i=1}^{N}\frac{1}{\sqrt{2\pi}\sigma}\exp\left[-\frac{(x_{i}-\mu)^{2}}{2\sigma^{2}}\right]\,\dif x_{i}\\
 	&=& \left(2\pi\right)^{-N/2}\sigma^{-N}\exp\left[-\frac{1}{2\sigma^{2}}\sum_{i=1}^{N}(x_{i}-\mu)^{2}\right]\,\dif x_{1}\ldots\dif x_{N}.
 \end{eqnarray*}
-In the absence of additional information, our best guess for $\mu$ and $\sigma$ is to pick values that maximize the probability of our measurements.  To find $\mu$, for example, we take the derivative of $\prob\left(\left\{x_{i}\right\}_{i=1,\ldots,N}\right)$ with respect to $\mu$ and set it to zero to find the maximum,
+\marginnote{%
+	The symbol $\prod$ indicates a product,
+	\[ \prod_{i=1}^{N} a_{i} \equiv a_{1}\times a_{2}\times\ldots\times a_{N}. \]
+}In the absence of additional information, our best guess for $\mu$ and $\sigma$ is to pick values that maximize the probability of our measurements.  To find $\mu$, for example, we take the derivative of $\prob\left(\left\{x_{i}\right\}_{i=1,\ldots,N}\right)$ with respect to $\mu$ and set it to zero to find the maximum,
 \begin{eqnarray*}
 	0 = \dd{}{\mu}\prob\left(\left\{x_{i}\right\}_{i=1,\ldots,N}\right) &=& \prob\left(\left\{x_{i}\right\}_{i=1,\ldots,N}\right)\times\left[\frac{1}{\sigma^{2}}\sum_{i=1}^{N}(x_{i}-\mu)\right]\\
 	&=& \prob\left(\left\{x_{i}\right\}_{i=1,\ldots,N}\right)\frac{1}{\sigma^{2}}\times
@@ -577,9 +576,8 @@ In the absence of additional information, our best guess for $\mu$ and $\sigma$ 
 \marginnote{%
 Recall that
 \[ \DDx{\exp[f(x)]} = \exp[f(x)] \times \DDx{f}. \]
-}
-For this derivative to vanish, the quantity in $\left[\,\right]$ must vanish.
-We therefore find that the value of $\mu$ which maximizes the probability that we made this set of measurements to be
+}For this derivative to vanish, the quantity in $\left[\,\right]$ must vanish.
+We therefore find the value of $\mu$ that maximizes the probability of this set of measurements:
 \begin{equation}
 	\expect(\mu) = \frac{1}{N}\sum_{i=1}^{N}x_{i} \equiv \bar{x}.
 \end{equation}
@@ -590,11 +588,12 @@ By maximizing the probability of making a set of measurements, show that
 \]
 \end{exercisebox}
 
-You may notice that $\expect(\sigma^{2})$ depends on $\mu$, which we don't know \emph{a priori}. (That's the point of making the measurement!) The best we can do is to use our estimate for $\mu$, $\bar{x}$. When we do this, however, we need to make the estimated uncertainty slightly larger:
+You may notice that $\expect(\sigma^{2})$ depends on $\mu$, which we don't know \emph{a priori}. (That's the point of making the measurement!) The best we can do is to use our estimate $\bar{x}$. When we do this, however, we need to make the estimated uncertainty slightly larger:
 \begin{equation}\label{e.sample-variance}
 \expect(\sigma^{2}) = \frac{1}{N-1}\sum_{i=1}^{N}\left(x_{i}-\bar{x}\right)^{2}.
 \end{equation}
-One way to justify the denominator $N-1$ is to ask what would happen if we just had one measurement. \emph{If} we knew the true value $\mu$, then we could use the difference between our measurement $x_{1}$ and $\mu$ as an estimate of the uncertainty. Since we don't know $\mu$, however, we use $x_{1}$ as our best guess for $\mu$, but then we have no way of independently assessing the uncertainty. The fact that eq.~(\ref{e.sample-variance}) requires $N\ge 2$ reflects this constraint.
+One way to justify the denominator $N-1$ is to ask what would happen if we just had one measurement. \emph{If} we knew the true value $\mu$, then we could use the difference between our measurement $x_{1}$ and $\mu$ as an estimate of the uncertainty. Since we don't know $\mu$, however, we use $x_{1}$ as our best guess for $\mu$, but then we have no way of independently assessing the uncertainty. The fact that eq.~(\ref{e.sample-variance}) requires $N\ge 2$ reflects this constraint. See Box~\ref{sb.sample-variance} for a derivation of eq.~(\ref{e.sample-variance}).
+
 In practice, the difference in the denominator between $N$ and $N-1$ is not usually important\sidenote{To quote \citet{Press2007Numerical-Recip}, ``if the difference between $N$ and $N-1$ [in the formula for $\expect(\sigma^{2})$] ever matters to you, then you are probably up to no good.''}.
 
 \begin{quote}
@@ -602,6 +601,7 @@ In practice, the difference in the denominator between $N$ and $N-1$ is not usua
 \end{quote}
 
 \begin{sidebar}[A derivation of $\expect({\sigma^{2}})$]
+\label{sb.sample-variance}
 To understand why the denominator of eq.~(\ref{e.sample-variance}) is $N-1$ instead of $N$, let's imagine that there is an infinitude of copies of our universe, and in each copy, our set of measurements is performed. The mean (averaged over all universes) of $\bar{x}$ is then
 \[
 \mean{\bar{x}} = \mean{\frac{1}{N}\sum_{i=1}^{N}x_{i}} = \frac{1}{N}\sum_{i=1}^{N}\mean{x_{i}} = \mean{x} = \mu.
