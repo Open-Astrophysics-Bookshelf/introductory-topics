@@ -683,13 +683,13 @@ and therefore
 	= \sum_{i=1}^{N} \left(\dd{f}{x_{i}}\right)^{2} \sigma_{i}^{2}
 \end{equation}
 This is an important result: it tells us how to propagate uncertainties.  To go back to our example, suppose we measure the length $L$, width $W$, and height $H$ of a block with associated uncertainties $\sigma_L$, $\sigma_W$, and $\sigma_H$.
-The uncertainty in our volume is then\marginnote{%
-We use the relation $\partial V/\partial L = W\times H = V/L$, and so on for the derivatives w.r.t.\ $W$ and $H$.}
-\begin{equation}\label{e.uncertainty-volume}
+The uncertainty in our volume is then\begin{equation}\label{e.uncertainty-volume}
 	\sigma_{V}^{2} = \left(\frac{V}{L}\right)^{2}\sigma_{L}^{2}
 		+ \left(\frac{V}{W}\right)^{2}\sigma_{W}^{2}
 		+ \left(\frac{V}{H}\right)^{2}\sigma_{H}^{2}
 \end{equation}
+\marginnote{%
+We use the relation $\partial V/\partial L = W\times H = V/L$, and so on for the derivatives w.r.t.\ $W$ and $H$.}
 or
 \[ \frac{\sigma_{V}}{V} = 
 	\sqrt{\left(\frac{\sigma_{L}}{L}\right)^{2}
