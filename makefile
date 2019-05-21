@@ -36,12 +36,16 @@ FIGURES =	frontmatter/cover-art.png \
 			coordinates/figs/angular-distance.pdf \
 			coordinates/figs/angular-distance2.pdf \
 			light-telescopes/figs/light-wave.pdf \
+			light-telescopes/figs/magnification-in-water.pdf \
+			light-telescopes/figs/reflection-and-snell-AST208.pdf \
 			light-telescopes/figs/diffraction.pdf \
 			light-telescopes/figs/vector-addition.pdf \
 			light-telescopes/figs/airmass.png \
 			spectroscopy/figs/doppler.pdf \
 			spectroscopy/figs/H-spectrum.pdf \
 			spectroscopy/figs/slit-and-grating.pdf \
+			spectroscopy/figs/diffraction-grating.pdf \
+			spectroscopy/figs/cd-diffraction-AST208.pdf \
 			detection-exoplanets/figs/center-of-mass.pdf \
 			detection-exoplanets/figs/elliptical-orbit.pdf \
 			detection-exoplanets/figs/orbital-inclination.pdf \
@@ -85,55 +89,55 @@ $(BASE).pdf: $(BASE).tex $(TEX_SRC) $(BIBS) $(FIGURES)
 	$(COMPILE) $(BASE).tex
 
 coordinates-handout.pdf: coordinates-handout.tex $(TEX_SRC) $(FIGURES)
-	$(COMPILE) $?
-	$(COMPILE) $?
-	$(COMPILE) $?
+	$(COMPILE) $<
+	$(COMPILE) $<
+	$(COMPILE) $<
 
 light-telescopes-handout.pdf: light-telescopes-handout.tex $(TEX_SRC) $(BIBS) $(FIGURES)
-	$(COMPILE) $?
+	$(COMPILE) $<
 	$(BIB) light-telescopes-handout.aux
-	$(COMPILE) $?
-	$(COMPILE) $?
-	$(COMPILE) $?
+	$(COMPILE) $<
+	$(COMPILE) $<
+	$(COMPILE) $<
 		
 spectroscopy-handout.pdf: spectroscopy-handout.tex $(TEX_SRC) $(FIGURES)
-	$(COMPILE) $?
-	$(COMPILE) $?
-	$(COMPILE) $?
+	$(COMPILE) $<
+	$(COMPILE) $<
+	$(COMPILE) $<
 
 detection-exoplanets-handout.pdf: detection-exoplanets-handout.tex $(TEX_SRC) $(FIGURES)
-	$(COMPILE) $?
-	$(COMPILE) $?
-	$(COMPILE) $?
+	$(COMPILE) $<
+	$(COMPILE) $<
+	$(COMPILE) $<
 
 beyond-kepler-handout.pdf: beyond-kepler-handout.tex $(TEX_SRC) $(FIGURES)
-	$(COMPILE) $?
-	$(COMPILE) $?
-	$(COMPILE) $?
+	$(COMPILE) $<
+	$(COMPILE) $<
+	$(COMPILE) $<
 
 planetary-atmospheres-handout.pdf: planetary-atmospheres-handout.tex $(TEX_SRC) $(BIBS) $(FIGURES)
-	$(COMPILE) $?
+	$(COMPILE) $<
 	$(BIB) planetary-atmospheres-handout.aux
-	$(COMPILE) $?
-	$(COMPILE) $?
-	$(COMPILE) $?
+	$(COMPILE) $<
+	$(COMPILE) $<
+	$(COMPILE) $<
 
 constants-units-handout.pdf: constants-units-handout.tex $(TEX_SRC)
-	$(COMPILE) $?
-	$(COMPILE) $?
-	$(COMPILE) $?
+	$(COMPILE) $<
+	$(COMPILE) $<
+	$(COMPILE) $<
 
 math-review-handout.pdf: math-review-handout.tex $(TEX_SRC) $(FIGURES)
-	$(COMPILE) $?
-	$(COMPILE) $?
-	$(COMPILE) $?
+	$(COMPILE) $<
+	$(COMPILE) $<
+	$(COMPILE) $<
 
 statistics-handout.pdf: statistics-handout.tex $(TEX_SRC) $(BIBS) $(FIGURES)
-	$(COMPILE) $?
+	$(COMPILE) $<
 	$(BIB) statistics-handout.aux
-	$(COMPILE) $?
-	$(COMPILE) $?
-	$(COMPILE) $?
+	$(COMPILE) $<
+	$(COMPILE) $<
+	$(COMPILE) $<
 
 handouts: $(HANDOUTS)
 
