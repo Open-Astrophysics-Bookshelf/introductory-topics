@@ -54,6 +54,8 @@ You would like to observe some stars tonight. Pick a time when you would like to
 It is hard to see objects that are close to the horizon, so choose a range of angles about your zenith to observe.  For example, you might restrict your telescope to not point more than $60^{\circ}$ away from the zenith. Using these constraints, find a range of right ascensions and declinations that you could observe. Find some celestial objects that satisfy these criteria.
 \end{exercisebox}
 
+\newthought{A note about directions when looking up at the sky:} we've drawn our coordinates from the perspective of someone outside the celestial sphere; our perspective, however, is from the center.  When we look up at the sky, if we face south, so that the direction northwards is at the top of our field of view, then the easterly direction is to our \emph{left}. Objects of larger right ascension are therefore to our left as well.
+
 \section{Precession}
 As we noted above, at the summer solstice, the Sun is in the direction of Gemini. On the solstice, the Sun will appear to be directly overhead at a latitude of \dec{23}{16}{}N, which is known as the \newterm{Tropic of Cancer}.  Why isn't it called the Tropic of Gemini?
 
@@ -109,14 +111,46 @@ which defines the \newterm{parsec}.  In CGS units $\val{1}{\parsec} = \val{\sci{
 
 \section{Angular distances between nearby objects}
 
-To compute the angular distance between two points on the sky, we draw two vectors $\bvec{a}$, $\bvec{b}$ to these points and use
-\[ \cos\theta = \frac{\bvec{a}\vdot\bvec{b}}{|\bvec{a}||\bvec{b}|}. \]
-Since both $\bvec{a}$ and $\bvec{b}$ lie on the unit sphere, $|\bvec{a}| = |\bvec{b}| = 1$; the $(x,y,z)$ components of these vectors are
-\begin{marginfigure}[-14\baselineskip]
+From our perspective, distant celestial objects appear to lie on the surface of a great sphere with Earth at the center. Objects on this sphere appear near to one another if the angle between them is small---regardless of their true, physical, separation. The question, then, is how to compute the angular distance between two points with RAs $\eta_{1} \approx \eta_{2}$ and declinations $\delta_{1}\approx\delta_{2}$, as shown in Fig.~\ref{f.angular-distance}.
+\begin{marginfigure}
 \includegraphics[width=\linewidth]{angular-distance}
 \caption[Angular distance between two points on a sphere]{Two locations on the sphere separated by a distance $\theta$.}
 \label{f.angular-distance}
 \end{marginfigure}
+
+If we imagine lying on beach near the equator and staring up at the zenith, then we can also imagine overlaying a grid of right ascension and declination coordinates between two nearby stars, as depicted in Fig.~\ref{f.angular-distance3}.
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{angular-distance3}
+\caption[Angular distance between two nearby points near the celestial equator]{Angular distance between two nearby points near the celestial equator.}
+\label{f.angular-distance3}
+\end{marginfigure}
+
+This certainly looks cartesian, and we would be tempted to use the Pythagorean formula,
+\[
+	\theta = \sqrt{(\eta_{1}-\eta_{2})^{2}+(\delta_{1}-\delta_{2})^{2}}
+\]
+for the angular distance with the right ascensions and declinations converted to radians. This won't work, however, as we move away from the equator because the coordinate lines for right ascension converge as we move toward the celestial poles (Fig.~\ref{f.angular-pythagorean}).
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{angular-distance2}
+\caption[Angular distance between lines of constant right ascension]{The distance between two RAs $\eta_{1}$ and $\eta_{2}$, measured along a circle of radius $\cos\delta$.}
+\label{f.angular-pythagorean}
+\end{marginfigure}
+
+If we slice the celestial sphere parallel to the equator, then the separation between the two meridians $\eta_{1}$ and $\eta_{2}$ is proportional to the radius of that slice, which is\sidenote{Notice our coordinates differ from the usual spherical polar coordinates: $\delta$ is measured from the $x$-$y$ plane, not from the $z$-axis.}  just $\cos\delta$. The spacing in the east-west direction in Figure~\ref{f.angular-pythagorean} is thus $\approx\cos\delta(\eta_{1}-\eta_{2}$, where $\delta = (\delta_{1}+\delta_{2})/2$, and the angular distance $\theta$ between two nearby points is
+\begin{equation}\label{e.angular-separation}
+\theta \approx \sqrt{\cos^{2}\delta\left(\eta_{1}-\eta_{2}\right)^{2} + \left(\delta_{1}-\delta_{2}\right)^{2}}.
+\end{equation}
+This looks like the pythagorean formula; the factor of $\cos\delta$ accounts for the lines of constant RA converging as they approach the poles. Box~\ref{sb.angular-separation} contains a derivation of this formula.
+
+\begin{exercisebox}[Angular size of the Pleiades]
+Atlas A and Electra are two bright stars that lie on the east and west sides of the Pleiades star cluster.  Atlas has right ascension $\RA = \hrangle{03}{49}{09.7}$ and declination $\delta = \dec{24}{03}{12}$; Electra has $\RA = \hrangle{03}{44}{52.5}$ and $\delta = \dec{24}{06}{48}$.  Find the angular distance between these stars.  If the distance to the Pleiades is $\val{136}{\parsec}$, what is the projected distance between these stars?
+\end{exercisebox}
+
+\begin{sidebar}[Computation of the angular separation of points on the sky]
+\label{sb.angular-separation}
+To compute the angular distance between two points on the sky, we draw two vectors $\bvec{a}$, $\bvec{b}$ to these points and use
+\[ \cos\theta = \frac{\bvec{a}\vdot\bvec{b}}{|\bvec{a}||\bvec{b}|}. \]
+Since both $\bvec{a}$ and $\bvec{b}$ lie on the unit sphere, $|\bvec{a}| = |\bvec{b}| = 1$; the $(x,y,z)$ components of these vectors are
 \[
 \left(\cos\delta_{1}\cos\eta_{1}, \cos\delta_{1}\sin\eta_{1}, \sin\delta_{1}\right)
 \]
@@ -124,9 +158,8 @@ and
 \[
 \left(\cos\delta_{2}\cos\eta_{2}, \cos\delta_{2}\sin\eta_{2}, \sin\delta_{2}\right),
 \]
-respectively. 
-Taking the dot product,\marginnote{%
-We make heavy use of the sine and cosine addition formula: $\cos(x+y) = \cos x\cos y - \sin x\sin y$, and $\sin(-y) = -\sin y$, $\cos(-x) = \cos(x)$.}
+respectively.
+Taking the dot product,
 \begin{eqnarray}
 \cos\theta &=& \cos\delta_{1}\cos\delta_{2}\left(\cos\eta_{1}\cos\eta_{2} + 
 	\sin\eta_{1}\sin\eta_{2}\right) + \sin\delta_{1}\sin\delta_{2}\nonumber\\
@@ -134,8 +167,9 @@ We make heavy use of the sine and cosine addition formula: $\cos(x+y) = \cos x\c
 	 	\sin\delta_{1}\sin\delta_{2}.
 \label{e.angular-distance}
 \end{eqnarray}
+We make heavy use of the sine and cosine addition formula: $\cos(x+y) = \cos x\cos y - \sin x\sin y$, and $\sin(-y) = -\sin y$, $\cos(-x) = \cos(x)$. See Appendix~\ref{ch.math-review} for a refresher.
 
-We are usually interested in the angular distance between two nearby sources, with RAs $\eta_{1} \approx \eta_{2}$ and declinations\sidenote{Notice our coordinates differ from the usual spherical polar coordinates: $\delta$ is measured from the $x$-$y$ plane, not from the $z$-axis.} $\delta_{1}\approx\delta_{2}$.  We can use the expansion rule,
+We are usually interested in the angular distance between two nearby sources.  We can therefore use the expansion rule,
 \[ \cos x \approx 1 - \frac{x^{2}}{2},\qquad x \ll 1 \, \]
 on $\theta$ and $\eta_{1}-\eta_{2}$ in equation~(\ref{e.angular-distance}):
 \begin{eqnarray*}
@@ -144,21 +178,5 @@ on $\theta$ and $\eta_{1}-\eta_{2}$ in equation~(\ref{e.angular-distance}):
 \end{eqnarray*}
 We can now expand $\cos(\delta_{1}-\delta_{2})$, cancel common factors and multiply by 2,
 \[ \theta^{2} \approx (\delta_{1}-\delta_{2})^{2} + \cos\delta_{1}\cos\delta_{2}(\eta_{1} - \eta_{2})^{2}. \]
-Finally, we notice that to lowest order, $\cos\delta_{1}\cos\delta_{2}\approx \cos^{2}\delta$, where $\delta = (\delta_{1}+\delta_{2})/2$ is the average of the two declinations.  This gives us a formula for the angular distance $\theta$ between two nearby points,
-\begin{equation}
-\theta \approx \sqrt{\cos^{2}\delta\left(\eta_{1}-\eta_{2}\right)^{2} + \left(\delta_{1}-\delta_{2}\right)^{2}}.
-\end{equation}
-This looks like the pythagorean formula; the factor of $\cos\delta$ accounts for the lines of constant RA converging as they approach the poles.
-
-\begin{marginfigure}[4\baselineskip]
-\includegraphics[width=\linewidth]{angular-distance2}
-\caption[Angular distance between lines of constant right ascension]{The distance between two RAs $\eta_{1}$ and $\eta_{2}$, measured along a circle of radius $\cos\delta$.}
-\label{f.angular-pythagorean}
-\end{marginfigure}
-
-\begin{exercisebox}[Angular size of the Pleiades]
-Atlas A and Electra are two bright stars that lie on the east and west sides of the Pleiades star cluster.  Atlas has right ascension $\RA = \hrangle{03}{49}{09.7}$ and declination $\delta = \dec{24}{03}{12}$; Electra has $\RA = \hrangle{03}{44}{52.5}$ and $\delta = \dec{24}{06}{48}$.  Find the angular distance between these stars.  If the distance to the Pleiades is $\val{136}{\parsec}$, what is the projected distance between these stars?
-\end{exercisebox}
-
-\section{Looking up}
-Finally a note about directions when looking up at the sky.  We've drawn our coordinates from the perspective of someone outside the celestial sphere; our perspective, however, is from the center.  When we look up at the sky, if we face south, so that the direction northwards is at the top of our field of view, then the easterly direction is to our \emph{left}. Objects of larger right ascension are therefore to our left as well.
+Finally, we notice that to lowest order, $\cos\delta_{1}\cos\delta_{2}\approx \cos^{2}\delta$, where $\delta = (\delta_{1}+\delta_{2})/2$ is the average of the two declinations. Upon making this substitution, we recover equation~(\ref{e.angular-separation}).
+\end{sidebar}
