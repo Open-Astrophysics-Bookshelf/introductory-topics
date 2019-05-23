@@ -178,5 +178,17 @@ on $\theta$ and $\eta_{1}-\eta_{2}$ in equation~(\ref{e.angular-distance}):
 \end{eqnarray*}
 We can now expand $\cos(\delta_{1}-\delta_{2})$, cancel common factors and multiply by 2,
 \[ \theta^{2} \approx (\delta_{1}-\delta_{2})^{2} + \cos\delta_{1}\cos\delta_{2}(\eta_{1} - \eta_{2})^{2}. \]
-Finally, we notice that to lowest order, $\cos\delta_{1}\cos\delta_{2}\approx \cos^{2}\delta$, where $\delta = (\delta_{1}+\delta_{2})/2$ is the average of the two declinations. Upon making this substitution, we recover equation~(\ref{e.angular-separation}).
+Next, we write $\delta_{1} = \delta + \Delta$, $\delta_{2} = \delta - \Delta$, where $\delta = (\delta_{1}+\delta_{2})/2$ and $\Delta = (\delta_{1}-\delta_{2})/2$ are the average and difference of the two declinations. Inserting these into $\cos\delta_{1}\,\cos\delta_{2}$ and expanding gives
+\[
+	\cos\delta_{1}\,\cos\delta_{2} = \cos^{2}\delta\,\cos^{2}\Delta - \sin^{2}\delta\,\sin^{2}\Delta.
+\]
+Expanding $\cos\Delta\approx 1-\Delta^{2}/2$ and $\sin\Delta\approx \Delta$ and keeping terms to $\mathcal{O}(\Delta^{2})$ gives
+\[
+\cos\delta_{1}\,\cos\delta_{2} \approx \cos^{2}\delta - \Delta^{2}
+\]
+so to lowest order in $(\delta_{1}-\delta_{2})$ and $(\eta_{1}-\eta_{2})$,
+\[
+	\theta^{2} \approx (\delta_{1}-\delta_{2})^{2} + \cos^{2}\delta (\eta_{1}^{2}-\eta_{2}^{2})
+\]
+which is eq.~(\ref{e.angular-separation}).
 \end{sidebar}
