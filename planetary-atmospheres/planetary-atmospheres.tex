@@ -84,11 +84,45 @@ Evaluate $H_{P}$ for dry air at a temperature of $\val{288}{\K}$ ($\val{15}{^{\c
 \end{exercisebox}
 
 \section{The adiabatic thermal gradient}\label{s.adiabatic-gradient}
-Hot air rises. This simple phenomenon sets the lapse rate in the troposphere. Warm surface air rises quickly enough that there is little exchange of heat with colder, downward moving air.  As a result, the fluid motions are \newterm{adiabatic}.  To understand what this means, recall the first law of thermodynamics\cite{Fermi1956Thermodynamics}, which relates the change in internal energy $\dif U$ and in volume $\dif V$ to the heat transferred $\dif Q$:
+Hot air rises. This simple phenomenon sets the lapse rate, $\dif T/\dif z$, in the troposphere. Sunlight is absorbed by the land and water, which warms the overlying atmosphere. This warm surface then rises, while colder air sinks. This movement is sufficiently rapid that there is little exchange of heat between the warm, rising air and the cool, sinking air. As a result, the fluid motions are \newterm{adiabatic}. To understand what this means, recall the first law of thermodynamics\cite{Fermi1956Thermodynamics}, which relates the change in internal energy $\dif U$ and in volume $\dif V$ to the heat transferred $\dif Q$:
 \begin{equation}\label{e.first-law-thermo}
 	\dif Q = \dif U + P\dif V,
 \end{equation}
-where $P$ is the pressure.  Now, we aren't using volume to describe our fluid\sidenote{cf.\ eq.~(\ref{e.ideal-gas-astro})} so let's apply this equation to $\val{1}{\mol}$ of our fluid, and divide both sides by the molar mass $m$.  Then $Q$ refers to the heat transferred \emph{per kilogram}, and $U$ refers to the internal energy \emph{per kilogram}.  Instead of $\dif V$, we then have $\dif V/(\val{1}{\mol}\times m) = \dif(1/\rho) = -\rho^{-2}\dif\rho$.  Our first law, rewritten in terms of mass-specific quantities, is thus
+where $P$ is the pressure. During an adiabatic process, $\dif Q = 0$, and one can show that
+\[
+	PV^{\gamma} = \mathrm{const.},
+\]
+where $\gamma = C_{P}/C_{V}$ is the ratio of specific heats (Table \ref{t.specific-heat}).
+\begin{table}
+\caption{Specific heats for ideal gases.\label{t.specific-heat}}
+\begin{tabular}{lrrr}
+gas & $C_{\rho}$ & $C_{P}=C_{\rho}+k\NA/m$ & $\gamma = C_{P}/C_{\rho}$\\
+\hline
+monatomic & $(3/2) k\NA/m$ & $(5/2)k\NA/m$ & $5/3$\\
+diatomic & $(5/2) k\NA/m$ & $(7/2)k\NA/m$ & $7/5$\\
+\end{tabular}
+\end{table}
+Hence, if the pressure and volume (of some specified mass of air) at the bottom of the atmosphere are $P_{0}$ and $V_{0}$, then the pressure and volume of that mass at elevation is given by
+\[
+	PV^{\gamma} = \mathrm{const} =  P_{0}V_{0}^{\gamma.}
+\]
+Now, let's use the ideal gas law (eq.~\ref{e.ideal-gas-eos}) to express $V = NkT/P$; for a fixed $N$, this gives
+\[
+	P^{1-\gamma}T^{\gamma} = P_{0}^{1-\gamma}T_{0}^{\gamma},
+\]
+or
+\begin{equation}\label{e.adiabat}
+ T = T_{0}\left(\frac{P}{P_{0}}\right)^{(\gamma-1)/\gamma}.
+\end{equation}
+Equation~(\ref{e.adiabat}) tells us how the temperature changes with pressure along an adiabat for an ideal gas.
+
+\begin{exercisebox}[Adiabatic lapse rate]
+Use equations~(\ref{e.adiabat}) and (\ref{e.hydrostatic-equilibrium}) to compute the lapse rate $\dif T/\dif z$ at sea level.  Dry air is composed of mostly diatomic gases with a molar weight $\val{0.02897}{\kilo\gram\usk\mol^{-1}}$. You should find an answer around $\val{-10}{^{\circ}\unitstyle{C}/\kilo\meter}$, which is almost twice as large as the value quoted earlier.  Can you guess why the value you calculated might be off? (\emph{Hint: there is a process we haven't yet accounted for.  If you want a hint, go outside and look up.})
+\end{exercisebox}
+
+\begin{sidebar}[Adiabatic motion]
+We begin with equation~\ref{e.first-law-thermo}. 
+Now, we aren't using volume to describe our fluid (cf.\ eq.~[\ref{e.ideal-gas-astro}]) so let's apply this equation to $\val{1}{\mol}$ of our fluid, and divide both sides by the molar mass $m$.  Then $Q$ refers to the heat transferred \emph{per kilogram}, and $U$ refers to the internal energy \emph{per kilogram}.  Instead of $\dif V$, we then have $\dif V/(\val{1}{\mol}\times m) = \dif(1/\rho) = -\rho^{-2}\dif\rho$.  Our first law, rewritten in terms of mass-specific quantities, is thus
 \begin{equation}\label{e.first-law-thermo-astro}
 	\dif Q = \dif U -\frac{P}{\rho^{2}}\dif \rho.
 \end{equation}
@@ -115,15 +149,6 @@ C_{P}\equiv \tderiv{Q}{T}{P} = C_{V} + \frac{k\NA}{m}.
 \end{equation}
 The specific heat of one mole of various ideal gases is given in Table~\ref{t.specific-heat}.
 It is important to remember that these relations for the specific heats are for an ideal gas and are not universally true.
-\begin{table}
-\caption{Specific heats for ideal gases.\label{t.specific-heat}}
-\begin{tabular}{lrrr}
-gas & $C_{\rho}$ & $C_{P}=C_{\rho}+k\NA/m$ & $\gamma = C_{P}/C_{\rho}$\\
-\hline
-monatomic & $(3/2) k\NA/m$ & $(5/2)k\NA/m$ & $5/3$\\
-diatomic & $(5/2) k\NA/m$ & $(7/2)k\NA/m$ & $7/5$\\
-\end{tabular}
-\end{table}
 
 \newthought{During convection, hot air rises and cool air descends, and both move adiabatically.}  By adiabatically, we mean that there is no heat exchange:
 \[ 0 = \dif Q = C_{P}\dif T - \frac{1}{\rho} \dif P.\]
@@ -131,16 +156,8 @@ Using the ideal gas equation of state we can eliminate $\frac{1}{\rho} = (k\NA/m
 \[ \frac{\dif T}{T} = \frac{k\NA}{mC_{P}} \frac{\dif P}{P} = \frac{C_{P}-C_{V}}{C_{P}} \frac{\dif P}{P} = \frac{\gamma-1}{\gamma}\frac{\dif P}{P}. \]
 Integrating both sides of the equation gives
 \[ \ln T = \frac{\gamma-1}{\gamma}\ln P + \textrm{const.},\]
-or 
-\begin{equation}\label{e.adiabat}
- T = T_{0}\left(\frac{P}{P_{0}}\right)^{(\gamma-1)/\gamma},
-\end{equation}
-where $T_{0}$ and $P_{0}$ are the temperature and pressure at the beginning of the adiabatic process.
-Equation~(\ref{e.adiabat}) tells us how the temperature changes with pressure along an adiabat for an ideal gas.
-
-\begin{exercisebox}[Adiabatic lapse rate]
-Use equations~(\ref{e.adiabat}) and (\ref{e.hydrostatic-equilibrium}) to compute the lapse rate $\dif T/\dif z$ at sea level.  Dry air is composed of mostly diatomic gases with a molar weight $\val{0.02897}{\kilo\gram\usk\mol^{-1}}$. You should find an answer around $\val{-10}{^{\circ}\unitstyle{C}/\kilo\meter}$, which is almost twice as large as the value quoted earlier.  Can you guess why the value you calculated might be off? (\emph{Hint: there is a process we haven't yet accounted for.  If you want a hint, go outside and look up.})
-\end{exercisebox}
+which is equivalent to eq.~(\ref{e.adiabat}).
+\end{sidebar}
 
 \section{Atmospheric circulation on a rotating Earth}\label{s.motion-in-atmosphere}
 
