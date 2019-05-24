@@ -107,12 +107,12 @@ Figure~\ref{f.coriolis-exercise} depicts a merry-go-round rotating counter-clock
 \end{marginfigure}
 
 \section{Lagrange and Roche}
-For analyzing the motion of a test particle in the vicinity of two massive orbiting bodies, we transform to a frame with an origin at the center of mass mass and with an angular velocity $\Omega$.  The bodies have masses $M_{1}$ and $M_{2}$, and we take $M_{1}$ to be the more massive of the two bodies.  The two bodies are located at coordinates
+For analyzing the motion of a test particle in the vicinity of two massive orbiting bodies, we transform to a frame with an origin at the center of mass.  The bodies have masses $M_{1}$ and $M_{2}$, and we take $M_{1}$ to be the more massive of the two. The bodies are located at coordinates
 \begin{eqnarray}
 	M_{1}:&\qquad& x_{1} = -a\frac{M_{2}}{M},\,y_{1} = 0;\\
 	M_{2}:&\qquad& x_{2} = a\frac{M_{1}}{M},\,y_{2} = 0,
 \end{eqnarray}
-Here $M = M_{1}+M_{2}$ is the total mass of the two bodies and $a$ their separation.
+Here $M = M_{1}+M_{2}$ is the total mass of the two bodies and $a$ their separation. Our coordinate system rotates with angular velocity $\Omega = GM/a^{3}$.
 
 Let's check that our rotating coordinate system is consistent: since $M_{2}$ is at rest, the net force on it vanishes, so from equation~(\ref{e.motion-rotating}),
 \[ -\frac{GM_{1}}{a^{2}} + a\frac{M_{1}}{M_{1}+M_{2}}\Omega^{2} = 0, \]
@@ -121,7 +121,7 @@ or
 This is just what we would expect from Kepler's law.
 
 Now we are in a position to ask, are there any points where a particle could sit at rest in this frame?\marginnote{Remember, ``at rest in this frame'' means the particle is co-rotating with our two masses.}
-Between the two masses, for example, we expect that the net force must vanish at some point. The acceleration of a test mass is 
+Between the two masses, for example, we expect that the net force must vanish at some point. The acceleration of a test mass located at $\bvec{r}$ is 
 \begin{equation}\label{e.test-mass-acceleration-x}
 \DDtt{\rv} = -\frac{GM_{1}}{|\rv-\rv_{1}|^{3}}(\rv-\rv_{1}) - \frac{GM_{2}}{|\rv-\rv_{2}|^{3}}(\rv-\rv_{2}) + \frac{G(M_{1}+M_{2})}{a^{3}} \rv.
 \end{equation}
