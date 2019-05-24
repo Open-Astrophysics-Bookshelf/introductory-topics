@@ -192,17 +192,27 @@ orbiting a \emph{fixed} mass $M_{1}+M_{2}$ at a distance $a$, where $a$ is the s
 \end{equation}
 The orbital angular momentum increases with separation $a$.
 
-\begin{marginfigure}
-\includegraphics[width=\linewidth]{Inertia}
-\caption{Calculation of the moment of inertia for a sphere. \label{f.inertia}}
-\end{marginfigure}
+Now for the spin angular momentum. Let's take a simple case, that of a sphere of uniform density $\rho = 3M/(4\pi R^{3})$. The sphere rotates uniformly with angular velocity $\Omega$. In this case, the spin angular momentum (see Box~\ref{sb.angular-momentum-uniform-sphere}) is
+\begin{equation}\label{e.ang-momentum-sphere}
+	L = \frac{2}{5} MR^{2}\Omega.
+\end{equation}
+If the density is not uniform, but is higher toward the center, then the angular momentum is reduced. For example, the Earth's moment of inertia is\cite{Lissauer2013Fundamental-Pla} $I_{\Earth} = 0.331 M_{\Earth}R_{\Earth}^{2}$.
 
-Now for the spin angular momentum.  Let's take a simple case, that of a sphere of uniform density $\rho = 3M/(4\pi R^{3})$.  The sphere rotates uniformly with angular velocity $\Omega$.  To find the total angular momentum, we add up the contributions from infinitesimal bits.  To make this easy, we'll use the geometry shown in Figure~\ref{f.inertia}.  We'll divide our sphere into shells, each a distance $r$ from the center and of thickness $\dif r$.  Then we'll slice each shell into rings of width $r\,\dif\theta$.  We'll add up the angular momentum of the rings to find the angular momentum of shell, and then sum up the angular momentum of the shells to get the total.
+\begin{exercisebox}[Orbital angular momentum of the Earth-Moon system]
+Compute the orbital angular momentum of the Earth-Moon system.  Compute the spin angular momentum of the Earth. Compare the two.
+\end{exercisebox}
 
-%\begin{marginfigure}
-%\includegraphics[width=\linewidth]{inertia-x-section}
-%\caption{Cross-section of ring.\label{f.inertia-x-section}}
-%\end{marginfigure}
+\begin{exercisebox}[Effect of central concentration on the moment of inertia]
+Explain why having a higher density toward the center of a planet would reduce its moment of inertia.
+\end{exercisebox}
+
+\begin{sidebar}[Angular momentum of a uniform sphere]
+\label{sb.angular-momentum-uniform-sphere}
+To find the total angular momentum, we add up the contributions from infinitesimal bits.  To make this easy, we'll use the geometry shown below.  We'll divide our sphere into shells, each a distance $r$ from the center and of thickness $\dif r$.  Then we'll slice each shell into rings of width $r\,\dif\theta$.  We'll add up the angular momentum of the rings to find the angular momentum of shell, and then sum up the angular momentum of the shells to get the total.
+\begin{center}
+\includegraphics[width=0.5\linewidth]{Inertia}
+\end{center}
+
 Consider a cross-section of a ring.  The angular momentum is perpendicular to both $\bvec{r}$ and $\bvec{v}$; when we add up all of the pieces around the ring, the horizontal parts cancel, leaving the vertical part.  The mass of the ring is $\rho\times 2\pi r\sin\theta\,\dif r\,r\dif\theta$; the velocity is $r\sin\theta \times \Omega$.  The vertical component of the ring's angular momentum is therefore
 \[
 	\dif L_{\mathrm{ring}} = 2\pi \rho\Omega r^{4}\sin^{3}\theta\, \dif \theta \,\dif r.
@@ -221,18 +231,11 @@ and the angular momentum of our shell is
 	\dif L_{\mathrm{shell}} = \frac{8\pi}{3}\rho\Omega r^{4}\,\dif r.
 \]
 Finally, integrate over $r$ to get the angular momentum of the sphere,
-\begin{equation}\label{e.ang-momentum-sphere}
+\begin{equation}
 	L = \frac{8\pi}{3}\rho\Omega \int_{0}^{R}r^{4}\,\dif r = \frac{8\pi}{15}\rho\Omega R^{5} = \frac{2}{5} MR^{2}\Omega.
 \end{equation}
-In this last equation we substituted for $\rho = 3M/(4\pi R^{3})$. If the density is not uniform, but is higher toward the center, then the angular momentum is reduced. For example, the Earth's moment of inertia is\cite{Lissauer2013Fundamental-Pla} $I_{\Earth} = 0.331 M_{\Earth}R_{\Earth}^{2}$.
-
-\begin{exercisebox}[Orbital angular momentum of the Earth-Moon system]
-Compute the orbital angular momentum of the Earth-Moon system.  Compute the spin angular momentum of the Earth. Compare the two.
-\end{exercisebox}
-
-\begin{exercisebox}[Effect of central concentration on the moment of inertia]
-Explain why having a higher density toward the center of a planet would reduce its moment of inertia.
-\end{exercisebox}
+In this last equation we substituted for $\rho = 3M/(4\pi R^{3})$. 
+\end{sidebar}
 
 \section{Orbital resonances in the solar system}
 Planets, moons, and other minor bodies in solar system have made millions to billions of orbits. As the previous section demonstrates, even a small perturbing force, if applied near a natural frequency of a system, can eventually produce a large response when applied over such a long dynamical time. 
