@@ -121,8 +121,11 @@ Use equations~(\ref{e.adiabat}) and (\ref{e.hydrostatic-equilibrium}) to compute
 \end{exercisebox}
 
 \begin{sidebar}[Adiabatic motion]
-We begin with equation~\ref{e.first-law-thermo}. 
-Now, we aren't using volume to describe our fluid (cf.\ eq.~[\ref{e.ideal-gas-astro}]) so let's apply this equation to $\val{1}{\mol}$ of our fluid, and divide both sides by the molar mass $m$.  Then $Q$ refers to the heat transferred \emph{per kilogram}, and $U$ refers to the internal energy \emph{per kilogram}.  Instead of $\dif V$, we then have $\dif V/(\val{1}{\mol}\times m) = \dif(1/\rho) = -\rho^{-2}\dif\rho$.  Our first law, rewritten in terms of mass-specific quantities, is thus
+We begin with the first law of thermodynamics, eq.~\ref{e.first-law-thermo}:
+\[
+\dif Q = \dif U + P\dif V.
+\]
+Now, we aren't using volume to describe our fluid (cf.\ eq.~[\ref{e.ideal-gas-astro}]) so let's apply this equation to $\val{1}{\mol}$ of our fluid, and divide both sides by the mass $m\times\val{1}{\mol}$, where $m$ is the molar mass. Then $Q$ refers to the heat transferred \emph{per kilogram}, and $U$ refers to the internal energy \emph{per kilogram}. The differential $\dif V$ becomes $\dif [V/(\val{1}{\mol}\times m)] = \dif(1/\rho) = -\rho^{-2}\dif\rho$.  Our first law, rewritten in terms of mass-specific quantities, is thus
 \begin{equation}\label{e.first-law-thermo-astro}
 	\dif Q = \dif U -\frac{P}{\rho^{2}}\dif \rho.
 \end{equation}
