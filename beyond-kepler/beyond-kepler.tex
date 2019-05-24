@@ -175,61 +175,70 @@ Compute the Hill radius for the Sun-Jupiter system.
 Speculate on what would happen if $M_{2}$ had an atmosphere that extended outside its Roche lobe.
 \end{exercisebox}
 
-%\section{Angular Momentum}\label{s.angular-momentum}
-%There is another way of looking at the spin-orbit interaction of the Earth and Moon.  What is the spin angular momentum of the Earth? What is the orbital angular momentum of the Moon and Earth? How do they compare?
-%
-%The angular momentum of a particle of mass $m$ is
-%\begin{equation}\label{e.def-L}
-%	\bvec{L} = \bvec{r}\vcross m\bvec{v}.
-%\end{equation}
-%For a particle in a circular orbit, $\bvec{v} = r\Omega \thetahat$; using Kepler's law, we have
-%\[	L = mr^{2}\Omega = m\left(GMr\right)^{1/2}, \]
-%where $r$ is the distance from the center of mass.  The direction of $\bvec{L}$ is perpendicular to the plane of the orbit.  For two bodies orbiting a common center of mass, the problem is equivalent to a single particle of mass
-%\[ \mu = \frac{M_{1}M_{2}}{M_{1}+M_{2}} \]
-%orbiting a \emph{fixed} mass $M_{1}+M_{2}$ at a distance $a$, where $a$ is the separation of the two bodies.  Hence the orbital angular momentum of the two-body system is
-%\begin{equation}\label{orbital-2-two-body}
-%	L = \mu a^{2}\Omega = \frac{M_{1}M_{2}}{M_{1}+M_{2}}\left[G\left(M_{1}+M_{2}\right)a\right]^{1/2}.
-%\end{equation}
-%The orbital angular momentum increases with separation $a$.
-%
+\section{Angular Momentum}\label{s.angular-momentum}
+There is another way of looking at the spin-orbit interaction of the Earth and Moon.  What is the spin angular momentum of the Earth? What is the orbital angular momentum of the Moon and Earth? How do they compare?
+
+The angular momentum of a particle of mass $m$ is
+\begin{equation}\label{e.def-L}
+	\bvec{L} = \bvec{r}\vcross m\bvec{v}.
+\end{equation}
+For a particle in a circular orbit, $\bvec{v} = r\Omega \thetahat$; using Kepler's law, we have
+\[	L = mr^{2}\Omega = m\left(GMr\right)^{1/2}, \]
+where $r$ is the distance from the center of mass.  The direction of $\bvec{L}$ is perpendicular to the plane of the orbit.  For two bodies orbiting a common center of mass, the problem is equivalent to a single particle of mass
+\[ \mu = \frac{M_{1}M_{2}}{M_{1}+M_{2}} \]
+orbiting a \emph{fixed} mass $M_{1}+M_{2}$ at a distance $a$, where $a$ is the separation of the two bodies.  Hence the orbital angular momentum of the two-body system is
+\begin{equation}\label{orbital-2-two-body}
+	L = \mu a^{2}\Omega = \frac{M_{1}M_{2}}{M_{1}+M_{2}}\left[G\left(M_{1}+M_{2}\right)a\right]^{1/2}.
+\end{equation}
+The orbital angular momentum increases with separation $a$.
+
+\begin{marginfigure}
+\includegraphics[width=\linewidth]{Inertia}
+\caption{Calculation of the moment of inertia for a sphere. \label{f.inertia}}
+\end{marginfigure}
+
+Now for the spin angular momentum.  Let's take a simple case, that of a sphere of uniform density $\rho = 3M/(4\pi R^{3})$.  The sphere rotates uniformly with angular velocity $\Omega$.  To find the total angular momentum, we add up the contributions from infinitesimal bits.  To make this easy, we'll use the geometry shown in Figure~\ref{f.inertia}.  We'll divide our sphere into shells, each a distance $r$ from the center and of thickness $\dif r$.  Then we'll slice each shell into rings of width $r\,\dif\theta$.  We'll add up the angular momentum of the rings to find the angular momentum of shell, and then sum up the angular momentum of the shells to get the total.
+
 %\begin{marginfigure}
-%\includegraphics[width=\linewidth]{Inertia}
-%\caption{Calculation of the moment of inertia for a sphere. \label{f.inertia}}
+%\includegraphics[width=\linewidth]{inertia-x-section}
+%\caption{Cross-section of ring.\label{f.inertia-x-section}}
 %\end{marginfigure}
-%
-%Now for the spin angular momentum.  Let's take a simple case, that of a sphere of uniform density $\rho = 3M/(4\pi R^{3})$.  The sphere rotates uniformly with angular velocity $\Omega$.  To find the total angular momentum, we add up the contributions from infinitesimal bits.  To make this easy, we'll use the geometry shown in Figure~\ref{f.inertia}.  We'll divide our sphere into shells, each a distance $r$ from the center and of thickness $\dif r$.  Then we'll slice each shell into rings of width $r\,\dif\theta$.  We'll add up the angular momentum of the rings to find the angular momentum of shell, and then sum up the angular momentum of the shells to get the total.
-%
-%%\begin{marginfigure}
-%%\includegraphics[width=\linewidth]{inertia-x-section}
-%%\caption{Cross-section of ring.\label{f.inertia-x-section}}
-%%\end{marginfigure}
-%Consider a cross-section of a ring.  The angular momentum is perpendicular to both $\bvec{r}$ and $\bvec{v}$; when we add up all of the pieces around the ring, the horizontal parts cancel, leaving the vertical part.  The mass of the ring is $\rho\times 2\pi r\sin\theta\,\dif r\,r\dif\theta$; the velocity is $r\sin\theta \times \Omega$.  The vertical component of the ring's angular momentum is therefore
-%\[
-%	\dif L_{\mathrm{ring}} = 2\pi \rho\Omega r^{4}\sin^{3}\theta\, \dif \theta \,\dif r.
-%\]
-%To get the angular momentum of a shell, we integrate over $\theta$:
-%\[
-%	\dif L_{\mathrm{shell}} = 2\pi\rho\Omega r^{4}\,\dif r\,\int_{0}^{\pi}\sin^{3}\theta\,\dif\theta.
-%\]
-%To do the integral, write $\sin^{3}\theta = (1-\cos^{2}\theta)\sin\theta$; then change variables to $\mu = \cos \theta$: in that case $\dif\mu = -\sin^\theta\,\dif\theta$, $\mu(\theta = 0) = 1$, and $\mu(\theta=\pi)=-1$.  The integral is then
-%\[
-%	\int_{0}^{\pi}\sin^{3}\theta\,\dif\theta = \int_{-1}^{1}(1-\mu^{2})\,\dif\mu 
-%		= \frac{4}{3},
-%\]
-%and the angular momentum of our shell is
-%\[
-%	\dif L_{\mathrm{shell}} = \frac{8\pi}{3}\rho\Omega r^{4}\,\dif r.
-%\]
-%Finally, integrate over $r$ to get the angular momentum of the sphere,
-%\begin{equation}\label{e.ang-momentum-sphere}
-%	L = \frac{8\pi}{3}\rho\Omega \int_{0}^{R}r^{4}\,\dif r = \frac{8\pi}{15}\rho\Omega R^{5} = \frac{2}{5} MR^{2}\Omega.
-%\end{equation}
-%In this last equation we substituted for $\rho = 3M/(4\pi R^{3})$. If the density is not uniform, but is higher toward the center, then the angular momentum is reduced. For example, the Earth's moment of inertia is\cite{Lissauer2013Fundamental-Pla} $I_{\Earth} = 0.331 M_{\Earth}R_{\Earth}^{2}$.
-%
-%\begin{exercisebox}[Orbital angular momentum of the Earth-Moon system]
-%Compute the orbital angular momentum of the Earth-Moon system.  Compute the spin angular momentum of the Earth. Compare the two.
-%\end{exercisebox}
-%
-%\begin{exercisebox}[Affect of central concentration on the moment of inertia]
-%Explain why having a higher density toward the center of a planet would reduce its moment of inertia.
-%\end{exercisebox}
+Consider a cross-section of a ring.  The angular momentum is perpendicular to both $\bvec{r}$ and $\bvec{v}$; when we add up all of the pieces around the ring, the horizontal parts cancel, leaving the vertical part.  The mass of the ring is $\rho\times 2\pi r\sin\theta\,\dif r\,r\dif\theta$; the velocity is $r\sin\theta \times \Omega$.  The vertical component of the ring's angular momentum is therefore
+\[
+	\dif L_{\mathrm{ring}} = 2\pi \rho\Omega r^{4}\sin^{3}\theta\, \dif \theta \,\dif r.
+\]
+To get the angular momentum of a shell, we integrate over $\theta$:
+\[
+	\dif L_{\mathrm{shell}} = 2\pi\rho\Omega r^{4}\,\dif r\,\int_{0}^{\pi}\sin^{3}\theta\,\dif\theta.
+\]
+To do the integral, write $\sin^{3}\theta = (1-\cos^{2}\theta)\sin\theta$; then change variables to $\mu = \cos \theta$: in that case $\dif\mu = -\sin^\theta\,\dif\theta$, $\mu(\theta = 0) = 1$, and $\mu(\theta=\pi)=-1$.  The integral is then
+\[
+	\int_{0}^{\pi}\sin^{3}\theta\,\dif\theta = \int_{-1}^{1}(1-\mu^{2})\,\dif\mu 
+		= \frac{4}{3},
+\]
+and the angular momentum of our shell is
+\[
+	\dif L_{\mathrm{shell}} = \frac{8\pi}{3}\rho\Omega r^{4}\,\dif r.
+\]
+Finally, integrate over $r$ to get the angular momentum of the sphere,
+\begin{equation}\label{e.ang-momentum-sphere}
+	L = \frac{8\pi}{3}\rho\Omega \int_{0}^{R}r^{4}\,\dif r = \frac{8\pi}{15}\rho\Omega R^{5} = \frac{2}{5} MR^{2}\Omega.
+\end{equation}
+In this last equation we substituted for $\rho = 3M/(4\pi R^{3})$. If the density is not uniform, but is higher toward the center, then the angular momentum is reduced. For example, the Earth's moment of inertia is\cite{Lissauer2013Fundamental-Pla} $I_{\Earth} = 0.331 M_{\Earth}R_{\Earth}^{2}$.
+
+\begin{exercisebox}[Orbital angular momentum of the Earth-Moon system]
+Compute the orbital angular momentum of the Earth-Moon system.  Compute the spin angular momentum of the Earth. Compare the two.
+\end{exercisebox}
+
+\begin{exercisebox}[Effect of central concentration on the moment of inertia]
+Explain why having a higher density toward the center of a planet would reduce its moment of inertia.
+\end{exercisebox}
+
+\section{Orbital resonances in the solar system}
+Planets, moons, and other minor bodies in solar system have made millions to billions of orbits. As the previous section demonstrates, even a small perturbing force, if applied near a natural frequency of a system, can eventually produce a large response when applied over such a long dynamical time. 
+
+There are many bodies in the solar system that are locked into a stable resonance. For example, Pluto is locked into a stable 2:3 resonance with Neptune (that is, Pluto completes 2 orbits for every 3 of Neptune), and the Jovian moons Io, Europa, and Ganymede are locked into a 1:2:4 resonance. Resonances can also lead to instability, in which a body's orbit is distorted to the point that it crosses the orbit of another planet, at which point that body either collides with the other planet or is scattered out of the solar system.  For example, the Kirkwood gap in the asteroid belt is located at the 3:1 resonance with Jupiter (see Fig.~2.10 of \citetalt{Lissauer2013Fundamental-Pla}). Numerical calculations find that the precession of Mercury's perihelion is coming into resonance with that of Jupiter, leading to a 1\% chance over the next \val{5}{\Giga\yr} of Mercury colliding with the Sun or Venus, and a smaller possibility of the entire inner solar system becoming unstable\cite{Laskar2009Existence-of-co} over that time.
+
+\newthought{Torques exerted on a planet's equatorial bulge} by other solar system bodies can cause that planet's obliquity to vary.  Saturn's large (relative to Jupiter) axial tilt is thought to be caused by a spin-orbit resonance between the precession of Saturn's axis the precession of Neptune's orbital plane\cite{Ward2004Tilting-Saturn.}.  Mars's axial tilt wanders considerably over a few Myr timescale and has reached tilts as large as $60^{\circ}$ in the past.  The large moment of inertia of the Earth-Moon system keeps Earth's axial tilt from wandering to such extreme values; nevertheless, the Earth's inclination does oscillate by $<1^{\circ}$ on a $\val{40\,000}{\yr}$ timescale.  This wandering of the inclination, along with variations in the orbital eccentricity, are thought to explain the quasi-periodic ice ages on Earth over the last few million years\cite{Zachos2001Trends-Rhythms-}.
+
+
