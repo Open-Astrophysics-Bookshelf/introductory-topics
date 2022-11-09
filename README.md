@@ -6,7 +6,7 @@ These notes were written while teaching (and revamping) a one-semester introduct
 
 These notes were meant to supplement the course's main texts, Ryden and Peterson, _Foundations of Astrophysics_, and Taylor, _An Introduction to Error Analysis_. The text layout uses the [`tufte-book`](https://tufte-latex.github.io/tufte-latex/) LaTeX class:  the main feature is a large right margin in which the students can take notes; this margin also holds small figures and sidenotes. Exercises are embedded throughout the text. These range from reading exercises to longer, more challenging problems. Because the exercises are spread throughout the text, there is a "List of Exercises" in the front matter to help with looking for specific problems. There are further notes and exercises on statistics in the form of [Jupyter notebooks](http://jupyter.org) in the folder `statistics/notebooks`.
 
-Because the course structure is idiosyncratic to Michigan State University, I've also added the chapters as individual handouts (files `*-handout.tex`). These can be rebuilt by running `python make_handous.py`; you may need to adjust by hand the placement of figures.
+Because the course structure is idiosyncratic to Michigan State University, I've also added the chapters as individual handouts (files `*-handout.tex`). These can be rebuilt by running `python make_handouts.py`; you may need to adjust by hand the placement of figures.
 
 ## License
 
